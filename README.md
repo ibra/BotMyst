@@ -6,8 +6,11 @@ An attempt at reviving BotMyst!
 
 ## Important links
 
+### Hey you should follow me.
 [![Follow The Main Developer](https://img.shields.io/github/followers/minidevz?label=Follow%20The%20Main%20Developers&style=social)
-[![Follow The Owner with Rights to BotMyst](https://img.shields.io/github/followers/codemyst?label=Follow%20The%20Main%20Developers&style=social)
+
+### Also the guy who actually owns the rights to BotMyst.
+[![Follow The Main Developer](https://img.shields.io/github/followers/codemyst?label=Follow%20The%20Person%20With%20Rights&style=social)
 
 - [📝 Apache 2.0 License](https://github.com/YilianSource/brackeys-bot/blob/master/LICENSE)
 ## Building & running
