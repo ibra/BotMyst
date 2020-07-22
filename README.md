@@ -1,7 +1,22 @@
-This is the first day of working on it. Havent implemented dict command, researching..
-Features Added:
-Weather.js | Displays Weather |
-index.js | Established command handler, and made it so commands can only be done in #bot. |
-covid.js | Empty File (Will add a corona virus cases counter)|
+# BotMyst : Revived. `>`
 
-To set the code to your own parameters all you need to do is change the token in the config,json file and specifiy your own botspam channel ID and boom functionality.
+An attempt at reviving BotMyst!  
+
+##Commands
+
+## Important links
+
+[![Follow The Main Developer](https://img.shields.io/github/followers/minidevz?label=Follow%20The%20Main%20Developers&style=social)
+[![Follow The Owner with Rights to BotMyst](https://img.shields.io/github/followers/codemyst?label=Follow%20The%20Main%20Developers&style=social)
+
+- [📝 Apache 2.0 License](https://github.com/YilianSource/brackeys-bot/blob/master/LICENSE)
+## Building & running
+
+The bot is written with **Discord.JS**, meaning you can host it on your computer via `node .` if you have the folder open in any command line.
+
+When you open the project, you will see a `config.json` file. This is where all of the bot configuration will be placed. The only fields that are essential for running the bot are `token` and `botSpam`.
+
+```config.json
+token: 'Enter your own token here!'
+prefix: '>'
+```
