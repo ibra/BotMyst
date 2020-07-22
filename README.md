@@ -12,7 +12,7 @@ An attempt at reviving BotMyst!
 ### Also the guy who actually owns the rights to BotMyst.
 [![Follow The Main Developer](https://img.shields.io/github/followers/codemyst?label=Follow%20The%20Person%20With%20Rights&style=social)
 
-- [📝 Apache 2.0 License](https://github.com/YilianSource/brackeys-bot/blob/master/LICENSE)
+- [📝 Apache 2.0 License](https://github.com/BotMyst/BotMystRevival/blob/master/LICENSE)
 ## Building & running
 
 The bot is written with **Discord.JS**, meaning you can host it on your computer via `node .` if you have the folder open in any command line.
