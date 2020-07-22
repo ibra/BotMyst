@@ -8,8 +8,8 @@ module.exports = {
 
     
         const ping = new Discord.MessageEmbed()
-        .setDescription(`🏓 Pong! Latency is appx.  \`${Date.now() - message.createdTimestamp}\`ms`);
-
+        .setDescription(`🏓 Pong! Latency is about \`${client.ws.ping}\` ms`)
+        .setTimestamp(Date.now());
 
         message.channel.send(ping);
     }

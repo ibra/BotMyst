@@ -9,8 +9,21 @@
   "author": "Ibrahim Hisham",
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.4.0",
+    "date-time": "^3.1.0",
     "dictionary-en-gb": "^2.2.2",
     "discord.js": "^12.2.0",
-    "weather-js": "^2.0.0"
+    "en-dictionary": "^1.2.4",
+    "google": "^2.1.0",
+    "google-search": "0.0.5",
+    "node-fetch": "^2.6.0",
+    "oxford-dictionary": "^1.6.0",
+    "request-promise": "^4.2.5",
+    "trello": "^0.10.0",
+    "urban": "^0.3.2",
+    "urban-dictionary": "^2.2.1",
+    "weather-js": "^2.0.0",
+    "wikijs": "^6.0.1",
+    "wordnet": "^0.1.2"
   }
 }

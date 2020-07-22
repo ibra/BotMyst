@@ -11,10 +11,22 @@ module.exports = {
 
     weather.find({search: args.join(" "), degreeType: weatherDegreeType}, function (error, result){
         
-        if(error) return message.channel.send("Please specify a location.");
-        if(!args[0]) return message.channel.send('Please specify a location.')
+        if(error)
+       { 
+         message.channel.send("Please specify a location.");
+         return message.react('👎')
+       }
+        if(!args[0])
+        {
+            message.channel.send('Please specify a location.')
+            return message.react('👎')
+        } 
 
-        if(result === undefined || result.length === 0) return message.channel.send('The location you have specified is either invalid or contains a typo, please try again.');
+        if(result === undefined || result.length === 0)
+        {
+        message.channel.send('The location you have specified is either invalid or contains a typo, please try again.');
+        return message.react('👎')
+        }
 
         var current = result[0].current;
         var location = result[0].location;
