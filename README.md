@@ -2,7 +2,7 @@
 
 An attempt at reviving BotMyst!  
 
-##Commands
+## Commands
 
 ## Important links
 
