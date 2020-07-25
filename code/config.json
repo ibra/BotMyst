@@ -1,8 +1,8 @@
 {
 
-    "token": "NzM0ODE0NjM4MDEyODkxMTY2.XxY0LA.Z5c9K8Oy0m__3PgIVaDXLcFJqpQ",
-    "botSpam": "698058396800385045",
-    "PREFIX":">",
+    "token": "Your token here",
+    "botSpam": "Your channelID for the bot channel",
+    "PREFIX":">" ,
     "weatherDegreeType": "F"
   
   
