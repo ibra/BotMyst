@@ -1,5 +1,8 @@
 var Trello = require("trello");
-var trello = new Trello("19c3f00e729c2ea5e1be8d7931422dd1", "64dcea1f14c2a8a838c2aa941e50de727bf359f4c4b38d6892bfb2f46380cff3");
+const { ApplicationKey } = require('../config.json');
+const { userToken } = require('../config.json');
+
+var trello = new Trello(ApplicationKey.ApplicationKey, userToken.userToken);
 const Discord = require('discord.js')
 
 module.exports = {

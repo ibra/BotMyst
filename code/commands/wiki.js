@@ -17,7 +17,7 @@ module.exports = {
 			message.channel.send({
 				embed: {
 					color: 0xe74c3c,
-					description: 'The bot currently has an issue giving wiki pages for one word commands, or the command you gave was invalid' 			},
+					description: 'The command you gave was invalid or doesnt exist' 			},
 			})
 		}
 		else {
