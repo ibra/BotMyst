@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-var tcom = require('thesaurus-com');
+var thesaurus = require('thesaurus');
 
 
 module.exports = {
@@ -8,11 +8,13 @@ module.exports = {
     
     async run (client, message, args){
     const wordLookup = args.join(" "); 
-    const synonyms = new Discord.MessageEmbed()
-   
-   synonyms.setDescription("Here what i could find for: " + wordLookup)
-   .addField(tcom.search('never'));
-   message.channel.send(synonyms);
+    res = thesaurus.find(wordLookup);
+    const exampleEmbed = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('Heres what i could find for: ' + wordLookup)
+	.setDescription(res)
+	.setTimestamp()
+    message.channel.send(exampleEmbed);
       }
     
 

@@ -17,8 +17,8 @@ module.exports = {
 			message.channel.send({
 				embed: {
 					color: 0xe74c3c,
-					description: 'The command you gave was invalid or doesnt exist' 			},
-			})
+					description: 'The command you gave was invalid or doesnt exist'},
+			          })
 		}
 		else {
 			let searchValue = args.toString().replace(/,/g, ' ')

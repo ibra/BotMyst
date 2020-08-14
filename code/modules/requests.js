@@ -50,7 +50,7 @@ exports.getWikipediaShortSummary = async (msg, argument, lang) => {
 				description: 'Sorry, there was an error while trying to get the wiki page. ' +
 					'Please check your spelling or try another keyword.\n\n' +
 					'*Is the command still not working after many attempts?* \n' +
-					'*Please write an issue on GitHub or contact us on Discord! **(!info)***',
+					'*Please write an issue on GitHub or use **(!suggest)***',
 			},
 		})
 	})
