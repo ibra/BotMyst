@@ -22,4 +22,5 @@ When you open the project, you will see a `config.json` file. This is where all 
 ```config.json
 token: 'Enter your own token here!'
 prefix: '>'
+botSpam: 'Enter ChannelID of your #bot channel.
 ```
