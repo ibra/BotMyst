@@ -33,6 +33,7 @@ module.exports = {
 
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`Worldwide COVID-19 Stats 🌎`)
+                .setColor(3066993)
                 .addField('Confirmed Cases', confirmed)
                 .addField('Recovered', recovered)
                 .addField('Deaths', deaths)
@@ -52,6 +53,7 @@ module.exports = {
                 .addField('Confirmed Cases', confirmed)
                 .addField('Recovered', recovered)
                 .addField('Deaths', deaths)
+                .setColor(3066993)
                 .setTimestamp(Date.now());
                 message.channel.send(embed)
             }).catch(e => {

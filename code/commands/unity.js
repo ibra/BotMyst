@@ -22,6 +22,7 @@ module.exports = {
             console.log(link.description + "\n")
             const embed = new Discord.MessageEmbed()
             .setTitle('Heres what I could find')
+            .setColor(3066993)
             .addField(link.title + ' - ' + link.href)
             .addField(link.description + "\n")
             .setTimestamp(Date.now());

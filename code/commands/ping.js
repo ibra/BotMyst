@@ -9,8 +9,8 @@ module.exports = {
     
         const ping = new Discord.MessageEmbed()
         .setDescription(`🏓 Pong! Latency is about \`${client.ws.ping}\` ms`)
-        .setTimestamp(Date.now());
-
+        .setTimestamp(Date.now())
+        .setColor(3066993);
         message.channel.send(ping);
     }
 }

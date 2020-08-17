@@ -10,7 +10,7 @@ module.exports = {
     const wordLookup = args.join(" "); 
     res = thesaurus.find(wordLookup);
     const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('0x111111')
 	.setTitle('Heres what i could find for: ' + wordLookup)
 	.setDescription(res)
 	.setTimestamp()

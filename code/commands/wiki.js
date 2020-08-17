@@ -23,7 +23,7 @@ module.exports = {
 		else {
 			let searchValue = args.toString().replace(/,/g, ' ')
 			searchValue = searchValue.replace(config.PREFIX + command + ' ', '')
-
+             
 			requests.getWikipediaShortSummary(message, searchValue, requestLang).catch(e => Logger.error(e))
 		}
 
