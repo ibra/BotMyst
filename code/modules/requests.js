@@ -169,7 +169,7 @@ exports.getWikipediaReferences = async (msg, search, range = 'all') => {
 						// Sending an embed with the reference the user wanted
 						msg.channel.send({
 							embed: {
-								color: 3447003,
+								color : 3066993,
 								author: {
 									icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
 									name: 'Wikipedia',
@@ -218,7 +218,7 @@ exports.getWikipediaReferences = async (msg, search, range = 'all') => {
 							// Sending an embed with the reference the user wanted
 							msg.channel.send({
 								embed: {
-									color : 0x111111,
+									color : 3066993,
 									author: {
 										icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
 										name: 'Wikipedia',
@@ -236,7 +236,7 @@ exports.getWikipediaReferences = async (msg, search, range = 'all') => {
 						else {
 							msg.channel.send({
 								embed: {
-									color : 0x111111,
+									color : 3066993,
 									author: {
 										icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
 										name: 'Wikipedia',
@@ -291,7 +291,7 @@ exports.getWikipediaReferences = async (msg, search, range = 'all') => {
 						// Sending an embed with all the sources the user wanted
 						msg.channel.send({
 							embed: {
-								color : 0x111111,
+								color : 3066993,
 								author: {
 									icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
 									name: 'Wikipedia',
@@ -330,7 +330,7 @@ exports.getWikipediaReferences = async (msg, search, range = 'all') => {
 		const formattedURI = 'https://en.wikipedia.org/wiki/' + search.replace(' ', '_') + '#References'
 		msg.channel.send({
 			embed: {
-				color : 0x111111,
+				color : 3066993,
 				author: {
 					icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
 					name: 'Wikipedia',

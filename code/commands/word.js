@@ -9,12 +9,14 @@ module.exports = {
     async run (client, message, args){
     const wordLookup = args.join(" "); 
     res = thesaurus.find(wordLookup);
+    message.channel.startTyping();
     const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('0x111111')
+	.setColor(3066993)
 	.setTitle('Heres what i could find for: ' + wordLookup)
 	.setDescription(res)
 	.setTimestamp()
     message.channel.send(exampleEmbed);
+    messsage.channel.stopTyping();
       }
     
 

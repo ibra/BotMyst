@@ -57,7 +57,11 @@ module.exports = {
                 .setTimestamp(Date.now());
                 message.channel.send(embed)
             }).catch(e => {
-                return message.channel.send('Invalid country provided')
+                const errorEmbed = new Discord.MessageEmbed()
+                .setTitle('Couldnt find the country you provided!')
+                .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a country!')
+                .setColor(15158332) 
+                message.channel.send(errorEmbed)
             })
         }
     }

@@ -23,8 +23,13 @@ module.exports = {
 
         if(result === undefined || result.length === 0)
         {
-        message.channel.send('The location you have specified is either invalid or contains a typo, please try again.');
-        return message.react('👎')
+            message.react('👎')
+            const errorEmbed = new Discord.MessageEmbed()
+            .setTitle('Couldnt find the location you provided!')
+            .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a valid location!')
+            .setColor(15158332) 
+            message.channel.send(errorEmbed)
+            
         }
 
         var current = result[0].current;
@@ -34,7 +39,7 @@ module.exports = {
         .setDescription(`**${current.skytext}**`)
         .setAuthor(`Weather forecast for ${current.observationpoint}`)
         .setThumbnail(current.imageUrl)
-        .setColor(0x111111)
+        .setColor(3066993)
         .addField('Timezone', `UTC${location.timezone}`, true)
         .addField('Degree Type', 'Fahrenheit', true)
         .addField('Temperature', `${current.temperature}°`, true)
