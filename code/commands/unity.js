@@ -1,7 +1,5 @@
 const Discord = require('discord.js')
-const google = require('google');
-google.resultsPerPage = 5;
-//YO THIS COMMAND DOES NOT WORK YET, RETURNS AS UNDEFINED FOR ME FOR SOME REASON WOULD APPRECIATE YOU FIXING IT KTHX.
+
 module.exports = {
   name: "unity",
   description: "A command that shows results from specific websites",
