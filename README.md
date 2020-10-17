@@ -8,7 +8,7 @@ An attempt at reviving BotMyst!
 
 
 ### Discord
-[![Join The Discord!](https://img.shields.io/discord/298510542535000065?color=orange&label=Test%20Out%20The%20Bot%21)](https://discord.gg/QBJu4Dq)
+[![Join The Discord!](https://img.shields.io/discord/298510542535000065?color=orange&label=Join%20The%20Discord!%21)](https://discord.gg/QBJu4Dq)
 
 
 ### Contributers
