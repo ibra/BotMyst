@@ -7,15 +7,16 @@ An attempt at reviving BotMyst!
 ## Important links
 
 
-# Discord
+### Discord
 [![Join The Discord!](https://img.shields.io/discord/298510542535000065?color=orange&label=Test%20Out%20The%20Bot%21)](https://discord.gg/QBJu4Dq)
 
 
-## Contributers
-# CodeMyst (Founder Of Bot)
+### Contributers
+
+#### CodeMyst (Founder Of Bot)
 [![CodeMyst (Founder of Bot)](https://img.shields.io/github/followers/codemyst?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/codemyst)
 
-# IbrahimDev - Main Programmer 
+#### IbrahimDev - Main Programmer 
 [![IbrahimDev](https://img.shields.io/github/followers/minidevz?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/minidevz)
  
 
