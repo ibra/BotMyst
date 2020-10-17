@@ -7,7 +7,7 @@ An attempt at reviving BotMyst!
 ## Important links
 
 ### Hey you should follow me.
-[![Follow The Main Developer](https://img.shields.io/github/followers/minidevz?label=Follow%20The%20Main%20Developers&style=social)
+[![Join The Discord!](https://img.shields.io/discord/298510542535000065?color=orange&label=Test%20Out%20The%20Bot%21)](https://discord.gg/QBJu4Dq)
 
 ### Also the guy who actually owns the rights to BotMyst.
 [![Follow The Main Developer](https://img.shields.io/github/followers/codemyst?label=Follow%20The%20Person%20With%20Rights&style=social)
