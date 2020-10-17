@@ -26,7 +26,10 @@ An attempt at reviving BotMyst!
 
 The bot is written with **Discord.JS**, meaning you can host it on your computer via `node .` if you have the folder open in a command line.
 
-When you open the project, you will see a `config.json` file. This is where all of the bot configuration will be placed. The only fields that are essential for running the bot are `token` and `botSpam`.
+When you open the project, you will see a `config.json.example` file. You need to rename it to just `config.json`. This is where all of the bot configuration will be placed. The only fields that are essential for running the bot are `token` and `botSpam`.
+
+`token` is your bots token.
+`botspam` is the channel the bots commands are restricted to. Change this to an empty string if you want to use the bot anywhere.
 
 ```config.json
 token: 'Enter your own token here!'
