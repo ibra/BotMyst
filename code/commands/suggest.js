@@ -2,7 +2,7 @@ var Trello = require("trello");
 
 const config =  require('../config.json');
 
-var trello = new Trello(config.ApplicationKey, config.userToken);
+var trello = new Trello(config.TrelloKey, config.TrelloToken);
 
 const Discord = require('discord.js')
 

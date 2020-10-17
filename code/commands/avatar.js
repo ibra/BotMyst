@@ -16,7 +16,6 @@ module.exports = {
     const user = message.mentions.users.first();
     avatarEmbed.setTitle(`${user.username}'s avatar!`)
     avatarEmbed.setColor(3066993)  
-    avatarEmbed.setAuthor(user.username)
     avatarEmbed.setImage(user.displayAvatarURL());
 
 }
