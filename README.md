@@ -5,9 +5,14 @@ An attempt at reviving BotMyst!
 ## Commands
 
 ## Important links
-
-### Hey you should follow me.
+[![CodeMyst (Founder of Bot)](https://img.shields.io/github/followers/codemyst?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/codemyst)
 [![Join The Discord!](https://img.shields.io/discord/298510542535000065?color=orange&label=Test%20Out%20The%20Bot%21)](https://discord.gg/QBJu4Dq)
+
+
+# Contributers
+[![IbrahimDev](https://img.shields.io/github/followers/minidevz?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/minidevz)
+
+
 
 ### Also the guy who actually owns the rights to BotMyst.
 [![Follow The Main Developer](https://img.shields.io/github/followers/codemyst?label=Follow%20The%20Person%20With%20Rights&style=social)
