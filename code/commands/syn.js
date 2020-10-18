@@ -3,15 +3,17 @@ var thesaurus = require('thesaurus');
 
 
 module.exports = {
-	name:'word',
+	name:'syn',
 	description: 'Search something and get the synonyms of that word',
     
     async run (client, message, args){
-    let pages = ['Wow a page', 'Wow another one', 'Damn bro stop with all these pages', 'goddamn theres another one', 'bruh another one?', 'bruh no cap seriously stop', 'K thanks for stopping'];
+    const wordLookup = args.join(" "); 
+    var res = thesaurus.find(wordLookup);
+    let pages = res;
     let page = 1;
     const wordEmbed = new Discord.MessageEmbed()
 	.setColor(3066993)
-	.setTitle('Pages Test')
+	.setTitle('Here are all synonyms for: ' + wordLookup)
     .setDescription(pages[page-1])
     .setFooter(`Page ${page} of ${pages.length}`)
     .setTimestamp()
@@ -46,8 +48,8 @@ module.exports = {
         
         
     })
-     //  const wordLookup = args.join(" "); 
-    //res = thesaurus.find(wordLookup);
+   
+ 
       }
     
 

@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 
 module.exports = {
-    name: "lmgt",
+    name: "lmgtfy",
     description: "Gives idiots a link to click to search stuff on google since people are too lazy to do it themselves.",
 
     async run (client, message, args){
