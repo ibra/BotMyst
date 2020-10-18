@@ -6,7 +6,7 @@ module.exports = {
 	name:'syn',
 	description: 'Search something and get the synonyms of that word',
     
-    async run (client, message, args){
+    execute: async function(client, message, args){
     const wordLookup = args.join(" "); 
     var res = thesaurus.find(wordLookup);
     let pages = res;

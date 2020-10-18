@@ -4,7 +4,7 @@ module.exports = {
   name: "unity",
   description: "A command that shows results from specific websites",
 
-  async run (client, message, args) {
+  execute: async function(client, message, args) {
         // remove the suffix
         const search = args.join(" ");
         console.log(search)

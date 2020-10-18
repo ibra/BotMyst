@@ -7,7 +7,7 @@ module.exports = {
     name: "help",
     description: "Gives you a list of all commands",
 
-   async run (client, message, args) {
+    execute: async function(client, message, args) {
     if(!args[0])
     {
       const data = [];

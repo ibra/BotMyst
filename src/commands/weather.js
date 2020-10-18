@@ -6,7 +6,7 @@ module.exports = {
     name: "weather",
     description: "Checks a weather forecast",
 
-    async run (client, message, args){
+    execute: async function(client, message, args){
 
     weather.find({search: args.join(" "), degreeType: weatherDegreeType}, function (error, result){
         

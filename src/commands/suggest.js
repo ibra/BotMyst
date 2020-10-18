@@ -10,7 +10,7 @@ module.exports = {
     name: "suggest",
     description: "A command that adds whatever you suggest into a trello card under 100 characters.",
 
-   async run (client, message, args) {
+    execute: async function(client, message, args) {
     const suggestion = args.join(" "); 
 if(suggestion.length > 100)
  {

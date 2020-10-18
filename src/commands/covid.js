@@ -4,8 +4,9 @@ const Discord = require('discord.js');
 module.exports = {
     name: "covid",
     description: "Track a country or worldwide COVID-19 cases",
-
-    async run (client, message, args){
+    aliases: ['cov','covd'],
+   
+    execute: async function(client, message, args){
 
         let countries = args.join(" ");
         const noArgs = new Discord.MessageEmbed()
