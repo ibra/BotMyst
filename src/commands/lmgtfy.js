@@ -9,7 +9,7 @@ module.exports = {
       const search = args.join(" "); 
       var replaced = search.split(' ').join('+');
       const lmgtfyEmbed = new Discord.MessageEmbed()
-      .setTitle("Here is how to " + search)
+      .setTitle("Please try google searching before asking a question:"  + search)
       .setURL('https://lmgtfy.com/?q=' + replaced + '&iie=1')
       .setTimestamp(Date.now())
       .setColor(3066993);

@@ -8,8 +8,6 @@ module.exports = {
     async run (client, message, args){
 
         let countries = args.join(" ");
-
-        
         const noArgs = new Discord.MessageEmbed()
         .setTitle('Missing arguments')
         .setColor(0xFF0000)
