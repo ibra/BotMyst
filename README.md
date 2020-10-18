@@ -5,10 +5,10 @@ An attempt at reviving BotMyst!
 ## Commands
 
 ## Important links
-
-
-### Discord
 [![Join The Discord!](https://img.shields.io/discord/298510542535000065?color=orange&label=Join%20The%20Discord!%21)](https://discord.gg/QBJu4Dq)
+[![Issues Open](https://img.shields.io/github/issues/BotMyst/BotMystRevival?color=orange)](https://github.com/BotMyst/BotMystRevival/issues)
+[![Issues Closed](https://img.shields.io/github/issues-closed-raw/BotMyst/BotMystRevival?label=issues%20closed)](https://github.com/BotMyst/BotMystRevival/issues?q=is%3Aissue+is%3Aclosed)
+[![Repo Stars!](https://img.shields.io/github/stars/BotMyst/BotMystRevival?color=orange&label=Repo%20Stars&logoColor=orange&style=social)](https://github.com/BotMyst/BotMystRevival/blob/master/README.md)
 
 
 ### Contributors
