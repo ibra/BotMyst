@@ -1,7 +1,7 @@
 //Discord Initialization
 const Discord = require("discord.js");
 const { readdirSync } = require('fs');
-const { token, botSpam, PREFIX } = require('./config.json');
+const { BotToken, BotSpam, PREFIX } = require('./config.json');
 
 
 
@@ -26,7 +26,7 @@ for (const file of commandFiles) {
     || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 
         if(!fullCmd) return;
-        if(message.channel.id != botSpam)
+        if(message.channel.id != BotSpam)
         {
             const botError = new Discord.MessageEmbed()
             .setDescription('This bot is still in its early stages so its commands are restricted to the #bot channel.')
@@ -61,4 +61,4 @@ client.on("ready", () => {
 
     })
 
-client.login(token);
+client.login(BotToken);
