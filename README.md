@@ -16,7 +16,7 @@ An attempt at reviving BotMyst!
 [![Join The Discord!](https://img.shields.io/discord/298510542535000065?color=orange&label=Join%20The%20Discord!%21)](https://discord.gg/QBJu4Dq)
 [![Twitter](https://img.shields.io/twitter/follow/codemyst?logoColor=orange&style=social)](https://twitter.com/codemyst)
 
-###Contributers
+### Contributers
 
 #### CodeMyst (Founder Of Bot)
 [![CodeMyst (Founder of Bot)](https://img.shields.io/github/followers/codemyst?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/codemyst)
