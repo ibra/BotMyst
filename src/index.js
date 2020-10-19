@@ -6,6 +6,7 @@ const { token, botSpam, PREFIX } = require('./config.json');
 
 
 const client = new Discord.Client();
+
 client.commands = new Discord.Collection();
 
 

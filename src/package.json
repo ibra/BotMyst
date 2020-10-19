@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "devStart": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ibrahim Hisham",
@@ -19,8 +20,10 @@
     "google-dictionary-api": "^1.0.8",
     "google-search": "0.0.5",
     "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.5",
     "oxford-dictionary": "^1.6.0",
     "request-promise": "^4.2.5",
+    "superagent": "^6.1.0",
     "thesaurus": "0.0.1",
     "thesaurus-query": "^1.2.9",
     "thesaurus-synonyms": "^2.1.3",
@@ -30,5 +33,8 @@
     "weather-js": "^2.0.0",
     "wikijs": "^6.0.1",
     "wordnet": "^0.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

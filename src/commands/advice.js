@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const request = require('superagent');
 
 module.exports = {
     name: "advice",
