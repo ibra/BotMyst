@@ -1,0 +1,18 @@
+const request = require('superagent')
+
+module.exports = {
+    name: "catfact",
+    description: "Gives a random fact about a cat.",
+    aliases: [],
+
+    execute: async function (client, message, args) {
+        request.get('https://catfact.ninja/fact').end((err, res) => {
+            if (!err && res.status === 200) {
+                message.channel.send(res.body.fact)
+            } 
+            else {
+                console.log(`REST call failed: ${err}`);
+            }
+        });
+    }
+}

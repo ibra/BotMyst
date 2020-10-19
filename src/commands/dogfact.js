@@ -2,7 +2,7 @@ const request = require('superagent')
 
 module.exports = {
     name: "dogfact",
-    description: "Gets much needed life advice",
+    description: "Gives a random fact about dogs.",
     aliases: [],
 
     execute: async function (client, message, args) {
