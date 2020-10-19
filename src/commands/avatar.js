@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "avatar",
-    description: "Returns users avatar",
+    description: "Returns metioned users avatar and returns your avatar if there are no arguments",
     aliases: ['av'],
-    
+    usage: ">avatar @User#001 [Returns Their Avatar]",
 execute: async function (client, message, args) {
 
  const avatarEmbed = new Discord.MessageEmbed()

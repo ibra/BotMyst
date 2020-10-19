@@ -5,7 +5,7 @@ module.exports = {
     name: "covid",
     description: "Track a country or worldwide COVID-19 cases",
     aliases: ['cov','covd'],
-   
+    usage: ">covid Canada [Returns Information About COVID-19 cases in America]",
     execute: async function(client, message, args){
 
         let countries = args.join(" ");

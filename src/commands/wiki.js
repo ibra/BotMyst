@@ -7,6 +7,7 @@ module.exports = {
 	name:'wiki',
 	description: 'Search something on Wikipedia with this command and get a short summary of it.',
 	aliases: ['wikipedia'],
+	usage: ">wiki Lord Of The Rings [Gives A Short Summary from WikiPedia]",
 	execute: async function(client, message, args){
     {
 

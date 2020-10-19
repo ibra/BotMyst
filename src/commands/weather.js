@@ -4,8 +4,9 @@ const { weatherDegreeType } = require('../config.json');
 
 module.exports = {
     name: "weather",
-    description: "Checks a weather forecast",
+    description: "Checks a weather forecast. If you are having problems make sure you arent checking the weather for an entire country.", 
     aliases: ['forecast'],
+    usage: ">weather Brisbane [Returns Weather Forecast] ",
     execute: async function(client, message, args){
 
     weather.find({search: args.join(" "), degreeType: weatherDegreeType}, function (error, result){
