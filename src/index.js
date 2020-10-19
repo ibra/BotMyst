@@ -41,9 +41,8 @@ for (const file of commandFiles) {
         }
             
         try {
-           
             fullCmd.execute(client, message, args);
-
+            message.react('👀')
         } catch (error){
             console.error(error);
         }
