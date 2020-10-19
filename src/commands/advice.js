@@ -1,9 +1,11 @@
-const request = require('superagent');
+const request = require('superagent')
 
 module.exports = {
     name: "advice",
     description: "Gets much needed life advice",
-    execute: async function(client, message, args) {
+    aliases: ['adv'],
+
+    execute: async function (client, message, args) {
         request
         .get('http://api.adviceslip.com/advice')
         .end((err, res) => {
@@ -14,7 +16,7 @@ module.exports = {
                     return message.reply(', an api error occurred.');
                 }
                 const advice = JSON.parse(res.text)
-                return message.channel.send(advice.slip.advice)
+                message.channel.send(advice.slip.advice)
             } else {
             console.error(`REST call failed: ${err}, status code: ${res.status}`)
             }
