@@ -5,7 +5,7 @@ var thesaurus = require('thesaurus');
 module.exports = {
 	name:'syn',
 	description: 'Search something and get the synonyms of that word',
-    
+    aliases: ['synonyms' , 'rel'],
     execute: async function(client, message, args){
     const wordLookup = args.join(" "); 
     var res = thesaurus.find(wordLookup);

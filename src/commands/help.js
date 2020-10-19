@@ -6,7 +6,7 @@ const config = require('../config.json');
 module.exports = {
     name: "help",
     description: "Gives you a list of all commands",
-
+    aliases: ['h'],
     execute: async function(client, message, args) {
     if(!args[0])
     {
@@ -42,7 +42,7 @@ module.exports = {
   if (cmd.description) info += `\n**Description**: ${cmd.description}`;
  
   return message.channel.send(embed
-      .setTitle(`BotMyst => ${cmd.name} | Prefix is ${config.PREFIX}`)
+      .setTitle(`BotMyst => ${cmd.name}`)
       .setColor(3066993)
       .setDescription(info)
       .setTimestamp());

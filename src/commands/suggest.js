@@ -9,7 +9,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "suggest",
     description: "A command that adds whatever you suggest into a trello card under 100 characters.",
-
+    aliases: ['feedback'],
     execute: async function(client, message, args) {
     const suggestion = args.join(" "); 
 if(suggestion.length > 100)

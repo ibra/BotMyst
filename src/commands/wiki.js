@@ -6,6 +6,7 @@ const config = require('../config.json');
 module.exports = {
 	name:'wiki',
 	description: 'Search something on Wikipedia with this command and get a short summary of it.',
+	aliases: ['wikipedia'],
 	execute: async function(client, message, args){
     {
 
