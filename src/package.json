@@ -22,6 +22,7 @@
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.5",
     "oxford-dictionary": "^1.6.0",
+    "pastemyst-js": "^1.0.5",
     "request-promise": "^4.2.5",
     "superagent": "^6.1.0",
     "thesaurus": "0.0.1",
