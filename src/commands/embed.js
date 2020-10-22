@@ -16,6 +16,7 @@ module.exports = {
 }
 
 
+
 function sendEmbed(message) {
     let command = message.content;
     let channel = message.channel;
