@@ -12,6 +12,7 @@ module.exports = {
     description: "A command that shows the meaning of a word",
     aliases: ['dictionary'],
     usage: ">dict idiot [returns definition of word]",
+ 
     execute: async function (client, message, args) {
     const wordLookup = args.join(" ");
     const dictionaryEmbed = new Discord.MessageEmbed()

@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const { PREFIX } = require('../config.json');
+const { stripIndents } = require("common-tags");
 
 module.exports = {
     name: "help",
@@ -16,7 +17,7 @@ module.exports = {
         return getAll(client, message, PREFIX);
     }
   
-      if(!args[0])
+    /*  if(!args[0])
     {
       const data = [];
       const { commands } = message.client;
@@ -36,11 +37,12 @@ module.exports = {
 
     }
   }
-}
+} */
 
 function getCMD(client, message, input) {
   const embed = new Discord.MessageEmbed()
-  const cmd = client.commands.get(input.toLowerCase());
+  const cmd = client.commands.get(input.toLowerCase()) || client.commands.get(client.aliases.get(input.toLowerCase()));
+  console.log(input)
   let info = `No information found for command **${input.toLowerCase()}**`;
   if (!cmd) {
       return message.channel.send(embed.setDescription(info));
@@ -87,4 +89,6 @@ function getAll(client, message, prefix) {
 }
 
 
+}
 
+} 
