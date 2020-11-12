@@ -7,6 +7,7 @@ module.exports = {
 	description: 'Search something and get the synonyms of that word',
     aliases: ['syn'],
     usage: "its like >dict but instead of meanings it gives synonyms",
+    
     execute: async function(client, message, args){
     const wordLookup = args.join(" "); 
     var res = thesaurus.find(wordLookup);
@@ -54,7 +55,6 @@ module.exports = {
       }
     
 
-  
    
  }
 

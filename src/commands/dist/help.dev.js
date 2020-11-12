@@ -14,13 +14,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var Discord = require("discord.js");
 
-var fs = require("fs");
-
-var _require = require('../config.json'),
-    PREFIX = _require.PREFIX;
-
-var _require2 = require("common-tags"),
-    stripIndents = _require2.stripIndents;
+var _require = require("common-tags"),
+    stripIndents = _require.stripIndents;
 
 module.exports = {
   name: "help",

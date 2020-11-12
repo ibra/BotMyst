@@ -1,55 +1,59 @@
 const weather = require('weather-js');
 const Discord = require('discord.js');
-const { weatherDegreeType } = require('../config.json');
+const {
+    weatherDegreeType
+} = require('../config.json');
 
 module.exports = {
     name: "weather",
-    description: "Checks a weather forecast. If you are having problems make sure you arent checking the weather for an entire country.", 
+    description: "Checks a weather forecast. If you are having problems make sure you arent checking the weather for an entire country.",
     aliases: ['forecast'],
     usage: ">weather Brisbane [Returns Weather Forecast] ",
-    execute: async function(client, message, args){
 
-    weather.find({search: args.join(" "), degreeType: weatherDegreeType}, function (error, result){
-        
-        if(error)
-       { 
-         message.channel.send("Please specify a location.");
-         return message.react('👎')
-       }
-        if(!args[0])
-        {
-            message.channel.send('Please specify a location.')
-            return message.react('👎')
-        } 
+    execute: async function(client, message, args) {
 
-        if(result === undefined || result.length === 0)
-        {
-            message.react('👎')
-            const errorEmbed = new Discord.MessageEmbed()
-            .setTitle('Couldnt find the location you provided!')
-            .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a valid location!')
-            .setColor(15158332) 
-            message.channel.send(errorEmbed)
-            
-        }
+        //Using weather-js's handy .find function to get a simple result with all the info we need.
+        weather.find({
+            search: args.join(" "),
+            degreeType: weatherDegreeType
+        }, function(error, result) {
 
-        var current = result[0].current;
-        var location = result[0].location;
+            if (error) {
+                message.channel.send("Please specify a location.");
+                return message.react('👎')
+            }
+            if (!args[0]) {
+                message.channel.send('Please specify a location.')
+                return message.react('👎')
+            }
 
-        const weatherinfo = new Discord.MessageEmbed()
-        .setDescription(`**${current.skytext}**`)
-        .setAuthor(`Weather forecast for ${current.observationpoint}`)
-        .setThumbnail(current.imageUrl)
-        .setColor(3066993)
-        .addField('Timezone', `UTC${location.timezone}`, true)
-        .addField('Degree Type', 'Fahrenheit', true)
-        .addField('Temperature', `${current.temperature}°`, true)
-        .addField('Wind', current.winddisplay, true)
-        .addField('Feels like', `${current.feelslike}°`, true)
-        .addField('Humidity', `${current.humidity}%`, true)
+            if (result === undefined || result.length === 0) {
+                message.react('👎')
+                const errorEmbed = new Discord.MessageEmbed()
+                    .setTitle('Couldnt find the location you provided!')
+                    .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a valid location!')
+                    .setColor(15158332)
+                message.channel.send(errorEmbed)
+
+            }
+
+            var current = result[0].current;
+            var location = result[0].location;
+
+            const weatherinfo = new Discord.MessageEmbed()
+                .setDescription(`**${current.skytext}**`)
+                .setAuthor(`Weather forecast for ${current.observationpoint}`)
+                .setThumbnail(current.imageUrl)
+                .setColor(3066993)
+                .addField('Timezone', `UTC${location.timezone}`, true)
+                .addField('Degree Type', 'Fahrenheit', true)
+                .addField('Temperature', `${current.temperature}°`, true)
+                .addField('Wind', current.winddisplay, true)
+                .addField('Feels like', `${current.feelslike}°`, true)
+                .addField('Humidity', `${current.humidity}%`, true)
 
 
-        message.channel.send(weatherinfo)
-        })        
+            message.channel.send(weatherinfo)
+        })
     }
 }
