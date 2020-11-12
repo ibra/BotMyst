@@ -10,6 +10,11 @@ module.exports = {
     if(message.author.id == CodeMyst)
         {
             sendEmbed(message);
+        } else {
+            let errorEmbed = new Discord.MessageEmbed()
+            .setColor(0xFF0000)
+            .setTitle("Only CodeMyst can use this command!")    
+            message.channel.send(errorEmbed);       
         }
         
     }
@@ -36,10 +41,10 @@ function sendEmbed(message) {
     let embed = new Discord.MessageEmbed();
         embed.title = title,
         embed.description = description;
+        embed.color = 3066993;
   
 
-    // set author based of passed-in message
-    embed.setFooter(author.username, author.displayAvatarURL);
+
 
     // send embed to channel
     channel.send(embed);

@@ -12,13 +12,6 @@ module.exports = {
       if (args[0]) {
         return getCMD(client, message, args[0]);
     } else {
-        // Otherwise send all the commands available
-        // Without the cmd info
-        return getAll(client, message, PREFIX);
-    }
-  
-    /*  if(!args[0])
-    {
       const data = [];
       const { commands } = message.client;
       var desc = data.push(commands.map(command => command.name).join(', '));  
@@ -31,13 +24,7 @@ module.exports = {
         console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
         message.reply('Uh oh. Something went wrong when trying to DM you');
       });
-    } else {
-      let helpModule = args.join(" ");
-      return getCMD(client, message, args[0]);
-
     }
-  }
-} */
 
 function getCMD(client, message, input) {
   const embed = new Discord.MessageEmbed()
@@ -58,9 +45,7 @@ function getCMD(client, message, input) {
       .setTitle(`BotMyst => ${cmd.name}`)
       .setColor(3066993)
       .setDescription(info)
-      .setTimestamp());
-
-      
+      .setTimestamp()); 
 }
 
 function getAll(client, message, prefix) {
