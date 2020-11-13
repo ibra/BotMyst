@@ -1,4 +1,7 @@
 const Discord = require('discord.js')
+const {
+    SuccessColor
+} = require('../config.json');
 
 module.exports = {
     name: "ping",
@@ -11,8 +14,9 @@ module.exports = {
         //Setting Embed Values
         ping.setDescription(`🏓 Pong! Latency is about \`${client.ws.ping}\` ms`);
         ping.setTimestamp(Date.now());
-        ping.setColor(3066993);
-
+        ping.setColor(SuccessColor);
+          
+        //Send the embed.
         message.channel.send(ping);
     }
 }

@@ -3,7 +3,9 @@
 var Discord = require('discord.js');
 
 var _require = require('../config.json'),
-    CodeMyst = _require.CodeMyst;
+    CodeMyst = _require.CodeMyst,
+    SuccessColor = _require.SuccessColor,
+    FailureColor = _require.FailureColor;
 
 module.exports = {
   name: "embed",
@@ -16,10 +18,11 @@ module.exports = {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            //Only allow the command to work if the author of the command is CodeMyst
             if (message.author.id == CodeMyst) {
               sendEmbed(message);
             } else {
-              errorEmbed = new Discord.MessageEmbed().setColor(0xFF0000).setTitle("Only CodeMyst can use this command!");
+              errorEmbed = new Discord.MessageEmbed().setColor(FailureColor).setTitle("Only CodeMyst can use this command!");
               message.channel.send(errorEmbed);
             }
 
@@ -46,7 +49,7 @@ function sendEmbed(message) {
 
   var embed = new Discord.MessageEmbed();
   embed.title = title, embed.description = description;
-  embed.color = 3066993; //Send the embed.
+  embed.color = SuccessColor; //Send the embed.
 
   channel.send(embed);
 }

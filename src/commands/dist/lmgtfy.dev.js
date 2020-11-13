@@ -2,6 +2,9 @@
 
 var Discord = require("discord.js");
 
+var _require = require('../config.json'),
+    SuccessColor = _require.SuccessColor;
+
 module.exports = {
   name: "lmgtfy",
   description: "Gives idiots a link to click to search stuff on google since people are too lazy to do it themselves.",
@@ -17,7 +20,8 @@ module.exports = {
             search = args.join(" ");
             replaced = search.split(' ').join('+'); //Make an embed and set the Title URL to https://lmgtfy.com + our manipulated string.
 
-            lmgtfyEmbed = new Discord.MessageEmbed().setTitle("Heres what i could find for: " + search).setURL('https://lmgtfy.com/?q=' + replaced + '&iie=1').setTimestamp(Date.now()).setColor(3066993);
+            lmgtfyEmbed = new Discord.MessageEmbed().setTitle("Heres what i could find for: " + search).setURL('https://lmgtfy.com/?q=' + replaced + '&iie=1').setTimestamp(Date.now()).setColor(SuccessColor); //Send the embed.
+
             message.channel.send(lmgtfyEmbed);
 
           case 4:

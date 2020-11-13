@@ -1,4 +1,7 @@
 const Discord = require('discord.js');
+const {
+    SuccessColor
+} = require('../config.json');
 
 module.exports = {
     name: "avatar",
@@ -13,15 +16,17 @@ module.exports = {
 
         //If there is no mention, then display Author's avatar.
         if (!message.mentions.users.first()) {
+            
             avatarEmbed.setTitle(message.author.username);
-            avatarEmbed.setColor(3066993);
+            avatarEmbed.setColor(SuccessColor);
             avatarEmbed.setAuthor("Your Avatar!");
             avatarEmbed.setImage(message.author.displayAvatarURL());
         } //Otherwise, we display the mentioned users avatar.
         else {
+
             const user = message.mentions.users.first();
             avatarEmbed.setTitle(`${user.username}'s avatar!`);
-            avatarEmbed.setColor(3066993);
+            avatarEmbed.setColor(SuccessColor);
             avatarEmbed.setImage(user.displayAvatarURL());
 
         }

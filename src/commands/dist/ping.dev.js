@@ -2,6 +2,9 @@
 
 var Discord = require('discord.js');
 
+var _require = require('../config.json'),
+    SuccessColor = _require.SuccessColor;
+
 module.exports = {
   name: "ping",
   description: "A command that gives info about the bot",
@@ -16,7 +19,8 @@ module.exports = {
 
             ping.setDescription("\uD83C\uDFD3 Pong! Latency is about `".concat(client.ws.ping, "` ms"));
             ping.setTimestamp(Date.now());
-            ping.setColor(3066993);
+            ping.setColor(SuccessColor); //Send the embed.
+
             message.channel.send(ping);
 
           case 5:

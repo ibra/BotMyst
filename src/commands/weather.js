@@ -1,7 +1,7 @@
 const weather = require('weather-js');
 const Discord = require('discord.js');
 const {
-    weatherDegreeType
+    weatherDegreeType, SuccessColor, FailureColor
 } = require('../config.json');
 
 module.exports = {
@@ -18,23 +18,26 @@ module.exports = {
             degreeType: weatherDegreeType
         }, function(error, result) {
 
-            if (error) {
-                message.channel.send("Please specify a location.");
-                return message.react('👎')
-            }
-            if (!args[0]) {
-                message.channel.send('Please specify a location.')
-                return message.react('👎')
+            if (!args[0]) { //if there are no arguments provided, send an error message.
+                const errorEmbed = new Discord.MessageEmbed()
+                    .setTitle('Please Specify a location!!')
+                    .setDescription("e.g: >weather Brisbane [Returns Weather Forecast]")
+                    .setColor(FailureColor)
+                
+                message.channel.send(errorEmbed);
+                return message.react('👎');
             }
 
-            if (result === undefined || result.length === 0) {
-                message.react('👎')
+            if (result === undefined || result.length === 0) { //if the result is not found, then send an error embed.
+                
                 const errorEmbed = new Discord.MessageEmbed()
                     .setTitle('Couldnt find the location you provided!')
-                    .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a valid location!')
-                    .setColor(15158332)
-                message.channel.send(errorEmbed)
-
+                    .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a valid location / area, and not a country!')
+                    .setColor(FailureColor)
+                   
+                 message.channel.send(errorEmbed);
+                 return message.react('👎');
+              
             }
 
             var current = result[0].current;
@@ -44,7 +47,8 @@ module.exports = {
                 .setDescription(`**${current.skytext}**`)
                 .setAuthor(`Weather forecast for ${current.observationpoint}`)
                 .setThumbnail(current.imageUrl)
-                .setColor(3066993)
+                .setColor(SuccessColor)
+                //Weather Information Content.
                 .addField('Timezone', `UTC${location.timezone}`, true)
                 .addField('Degree Type', 'Fahrenheit', true)
                 .addField('Temperature', `${current.temperature}°`, true)
@@ -52,7 +56,7 @@ module.exports = {
                 .addField('Feels like', `${current.feelslike}°`, true)
                 .addField('Humidity', `${current.humidity}%`, true)
 
-
+            //Send the embed.
             message.channel.send(weatherinfo)
         })
     }

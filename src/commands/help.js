@@ -3,6 +3,10 @@ const {
     stripIndents
 } = require("common-tags");
 
+const {
+    SuccessColor, FailureColor
+} = require('../config.json');
+
 module.exports = {
     name: "help",
     description: "Gives you a list of all commands",
@@ -10,14 +14,11 @@ module.exports = {
     usage: ">help [gives all commands] or >help [command] which gives info about the command",
 
     execute: async function(client, message, args) {
+       
         if (args[0]) {
             return getCMD(client, message, args[0]);
         } else {
             const data = [];
-            const {
-                commands
-            } = message.client;
-            var desc = data.push(commands.map(command => command.name).join(', '));
             return message.author.send(data, {
                     split: true
                 })
@@ -27,7 +28,10 @@ module.exports = {
                 })
                 .catch(error => {
                     console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
-                    message.reply('Uh oh. Something went wrong when trying to DM you');
+                    const embed = new Discord.MessageEmbed()
+                   .setColor(FailureColor)
+                   .setDescription(message.author.username + ' ,uh oh. Something went wrong when trying to DM you!');
+                    message.channel.send(embed);
                 });
         }
 
@@ -49,15 +53,15 @@ module.exports = {
             };
 
             return message.channel.send(embed
-                .setTitle(`BotMyst => ${cmd.name}`)
-                .setColor(3066993)
+                .setTitle(`BotMyst > ${cmd.name}`)
+                .setColor(SuccessColor)
                 .setDescription(info)
                 .setTimestamp());
         }
 
         function getAll(client, message, prefix) {
             const embed = new Discord.MessageEmbed()
-                .setColor(3066993)
+                .setColor(SuccessColor)
 
             //all the commands
             const commands = (category) => {
@@ -73,11 +77,11 @@ module.exports = {
                 .reduce((string, category) => string + "\n" + category);
 
             return message.channel.send(embed
-                .setTitle(`BotMyst => Help`)
-                .setColor(3066993)
+                .setTitle(`BotMyst > Help`)
+                .setColor(SuccessColor)
                 .setDescription(`Here are all of the commands for BotMyst, if you want more information about the command, do \`${prefix} help [command]\` \n` + info)
                 .setTimestamp()
-                .setFooter(`Requested by ${message.author.username}`)); //this image is my bot pfp
+                .setFooter(`Requested by ${message.author.username}`)); 
         }
 
 

@@ -6,7 +6,8 @@ var Logger = new Util.Logger();
 
 var requests = require('./../modules/requests');
 
-var config = require('../config.json');
+var _require = require('../config.json'),
+    FailureColor = _require.FailureColor;
 
 module.exports = {
   name: 'wiki',
@@ -19,8 +20,8 @@ module.exports = {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            command = args[0].slice(config.PREFIX.length);
-            requestLang = 'en';
+            command = args.join(" ");
+            requestLang = 'en'; //This is the Wikipedia language in which we send our request.
 
             if (!args[0]) {
               message.react('👎')["catch"](function (e) {
@@ -28,13 +29,15 @@ module.exports = {
               });
               message.channel.send({
                 embed: {
-                  color: 0xe74c3c,
+                  color: FailureColor,
                   description: 'The command you gave was invalid or doesnt exist'
                 }
               });
             } else {
+              //Using some regex to make the string understandable to the getWikipediaShortSummary() function.
               searchValue = args.toString().replace(/,/g, ' ');
-              searchValue = searchValue.replace(config.PREFIX + command + ' ', '');
+              searchValue = searchValue.replace(config.PREFIX + command + ' ', ''); //Call the getWikipediaShortSummary() function.
+
               requests.getWikipediaShortSummary(message, searchValue, requestLang)["catch"](function (e) {
                 return Logger.error(e);
               });

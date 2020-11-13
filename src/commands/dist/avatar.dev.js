@@ -2,6 +2,9 @@
 
 var Discord = require('discord.js');
 
+var _require = require('../config.json'),
+    SuccessColor = _require.SuccessColor;
+
 module.exports = {
   name: "avatar",
   description: "Returns metioned users avatar and returns your avatar if there are no arguments",
@@ -18,14 +21,14 @@ module.exports = {
 
             if (!message.mentions.users.first()) {
               avatarEmbed.setTitle(message.author.username);
-              avatarEmbed.setColor(3066993);
+              avatarEmbed.setColor(SuccessColor);
               avatarEmbed.setAuthor("Your Avatar!");
               avatarEmbed.setImage(message.author.displayAvatarURL());
             } //Otherwise, we display the mentioned users avatar.
             else {
                 user = message.mentions.users.first();
                 avatarEmbed.setTitle("".concat(user.username, "'s avatar!"));
-                avatarEmbed.setColor(3066993);
+                avatarEmbed.setColor(SuccessColor);
                 avatarEmbed.setImage(user.displayAvatarURL());
               } //Send the embed.
 
