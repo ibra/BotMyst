@@ -19,9 +19,9 @@ module.exports = {
             return getCMD(client, message, args[0]);
         } else {
             const data = [];
-            return message.author.send(data, {
-                    split: true
-                })
+            const { commands } = message.client;
+            data.push(commands.map(command => command.name).join(', '));  
+            return message.author.send(data, { split: true })
                 .then(() => {
                     if (message.channel.type === 'dm') return;
                     message.reply('I\'ve sent you a DM with all my commands!');
@@ -30,7 +30,7 @@ module.exports = {
                     console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
                     const embed = new Discord.MessageEmbed()
                    .setColor(FailureColor)
-                   .setDescription(message.author.username + ' ,uh oh. Something went wrong when trying to DM you!');
+                   .setDescription(message.author.username + ', uh oh. Something went wrong when trying to DM you!');
                     message.channel.send(embed);
                 });
         }

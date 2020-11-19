@@ -17,7 +17,7 @@ module.exports = {
         //Make an embed and set the Title URL to https://lmgtfy.com + our manipulated string.
         const lmgtfyEmbed = new Discord.MessageEmbed()
             .setTitle("Heres what i could find for: " + search)
-            .setURL('https://lmgtfy.com/?q=' + replaced + '&iie=1')
+            .setURL('https://lmgtfy.com/?q=' + replaced)
             .setTimestamp(Date.now())
             .setColor(SuccessColor);
         //Send the embed.

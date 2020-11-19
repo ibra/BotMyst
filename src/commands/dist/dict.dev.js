@@ -97,7 +97,7 @@ module.exports = {
 
                 dictionaryEmbed.setColor(FailureColor);
                 message.channel.send(dictionaryEmbed);
-              } else console.log(error); //If the error is something else, log it.
+              } else return message.channel.send("There is not enough information on that word to give its definition!"); //If the error is something else, log it.
 
             });
 

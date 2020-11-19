@@ -27,7 +27,7 @@ module.exports = {
   aliases: ['h'],
   usage: ">help [gives all commands] or >help [command] which gives info about the command",
   execute: function execute(client, message, args) {
-    var data, getCMD, getAll;
+    var data, commands, getCMD, getAll;
     return regeneratorRuntime.async(function execute$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -86,6 +86,10 @@ module.exports = {
 
           case 6:
             data = [];
+            commands = message.client.commands;
+            data.push(commands.map(function (command) {
+              return command.name;
+            }).join(', '));
             return _context.abrupt("return", message.author.send(data, {
               split: true
             }).then(function () {
@@ -93,11 +97,11 @@ module.exports = {
               message.reply('I\'ve sent you a DM with all my commands!');
             })["catch"](function (error) {
               console.error("Could not send help DM to ".concat(message.author.tag, ".\n"), error);
-              var embed = new Discord.MessageEmbed().setColor(FailureColor).setDescription(message.author.username + ' ,uh oh. Something went wrong when trying to DM you!');
+              var embed = new Discord.MessageEmbed().setColor(FailureColor).setDescription(message.author.username + ', uh oh. Something went wrong when trying to DM you!');
               message.channel.send(embed);
             }));
 
-          case 8:
+          case 10:
           case "end":
             return _context.stop();
         }

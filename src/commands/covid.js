@@ -43,7 +43,7 @@ module.exports = {
                         .addField('Recovered', recovered)
                         .addField('Deaths', deaths)
 
-                    message.channel.send(embed)
+                    message.channel.send(embed);
                 })
 
         } else {
@@ -52,12 +52,12 @@ module.exports = {
                 .then(response => response.json())
                 .then(data => {
                     //Assign all provided response data to variables
-                    let confirmed = data.confirmed.value.toLocaleString()
-                    let recovered = data.recovered.value.toLocaleString()
-                    let deaths = data.deaths.value.toLocaleString()
-
+                    let confirmed = data.confirmed.value.toLocaleString();
+                    let recovered = data.recovered.value.toLocaleString();
+                    let deaths = data.deaths.value.toLocaleString();
+                    let country = data.country;
                     const embed = new Discord.MessageEmbed()
-                        .setTitle(`COVID-19 Stats for **${countries}**`)
+                        .setTitle(`COVID-19 Stats for **${country}**`)
                         .addField('Confirmed Cases', confirmed)
                         .addField('Recovered', recovered)
                         .addField('Deaths', deaths)
@@ -70,7 +70,7 @@ module.exports = {
                         .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a country!')
                         .setColor(FailureColor);
                     //send the embed.    
-                    message.channel.send(errorEmbed)
+                    message.channel.send(errorEmbed);
                 })
         
             }

@@ -53,7 +53,8 @@ module.exports = {
                 var confirmed = data.confirmed.value.toLocaleString();
                 var recovered = data.recovered.value.toLocaleString();
                 var deaths = data.deaths.value.toLocaleString();
-                var embed = new Discord.MessageEmbed().setTitle("COVID-19 Stats for **".concat(countries, "**")).addField('Confirmed Cases', confirmed).addField('Recovered', recovered).addField('Deaths', deaths).setColor(SuccessColor).setTimestamp(Date.now());
+                var country = data.country;
+                var embed = new Discord.MessageEmbed().setTitle("COVID-19 Stats for **".concat(country, "**")).addField('Confirmed Cases', confirmed).addField('Recovered', recovered).addField('Deaths', deaths).setColor(SuccessColor).setTimestamp(Date.now());
                 message.channel.send(embed);
               })["catch"](function (e) {
                 var errorEmbed = new Discord.MessageEmbed().setTitle('Couldnt find the country you provided!').setDescription('Check your spelling in case of an error, or make sure you are providing the name of a country!').setColor(FailureColor); //send the embed.    

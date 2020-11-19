@@ -1,7 +1,7 @@
 //Discord Initialization
 const Discord = require("discord.js");
 const { readdirSync } = require('fs');
-const { BotToken, BotSpam, PREFIX } = require('./config.json');
+const { BotToken, BotSpam, PREFIX, SuccessColor } = require('./config.json');
 
 // Creating a new bot client that we login with
 const client = new Discord.Client();
@@ -17,6 +17,13 @@ for (const file of commandFiles) {
 
 
   client.on("message", async message => {
+    if (message.mentions.has(client.user.id)) { 
+        //we check, whether the bot is mentioned, client.user returns the user that the client is logged in as
+        let embed = new Discord.MessageEmbed();
+        embed.setDescription(`**yes sir**`);
+        embed.setColor(SuccessColor);
+        message.channel.send(embed);
+     }
 //Checking if message starts with prefix, the message was sent by a bot or if the message was in a direct message. If so, returning.
  if(!message.content.startsWith(PREFIX) || message.author.bot || message.channel.type === 'dm') return;
    

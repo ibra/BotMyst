@@ -202,7 +202,7 @@ exports.getWikipediaReferences = function _callee4(msg, search) {
 
                           msg.channel.send({
                             embed: {
-                              color: SuccessColor,
+                              color: 3066993,
                               author: {
                                 icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
                                 name: 'Wikipedia'
@@ -255,7 +255,7 @@ exports.getWikipediaReferences = function _callee4(msg, search) {
                           // Sending an embed with the reference the user wanted
                           msg.channel.send({
                             embed: {
-                              color: SuccessColor,
+                              color: 3066993,
                               author: {
                                 icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
                                 name: 'Wikipedia'
@@ -273,7 +273,7 @@ exports.getWikipediaReferences = function _callee4(msg, search) {
                         case 16:
                           msg.channel.send({
                             embed: {
-                              color: SuccessColor,
+                              color: 3066993,
                               author: {
                                 icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
                                 name: 'Wikipedia'
@@ -361,7 +361,7 @@ exports.getWikipediaReferences = function _callee4(msg, search) {
                                     // Sending an embed with all the sources the user wanted
                                     msg.channel.send({
                                       embed: {
-                                        color: SuccessColor,
+                                        color: 3066993,
                                         author: {
                                           icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
                                           name: 'Wikipedia'
@@ -408,7 +408,7 @@ exports.getWikipediaReferences = function _callee4(msg, search) {
             formattedURI = 'https://en.wikipedia.org/wiki/' + search.replace(' ', '_') + '#References';
             msg.channel.send({
               embed: {
-                color: SuccessColor,
+                color: 3066993,
                 author: {
                   icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
                   name: 'Wikipedia'

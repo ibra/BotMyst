@@ -9,7 +9,8 @@ var _require = require('fs'),
 var _require2 = require('./config.json'),
     BotToken = _require2.BotToken,
     BotSpam = _require2.BotSpam,
-    PREFIX = _require2.PREFIX; // Creating a new bot client that we login with
+    PREFIX = _require2.PREFIX,
+    SuccessColor = _require2.SuccessColor; // Creating a new bot client that we login with
 
 
 var client = new Discord.Client();
@@ -46,19 +47,28 @@ try {
 }
 
 client.on("message", function _callee(message) {
-  var args, command, fullCmd, botError;
+  var embed, args, command, fullCmd, botError;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
+          if (message.mentions.has(client.user.id)) {
+            //we check, whether the bot is mentioned, client.user returns the user that the client is logged in as
+            embed = new Discord.MessageEmbed();
+            embed.setDescription("**yes sir**");
+            embed.setColor(SuccessColor);
+            message.channel.send(embed);
+          } //Checking if message starts with prefix, the message was sent by a bot or if the message was in a direct message. If so, returning.
+
+
           if (!(!message.content.startsWith(PREFIX) || message.author.bot || message.channel.type === 'dm')) {
-            _context.next = 2;
+            _context.next = 3;
             break;
           }
 
           return _context.abrupt("return");
 
-        case 2:
+        case 3:
           //String Manipulation to remove the prefix and lowercasing all arguments so they are not case-senstitive
           args = message.content.slice(PREFIX.length).split(/ +/);
           command = args.shift().toLowerCase(); // fullCmd includes the command AS WELL AS its aliases
@@ -68,15 +78,15 @@ client.on("message", function _callee(message) {
           });
 
           if (fullCmd) {
-            _context.next = 7;
+            _context.next = 8;
             break;
           }
 
           return _context.abrupt("return");
 
-        case 7:
+        case 8:
           if (!(message.channel.id != BotSpam && BotSpam != "None")) {
-            _context.next = 11;
+            _context.next = 12;
             break;
           }
 
@@ -88,7 +98,7 @@ client.on("message", function _callee(message) {
           })["catch"](console.error);
           return _context.abrupt("return");
 
-        case 11:
+        case 12:
           //Trying to execute the fullCmd, passed in arguments: client, message and args.  
           try {
             fullCmd.execute(client, message, args);
@@ -96,7 +106,7 @@ client.on("message", function _callee(message) {
             console.error(error);
           }
 
-        case 12:
+        case 13:
         case "end":
           return _context.stop();
       }
