@@ -8,7 +8,8 @@ module.exports = {
     description: "Returns metioned users avatar and returns your avatar if there are no arguments",
     aliases: ['av'],
     usage: ">avatar @User#001 [Returns Their Avatar]",
-
+    category: "Utility",
+   
     execute: async function(client, message, args) {
 
         //Create new message Embed 

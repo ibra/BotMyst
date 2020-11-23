@@ -26,14 +26,15 @@ module.exports = {
   description: "Gives you a list of all commands",
   aliases: ['h'],
   usage: ">help [gives all commands] or >help [command] which gives info about the command",
+  category: "Bot",
   execute: function execute(client, message, args) {
-    var data, commands, getCMD, getAll;
+    var getCMD, getAll;
     return regeneratorRuntime.async(function execute$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             getAll = function _ref2(client, message, prefix) {
-              var embed = new Discord.MessageEmbed().setColor(SuccessColor); //all the commands
+              var embed = new Discord.MessageEmbed().setColor(SuccessColor);
 
               var commands = function commands(category) {
                 return client.commands.filter(function (cmd) {
@@ -49,7 +50,7 @@ module.exports = {
               }).reduce(function (string, category) {
                 return string + "\n" + category;
               });
-              return message.channel.send(embed.setTitle("BotMyst > Help").setColor(SuccessColor).setDescription("Here are all of the commands for BotMyst, if you want more information about the command, do `".concat(prefix, " help [command]` \n") + info).setTimestamp().setFooter("Requested by ".concat(message.author.username)));
+              return message.channel.send(embed.setTitle("BotMyst > Help").setColor("ORANGE").setDescription('Here are all of the commands for BotMyst, if you want more information about the command, do >help [command]:' + info).setTimestamp());
             };
 
             getCMD = function _ref(client, message, input) {
@@ -74,7 +75,7 @@ module.exports = {
               }
 
               ;
-              return message.channel.send(embed.setTitle("BotMyst > ".concat(cmd.name)).setColor(SuccessColor).setDescription(info).setTimestamp());
+              return message.channel.send(embed.setAuthor("BotMyst > ".concat(cmd.name)).setColor(SuccessColor).setDescription(info).setTimestamp());
             };
 
             if (!args[0]) {
@@ -85,23 +86,9 @@ module.exports = {
             return _context.abrupt("return", getCMD(client, message, args[0]));
 
           case 6:
-            data = [];
-            commands = message.client.commands;
-            data.push(commands.map(function (command) {
-              return command.name;
-            }).join(', '));
-            return _context.abrupt("return", message.author.send(data, {
-              split: true
-            }).then(function () {
-              if (message.channel.type === 'dm') return;
-              message.reply('I\'ve sent you a DM with all my commands!');
-            })["catch"](function (error) {
-              console.error("Could not send help DM to ".concat(message.author.tag, ".\n"), error);
-              var embed = new Discord.MessageEmbed().setColor(FailureColor).setDescription(message.author.username + ', uh oh. Something went wrong when trying to DM you!');
-              message.channel.send(embed);
-            }));
+            return _context.abrupt("return", getAll(client, message, ">"));
 
-          case 10:
+          case 7:
           case "end":
             return _context.stop();
         }

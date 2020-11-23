@@ -63,7 +63,7 @@ client.on("error", console.error);
 
 client.on("ready", () => {
     //Run if the bot starts, and logs in, successfully.
-    client.user.setActivity(`Helping out ${client.users.cache.size} users.`);
+    client.user.setActivity(`>help | Helping out ${client.users.cache.size} users.`);
     commandFiles.forEach(cmd => {
         console.log(`${cmd} loaded.`);
       })

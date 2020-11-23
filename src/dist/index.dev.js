@@ -117,7 +117,7 @@ client.on("message", function _callee(message) {
 client.on("error", console.error);
 client.on("ready", function () {
   //Run if the bot starts, and logs in, successfully.
-  client.user.setActivity("Helping out ".concat(client.users.cache.size, " users."));
+  client.user.setActivity(">help | Helping out ".concat(client.users.cache.size, " users."));
   commandFiles.forEach(function (cmd) {
     console.log("".concat(cmd, " loaded."));
   });

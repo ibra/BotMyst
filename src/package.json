@@ -15,21 +15,13 @@
     "dictionary-en-gb": "^2.2.2",
     "discord.js": "^12.4.1",
     "en-dictionary": "^1.2.4",
-    "google": "^2.1.0",
-    "google-dictionary-api": "^1.0.8",
     "google-search": "0.0.5",
-    "mw-dictionary": "0.0.5",
     "node-fetch": "^2.6.1",
-    "oxford-dictionary": "^1.6.0",
     "request-promise": "^4.2.6",
     "thesaurus": "0.0.1",
-    "thesaurus-query": "^1.2.9",
-    "thesaurus-synonyms": "^2.1.3",
     "trello": "^0.10.0",
-    "urban": "^0.3.2",
     "urban-dictionary": "^2.2.1",
     "weather-js": "^2.0.0",
-    "wikijs": "^6.0.1",
-    "wordnet": "^0.1.2"
+    "wikijs": "^6.0.1"
   }
 }

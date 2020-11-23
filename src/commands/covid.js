@@ -8,7 +8,8 @@ module.exports = {
     name: "covid",
     description: "Track a country or worldwide COVID-19 cases",
     aliases: ['cov', 'covd'],
-    usage: ">covid Canada [Returns Information About COVID-19 cases in America]",
+    usage: ">covid Canada [Returns Information About COVID-19 cases in Canada]",
+    category: "Core",
     execute: async function(client, message, args) {
 
         //removing prefix
@@ -16,9 +17,10 @@ module.exports = {
 
         //Error Embed if there is no argument
         const noArgs = new Discord.MessageEmbed()
-            .setTitle('Missing arguments')
+            .setAuthor('> Error 400')
             .setColor(FailureColor)
-            .setDescription('You are missing some arguments! (ex: >covid all or >covid Canada)')
+            .setDescription('You are missing some arguments!')
+            .setFooter('ex: >covid all or >covid Canada')
             .setTimestamp()
        
         if (!args[0]) {
@@ -37,7 +39,7 @@ module.exports = {
                     let deaths = data.deaths.value.toLocaleString()
  
                     const embed = new Discord.MessageEmbed()
-                        .setTitle(`Worldwide COVID-19 Stats 🌎`)
+                        .setAuthor(`Worldwide COVID-19 Stats 🌎`)
                         .setColor(SuccessColor)
                         .addField('Confirmed Cases', confirmed)
                         .addField('Recovered', recovered)
@@ -57,7 +59,7 @@ module.exports = {
                     let deaths = data.deaths.value.toLocaleString();
                     let country = data.country;
                     const embed = new Discord.MessageEmbed()
-                        .setTitle(`COVID-19 Stats for **${country}**`)
+                        .setAuthor(`COVID-19 Stats for **${country}**`)
                         .addField('Confirmed Cases', confirmed)
                         .addField('Recovered', recovered)
                         .addField('Deaths', deaths)
@@ -66,9 +68,12 @@ module.exports = {
                     message.channel.send(embed)
                 }).catch(e => {
                     const errorEmbed = new Discord.MessageEmbed()
-                        .setTitle('Couldnt find the country you provided!')
-                        .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a country!')
+                        .setAuthor('> Error 404')
+                        .setDescription('Couldnt find the country you provided!')
+                        .setFooter('Check your spelling in case of an error, or make sure you are providing the name of a country!')
+                        .setTimestamp()
                         .setColor(FailureColor);
+                    
                     //send the embed.    
                     message.channel.send(errorEmbed);
                 })

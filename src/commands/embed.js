@@ -8,6 +8,8 @@ module.exports = {
     description: "A command that sends a message as an embed",
     usage: ">embed [Message] [Lol]",
     permission: "Bot Owner",
+    category: "Misc",
+    
     execute: async function(client, message, args) {
  
         //Only allow the command to work if the author of the command is CodeMyst
@@ -16,7 +18,8 @@ module.exports = {
         } else {
             let errorEmbed = new Discord.MessageEmbed()
                 .setColor(FailureColor)
-                .setTitle("Only CodeMyst can use this command!")
+                .setAuthor("> Error 403")
+                .setDescription("Only CodeMyst can use this command!")
             message.channel.send(errorEmbed);
         }
 
@@ -41,8 +44,8 @@ function sendEmbed(message) {
 
     //Create new embed
     let embed = new Discord.MessageEmbed();
-    embed.title = title,
-        embed.description = description;
+    embed.author = title,
+    embed.description = description;
     embed.color = SuccessColor;
 
 

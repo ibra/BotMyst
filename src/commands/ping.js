@@ -7,6 +7,8 @@ module.exports = {
     name: "ping",
     description: "A command that gives info about the bot",
     usage: ">ping [Gets Latency]",
+    category: "Bot",
+  
     execute: async function(client, message, args) {
 
         const ping = new Discord.MessageEmbed();

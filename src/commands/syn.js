@@ -9,7 +9,8 @@ module.exports = {
 	description: 'Search something and get the synonyms of that word',
     aliases: ['syn'],
     usage: "its like >dict but instead of meanings it gives synonyms",
-    
+    category: "Core",
+   
     execute: async function(client, message, args){
     
     const wordLookup = args.join(" "); //Removing the prefix from argument.
@@ -19,7 +20,7 @@ module.exports = {
     let page = 1; //the current page we are on.
     const wordEmbed = new Discord.MessageEmbed() //Creating a new embed
 	.setColor(SuccessColor)
-	.setTitle('Here are all synonyms for: ' + wordLookup)
+	.setAuthor('Here are all synonyms for: ' + wordLookup)
     .setDescription(pages[page-1])
     .setFooter(`Page ${page} of ${pages.length}`)
     .setTimestamp()
@@ -49,7 +50,7 @@ module.exports = {
         forwards.on('collect', r =>{
             if(page === pages.length) return;
             page++;
-            wordEmbed.setDescription(pages[page-1])
+            wordEmbed.setAuthor(pages[page-1])
             wordEmbed.setFooter(`Page ${page} of ${pages.length}`);
             msg.edit(wordEmbed);
     

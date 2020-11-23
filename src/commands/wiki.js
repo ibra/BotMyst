@@ -9,6 +9,8 @@ module.exports = {
     description: 'Search something on Wikipedia with this command and get a short summary of it.',
     aliases: ['wikipedia'],
     usage: ">wiki Lord Of The Rings [Gives A Short Summary from WikiPedia]",
+    category: "Core",
+    
     execute: async function(client, message, args) {
         {
             const command = args.join(" ");
@@ -25,7 +27,7 @@ module.exports = {
             } else {
                 //Using some regex to make the string understandable to the getWikipediaShortSummary() function.
                 let searchValue = args.toString().replace(/,/g, ' ')
-                searchValue = searchValue.replace(config.PREFIX + command + ' ', '')
+                searchValue = searchValue.replace('>' + command + ' ', '')
                 //Call the getWikipediaShortSummary() function.
                 requests.getWikipediaShortSummary(message, searchValue, requestLang).catch(e => Logger.error(e))
             }

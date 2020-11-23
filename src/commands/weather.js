@@ -9,7 +9,8 @@ module.exports = {
     description: "Checks a weather forecast. If you are having problems make sure you arent checking the weather for an entire country.",
     aliases: ['forecast'],
     usage: ">weather Brisbane [Returns Weather Forecast] ",
-
+    category: "Utility",
+  
     execute: async function(client, message, args) {
 
         //Using weather-js's handy .find function to get a simple result with all the info we need.
@@ -20,8 +21,9 @@ module.exports = {
 
             if (!args[0]) { //if there are no arguments provided, send an error message.
                 const errorEmbed = new Discord.MessageEmbed()
-                    .setTitle('Please Specify a location!!')
-                    .setDescription("e.g: >weather Brisbane [Returns Weather Forecast]")
+                    .setAuthor('> Error 400')
+                    .setDescription("Please Specify a location!")
+                    .setFooter("e.g: >weather Brisbane [Returns Weather Forecast]")
                     .setColor(FailureColor)
                 
                 message.channel.send(errorEmbed);
@@ -31,8 +33,9 @@ module.exports = {
             if (result === undefined || result.length === 0) { //if the result is not found, then send an error embed.
                 
                 const errorEmbed = new Discord.MessageEmbed()
-                    .setTitle('Couldnt find the location you provided!')
-                    .setDescription('Check your spelling in case of an error, or make sure you are providing the name of a valid location / area, and not a country!')
+                    .setAuthor('> Error 404')   
+                    .setDescription('Couldnt find the location you provided!')
+                    .setFooter('Check your spelling in case of an error, or make sure you are providing the name of a valid location / area, and not a country!')
                     .setColor(FailureColor)
                    
                  message.channel.send(errorEmbed);
