@@ -58,7 +58,7 @@ module.exports = {
                 }
             
                 //the command list
-                const info = client.categories
+                const info = client.category
                     .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
                     .reduce((string, category) => string + "\n" + category);
             

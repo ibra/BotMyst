@@ -13,7 +13,7 @@ module.exports = {
     usage: ">dict idiot [returns definition of word]",
     category: "Core",
   
-    execute: async function(client, message, args) {
+      execute: async function(client, message, args) {
       
         //Remove prefix.
         const wordLookup = args.join(" ");

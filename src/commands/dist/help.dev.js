@@ -45,7 +45,7 @@ module.exports = {
               }; //the command list
 
 
-              var info = client.categories.map(function (cat) {
+              var info = client.category.map(function (cat) {
                 return stripIndents(_templateObject(), cat[0].toUpperCase() + cat.slice(1), commands(cat));
               }).reduce(function (string, category) {
                 return string + "\n" + category;

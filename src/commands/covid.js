@@ -57,9 +57,8 @@ module.exports = {
                     let confirmed = data.confirmed.value.toLocaleString();
                     let recovered = data.recovered.value.toLocaleString();
                     let deaths = data.deaths.value.toLocaleString();
-                    let country = data.country;
                     const embed = new Discord.MessageEmbed()
-                        .setAuthor(`COVID-19 Stats for **${country}**`)
+                        .setAuthor(`COVID-19 Stats for ${countries}`)
                         .addField('Confirmed Cases', confirmed)
                         .addField('Recovered', recovered)
                         .addField('Deaths', deaths)
