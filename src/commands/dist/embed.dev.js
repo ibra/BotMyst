@@ -46,11 +46,20 @@ function sendEmbed(message) {
   var title = command.substr(titleStart + 1, titleEnd - titleStart - 1);
   var descStart = command.indexOf('[', titleStart + 1);
   var descEnd = command.indexOf(']', titleEnd + 1);
-  var description = command.substr(descStart + 1, descEnd - descStart - 1); //Create new embed
-
+  var description = command.substr(descStart + 1, descEnd - descStart - 1);
   var embed = new Discord.MessageEmbed();
-  embed.author = title, embed.description = description;
-  embed.color = SuccessColor; //Send the embed.
+
+  if (title == "" || description == "") {
+    embed.setAuthor("> Error 400");
+    embed.setDescription("You are missing arguments!");
+    embed.setColor(FailureColor);
+    message.channel.send(embed);
+  } else {
+    //Create new embed
+    embed.title = title, embed.description = description;
+    embed.color = SuccessColor;
+  } //Send the embed.
+
 
   channel.send(embed);
 }

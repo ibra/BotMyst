@@ -28,7 +28,7 @@ module.exports = {
             page = 1; //the current page we are on.
 
             wordEmbed = new Discord.MessageEmbed() //Creating a new embed
-            .setColor(SuccessColor).setAuthor('Here are all synonyms for: ' + wordLookup).setDescription(pages[page - 1]).setFooter("Page ".concat(page, " of ").concat(pages.length)).setTimestamp(); //Send the embed and create a reaction collecter to listen for page changes.
+            .setColor(SuccessColor).setTitle('Here are all synonyms for: ' + wordLookup).setDescription(pages[page - 1]).setFooter("Page ".concat(page, " of ").concat(pages.length)).setTimestamp(); //Send the embed and create a reaction collecter to listen for page changes.
 
             message.channel.send(wordEmbed).then(function (msg) {
               msg.react('⬅️').then(function (r) {
@@ -61,7 +61,7 @@ module.exports = {
                 forwards.on('collect', function (r) {
                   if (page === pages.length) return;
                   page++;
-                  wordEmbed.setAuthor(pages[page - 1]);
+                  wordEmbed.setDescription(pages[page - 1]);
                   wordEmbed.setFooter("Page ".concat(page, " of ").concat(pages.length));
                   msg.edit(wordEmbed);
                 });

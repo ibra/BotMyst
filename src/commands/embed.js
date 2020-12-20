@@ -42,14 +42,25 @@ function sendEmbed(message) {
     let descEnd = command.indexOf(']', titleEnd + 1);
     let description = command.substr(descStart + 1, descEnd - descStart - 1);
 
-    //Create new embed
     let embed = new Discord.MessageEmbed();
-    embed.author = title,
-    embed.description = description;
-    embed.color = SuccessColor;
+
+    if(title == "" || description == "")
+    {
+        embed.setAuthor("> Error 400")
+        embed.setDescription("You are missing arguments!");
+        embed.setColor(FailureColor);
+        message.channel.send(embed);
+    } else {
+       //Create new embed
+
+        embed.title = title,
+        embed.description = description;
+        embed.color = SuccessColor;
+    }
 
 
 
+ 
 
     //Send the embed.
     channel.send(embed);

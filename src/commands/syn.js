@@ -20,7 +20,7 @@ module.exports = {
     let page = 1; //the current page we are on.
     const wordEmbed = new Discord.MessageEmbed() //Creating a new embed
 	.setColor(SuccessColor)
-	.setAuthor('Here are all synonyms for: ' + wordLookup)
+	.setTitle('Here are all synonyms for: ' + wordLookup)
     .setDescription(pages[page-1])
     .setFooter(`Page ${page} of ${pages.length}`)
     .setTimestamp()
@@ -50,7 +50,7 @@ module.exports = {
         forwards.on('collect', r =>{
             if(page === pages.length) return;
             page++;
-            wordEmbed.setAuthor(pages[page-1])
+            wordEmbed.setDescription(pages[page-1])
             wordEmbed.setFooter(`Page ${page} of ${pages.length}`);
             msg.edit(wordEmbed);
     
