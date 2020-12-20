@@ -36,6 +36,8 @@ When you open the project, you will see a `config.json.example` file. You need t
 `token` is your bots token.
 `botspam` is the channel the bots commands are restricted to. Change this to `None` if you want to use the bot anywhere.
 
+#### IMPORTANT: Prefix changing is still in beta, changing the prefix from `>` may not guarantee that the prefix will be changed everywhere. 
+
 ```config.json
 token: 'Enter your own token here!'
 prefix: '>'
