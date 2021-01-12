@@ -22,7 +22,7 @@ An attempt at reviving BotMyst!
 [![CodeMyst (Founder of Bot)](https://img.shields.io/github/followers/codemyst?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/codemyst)
 
 #### IbrahimDev - Main Programmer 
-[![IbrahimDev](https://img.shields.io/github/followers/minidevz?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/minidevz)
+[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/minidevz)
  
 
 
