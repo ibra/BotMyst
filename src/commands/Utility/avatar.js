@@ -18,9 +18,8 @@ module.exports = {
         //If there is no mention, then display Author's avatar.
         if (!message.mentions.users.first()) {
             
-            avatarEmbed.setTitle(message.author.username);
+            avatarEmbed.setTitle(`${user.username}'s avatar!`);
             avatarEmbed.setColor(SuccessColor);
-            avatarEmbed.setAuthor("Your Avatar!");
             avatarEmbed.setImage(message.author.displayAvatarURL());
         } //Otherwise, we display the mentioned users avatar.
         else {
@@ -29,7 +28,6 @@ module.exports = {
             avatarEmbed.setTitle(`${user.username}'s avatar!`);
             avatarEmbed.setColor(SuccessColor);
             avatarEmbed.setImage(user.displayAvatarURL());
-
         }
         //Send the embed.
         message.channel.send(avatarEmbed);

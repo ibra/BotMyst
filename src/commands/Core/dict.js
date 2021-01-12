@@ -16,10 +16,23 @@ module.exports = {
 
     execute: async function(client, message, args) {
 
+
+
         //Remove prefix.
         const wordLookup = args.join(" ");
         //Create new embed.
         const dictionaryEmbed = new Discord.MessageEmbed()
+
+        if(wordLookup == "")
+        {
+            dictionaryEmbed.setAuthor("> Error 400")
+            dictionaryEmbed.setDescription("You havent provided any arguments!");
+            dictionaryEmbed.setColor(FailureColor);
+            message.channel.send(dictionaryEmbed); 
+            return;
+        }
+  
+       
         const requestURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
         const results = await fetch(`${requestURL}/${wordLookup}`);
         const json = await results.json();

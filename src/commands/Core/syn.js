@@ -34,8 +34,8 @@ module.exports = {
         const forwardReaction = (reaction,user) => reaction.emoji.name === '➡️' && user.id === message.author.id;
         
         //Creating the actual reaction collecter
-        const backwards = msg.createReactionCollector(backwardsReaction, {time: 50000})
-        const forwards = msg.createReactionCollector(forwardReaction, {time: 50000})
+        const backwards = msg.createReactionCollector(backwardsReaction, {time: 500000})
+        const forwards = msg.createReactionCollector(forwardReaction, {time: 500000})
 
         //check if there is a backward reaction collected.
         backwards.on('collect', r =>{
