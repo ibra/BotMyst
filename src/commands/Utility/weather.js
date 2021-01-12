@@ -1,7 +1,7 @@
 const weather = require('weather-js');
 const Discord = require('discord.js');
 const {
-    weatherDegreeType, SuccessColor, FailureColor
+    weatherDegreeType, SuccessColor, FailureColor, PREFIX
 } = require('../../config.json');
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
                 const errorEmbed = new Discord.MessageEmbed()
                     .setAuthor('> Error 400')
                     .setDescription("Please Specify a location!")
-                    .setFooter("e.g: >weather Brisbane [Returns Weather Forecast]")
+                    .setFooter(`e.g: \`${PREFIX}\`weather Brisbane [Returns Weather Forecast]`)
                     .setColor(FailureColor)
                 
                 message.channel.send(errorEmbed);

@@ -6,6 +6,7 @@ const { BotToken, BotSpam, PREFIX, SuccessColor } = require('./config.json');
 // Creating a new bot client that we login with
 const client = new Discord.Client();
 
+//creating new Discord Collections for our commands and our aliases
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
