@@ -1,9 +1,9 @@
-const Util = require('./../modules/util')
+const Util = require('../../modules/util')
 const Logger = new Util.Logger();
-const requests = require('./../modules/requests')
+const requests = require('../../modules/requests')
 const {
     FailureColor
-} = require('../config.json');
+} = require('../../config.json');
 module.exports = {
     name: 'wiki',
     description: 'Search something on Wikipedia with this command and get a short summary of it.',

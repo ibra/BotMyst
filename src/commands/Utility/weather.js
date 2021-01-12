@@ -2,7 +2,7 @@ const weather = require('weather-js');
 const Discord = require('discord.js');
 const {
     weatherDegreeType, SuccessColor, FailureColor
-} = require('../config.json');
+} = require('../../config.json');
 
 module.exports = {
     name: "weather",

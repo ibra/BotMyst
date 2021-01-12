@@ -4,8 +4,8 @@ const {
 } = require("common-tags");
 
 const {
-    SuccessColor, FailureColor
-} = require('../config.json');
+    SuccessColor,PREFIX
+} = require('../../config.json');
 
 module.exports = {
     name: "help",
@@ -58,14 +58,14 @@ module.exports = {
                 }
             
                 //the command list
-                const info = client.category
+                const info = client.categories
                     .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
                     .reduce((string, category) => string + "\n" + category);
             
                 return message.channel.send(embed
                     .setTitle(`BotMyst > Help`)
                     .setColor("ORANGE")
-                    .setDescription('Here are all of the commands for BotMyst, if you want more information about the command, do >help [command]:' + info)
+                    .setDescription(`Here are all of the commands for BotMyst, if you want more information about the command, do \`${PREFIX}help [command]\` \n` + info)
                     .setTimestamp()); 
             }
          

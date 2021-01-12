@@ -2,14 +2,14 @@ const fetch = require('node-fetch');
 const Discord = require('discord.js');
 const {
     SuccessColor, FailureColor
-} = require('../config.json');
+} = require('../../config.json');
 
 module.exports = {
     name: "covid",
     description: "Track a country or worldwide COVID-19 cases",
     aliases: ['cov', 'covd'],
     usage: ">covid Canada [Returns Information About COVID-19 cases in Canada]",
-    category: "Core",
+    category: "Utility",
     execute: async function(client, message, args) {
 
         //removing prefix

@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const {
     SuccessColor
-} = require('../config.json');
+} = require('../../config.json');
 
 module.exports = {
     name: "avatar",

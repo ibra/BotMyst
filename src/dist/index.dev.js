@@ -4,7 +4,8 @@
 var Discord = require("discord.js");
 
 var _require = require('fs'),
-    readdirSync = _require.readdirSync;
+    readdirSync = _require.readdirSync,
+    fstat = _require.fstat;
 
 var _require2 = require('./config.json'),
     BotToken = _require2.BotToken,
@@ -14,38 +15,59 @@ var _require2 = require('./config.json'),
 
 
 var client = new Discord.Client();
-client.commands = new Discord.Collection(); //Going through each command and setting the command to the actual discord command
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+client.categories = readdirSync("./commands/"); //An array that will contain commands that may have problems in them.
 
-var commandFiles = readdirSync("./commands").filter(function (file) {
-  return file.endsWith('.js');
-});
-var _iteratorNormalCompletion = true;
-var _didIteratorError = false;
-var _iteratorError = undefined;
+var BuggedCommands = []; //Going through each command and setting the command to the actual discord command
 
-try {
-  for (var _iterator = commandFiles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-    var file = _step.value;
+readdirSync("./commands/").forEach(function (dir) {
+  var commands = readdirSync("./commands/".concat(dir, "/")).filter(function (file) {
+    return file.endsWith(".js");
+  });
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-    var command = require("./commands/".concat(file));
-
-    client.commands.set(command.name, command);
-  }
-} catch (err) {
-  _didIteratorError = true;
-  _iteratorError = err;
-} finally {
   try {
-    if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-      _iterator["return"]();
+    var _loop = function _loop() {
+      var file = _step.value;
+
+      var pull = require("./commands/".concat(dir, "/").concat(file));
+
+      if (pull.name) {
+        client.commands.set(pull.name, pull);
+      } else {
+        BuggedCommands.push(file);
+        return "continue";
+      }
+
+      if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(function (alias) {
+        return client.aliases.set(alias, pull.name);
+      });
+    };
+
+    for (var _iterator = commands[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var _ret = _loop();
+
+      if (_ret === "continue") continue;
     }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
   } finally {
-    if (_didIteratorError) {
-      throw _iteratorError;
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
     }
   }
-}
-
+});
+if (BuggedCommands.length > 0) console.log("❌ | Something happened to these files: " + BuggedCommands.toString());else console.log("✅ | Bot is looking good!");
 client.on("message", function _callee(message) {
   var embed, args, command, fullCmd, botError;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -112,15 +134,17 @@ client.on("message", function _callee(message) {
       }
     }
   });
-}); //Just a simple console log for debugging an error if the bot fails to turn on
+}); //Just a a few simple console logs for debugging errors/warnings if the bot faces any problems
 
-client.on("error", console.error);
+client.on('error', function (e) {
+  return console.error(e);
+});
+client.on('warning', function (e) {
+  return console.warn(e);
+});
 client.on("ready", function () {
   //Run if the bot starts, and logs in, successfully.
-  client.user.setActivity(">help | Helping out ".concat(client.users.cache.size, " users."));
-  commandFiles.forEach(function (cmd) {
-    console.log("".concat(cmd, " loaded."));
-  });
+  client.user.setActivity("help | Helping out in ".concat(client.channels.cache.size, " channels."));
 }); //Login with the bot token provided in config.json.
 
 client.login(BotToken);

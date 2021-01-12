@@ -1,14 +1,14 @@
 const Discord = require('discord.js')
 const {
     CodeMyst, SuccessColor, FailureColor
-} = require('../config.json');
+} = require('../../config.json');
 
 module.exports = {
     name: "embed",
     description: "A command that sends a message as an embed",
     usage: ">embed [Message] [Lol]",
     permission: "Bot Owner",
-    category: "Misc",
+    category: "Bot",
     
     execute: async function(client, message, args) {
  
