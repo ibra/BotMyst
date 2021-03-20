@@ -56,7 +56,7 @@ module.exports = {
                 .setColor(SuccessColor)
                 //Weather Information Content.
                 .addField('Timezone', `UTC${location.timezone}`, true)
-                .addField('Degree Type', 'Fahrenheit', true)
+                .addField('Degree Type', `${location.degreetype}°`, true)
                 .addField('Temperature', `${current.temperature}°`, true)
                 .addField('Wind', current.winddisplay, true)
                 .addField('Feels like', `${current.feelslike}°`, true)
