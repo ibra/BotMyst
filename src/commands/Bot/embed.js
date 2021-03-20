@@ -9,7 +9,7 @@ const {
 module.exports = {
     name: "embed",
     description: "A command that sends a message as an embed",
-    usage: `${Prefix} [Hello!] [This is a test embed.]`,
+    usage: `${Prefix}embed [Hello!] [This is a test embed.]`,
     permission: "Bot Owner",
     category: "Bot",
     
