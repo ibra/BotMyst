@@ -1,7 +1,0 @@
-{
-    "token": "Your Token Here!",
-    "botSpam": "Your Bot Spam Channel Here!",
-    "Prefix":"Your Prefix Here!",
-    "weatherDegreeType": "F",
-    "ApplicationKey": "Your Trello Api Key Here!",
-}

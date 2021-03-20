@@ -116,6 +116,5 @@ dist
 .pnp.*
 
 #Ignoring node modules, and our configuration file
-src/package-lock.json
 src/node_modules
 src/config.json
