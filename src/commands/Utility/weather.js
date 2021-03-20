@@ -1,7 +1,10 @@
 const weather = require('weather-js');
 const Discord = require('discord.js');
 const {
-    weatherDegreeType, SuccessColor, FailureColor, Prefix
+    WeatherDegreeType, 
+    SuccessColor, 
+    FailureColor, 
+    Prefix
 } = require('../../config.json');
 
 module.exports = {
@@ -16,7 +19,7 @@ module.exports = {
         //Using weather-js's handy .find function to get a simple result with all the info we need.
         weather.find({
             search: args.join(" "),
-            degreeType: weatherDegreeType
+            degreeType: WeatherDegreeType
         }, function(error, result) {
 
             if (!args[0]) { //if there are no arguments provided, send an error message.

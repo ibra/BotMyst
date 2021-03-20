@@ -1,7 +1,8 @@
 const Discord = require('discord.js')
 const {
     SuccessColor,
-    FailureColor
+    FailureColor,
+    Prefix,
 } = require('../../config.json');
 const fetch = require('node-fetch');
 

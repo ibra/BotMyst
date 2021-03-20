@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const {
-    SuccessColor, Prefix
+    SuccessColor, 
+    Prefix
 } = require('../../config.json');
 
 module.exports = {

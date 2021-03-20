@@ -4,7 +4,8 @@ const {
 } = require("common-tags");
 
 const {
-    SuccessColor,Prefix
+    SuccessColor, 
+    Prefix
 } = require('../../config.json');
 
 module.exports = {

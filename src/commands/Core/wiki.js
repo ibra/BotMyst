@@ -2,7 +2,8 @@ const Util = require('../../modules/util')
 const Logger = new Util.Logger();
 const requests = require('../../modules/requests')
 const {
-    FailureColor, Prefix
+    FailureColor, 
+    Prefix
 } = require('../../config.json');
 module.exports = {
     name: 'wiki',

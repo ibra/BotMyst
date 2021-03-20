@@ -1,7 +1,8 @@
 const Discord = require('discord.js')
 var thesaurus = require('thesaurus');
 const {
-    SuccessColor
+    SuccessColor,
+    Prefix
 } = require('../../config.json');
 
 module.exports = {

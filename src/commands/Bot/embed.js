@@ -1,6 +1,9 @@
 const Discord = require('discord.js')
 const {
-    BotAuthor, SuccessColor, FailureColor
+    BotAuthor, 
+    SuccessColor, 
+    FailureColor, 
+    Prefix
 } = require('../../config.json');
 
 module.exports = {
