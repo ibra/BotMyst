@@ -8,11 +8,11 @@ module.exports = {
     name: "covid",
     description: "Track a country or worldwide COVID-19 cases",
     aliases: ['cov', 'covd'],
-    usage: ">covid Canada [Returns Information About COVID-19 cases in Canada]",
+    usage: `${Prefix}covid Canada [Returns Information About COVID-19 cases in Canada]`,
     category: "Utility",
     execute: async function(client, message, args) {
 
-        //removing prefix
+        //removing Prefix
         let countries = args.join(" ");
 
         //Error Embed if there is no argument

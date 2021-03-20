@@ -7,7 +7,7 @@ module.exports = {
     name: "avatar",
     description: "Returns metioned users avatar and returns your avatar if there are no arguments",
     aliases: ['av'],
-    usage: ">avatar @User#001 [Returns Their Avatar]",
+    usage: `${Prefix}avatar @User#001 [Returns Their Avatar]`,
     category: "Utility",
    
     execute: async function(client, message, args) {

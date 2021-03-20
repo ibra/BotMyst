@@ -6,14 +6,14 @@ const {
 
 module.exports = {
 	name:'synonyms',
-	description: 'Search something and get the synonyms of that word',
+	description: `${Prefix}Search something and get the synonyms of that word`,
     aliases: ['syn'],
     usage: "its like >dict but instead of meanings it gives synonyms",
     category: "Core",
    
     execute: async function(client, message, args){
     
-    const wordLookup = args.join(" "); //Removing the prefix from argument.
+    const wordLookup = args.join(" "); //Removing the Prefix from argument.
     var res = thesaurus.find(wordLookup); //Calling thesaurus.find, and passing our manipulated string as an argument.
     
     let pages = res; //Assign our result to a variable

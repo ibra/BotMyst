@@ -4,14 +4,14 @@ const {
 } = require("common-tags");
 
 const {
-    SuccessColor,PREFIX
+    SuccessColor,Prefix
 } = require('../../config.json');
 
 module.exports = {
     name: "help",
     description: "Gives you a list of all commands",
     aliases: ['h'],
-    usage: ">help [gives all commands] or >help [command] which gives info about the command",
+    usage: `${Prefix}help [gives all commands] or >help [command] which gives info about the command`,
     category: "Bot",
    
     execute: async function(client, message, args) {
@@ -46,7 +46,7 @@ module.exports = {
                 .setTimestamp());
         }
 
-        function getAll(client, message, prefix) {
+        function getAll(client, message, Prefix) {
             const embed = new Discord.MessageEmbed()
                 .setColor(SuccessColor)
 
@@ -65,7 +65,7 @@ module.exports = {
                 return message.channel.send(embed
                     .setTitle(`BotMyst > Help`)
                     .setColor("ORANGE")
-                    .setDescription(`Here are all of the commands for BotMyst, if you want more information about the command, do \`${PREFIX}help [command]\` \n` + info)
+                    .setDescription(`Here are all of the commands for BotMyst, if you want more information about the command, do \`${Prefix}help [command]\` \n` + info)
                     .setTimestamp()); 
             }
          

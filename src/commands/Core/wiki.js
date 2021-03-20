@@ -2,13 +2,13 @@ const Util = require('../../modules/util')
 const Logger = new Util.Logger();
 const requests = require('../../modules/requests')
 const {
-    FailureColor
+    FailureColor, Prefix
 } = require('../../config.json');
 module.exports = {
     name: 'wiki',
     description: 'Search something on Wikipedia with this command and get a short summary of it.',
     aliases: ['wikipedia'],
-    usage: ">wiki Lord Of The Rings [Gives A Short Summary from WikiPedia]",
+    usage: `${Prefix}wiki Lord Of The Rings [Gives A Short Summary from WikiPedia]"`,
     category: "Core",
     
     execute: async function(client, message, args) {

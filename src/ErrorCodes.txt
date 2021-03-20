@@ -3,4 +3,4 @@ fit any of the use-cases for these codes, make a pull request with the code you 
  
 Error 404:  Not Found 
 Error 400:  Missing Arguments
-Error 403:  Missing Permission
+Error 403:  Missing Permissions / Denied Access

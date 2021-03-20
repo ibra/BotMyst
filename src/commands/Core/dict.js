@@ -11,14 +11,14 @@ module.exports = {
     name: "dict",
     description: "A command that shows the meaning of a word",
     aliases: ['dictionary'],
-    usage: ">dict idiot [returns definition of word]",
+    usage: `${Prefix}dict idiot [returns definition of word]`,
     category: "Core",
 
     execute: async function(client, message, args) {
 
 
 
-        //Remove prefix.
+        //Remove Prefix.
         const wordLookup = args.join(" ");
         //Create new embed.
         const dictionaryEmbed = new Discord.MessageEmbed()

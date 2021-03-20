@@ -1,25 +1,25 @@
 const Discord = require('discord.js')
 const {
-    CodeMyst, SuccessColor, FailureColor
+    BotAuthor, SuccessColor, FailureColor
 } = require('../../config.json');
 
 module.exports = {
     name: "embed",
     description: "A command that sends a message as an embed",
-    usage: ">embed [Message] [Lol]",
+    usage: `${Prefix} [Hello!] [This is a test embed.]`,
     permission: "Bot Owner",
     category: "Bot",
     
     execute: async function(client, message, args) {
  
-        //Only allow the command to work if the author of the command is CodeMyst
-        if (message.author.id == CodeMyst) {
+        //Only allow the command to work if the author of the command is the bot author.
+        if (message.author.id == BotAuthor) {
             sendEmbed(message);
         } else {
             let errorEmbed = new Discord.MessageEmbed()
                 .setColor(FailureColor)
                 .setAuthor("> Error 403")
-                .setDescription("Only CodeMyst can use this command!")
+                .setDescription(`Only the BotAuthor (${BotAuthor})  can use this command!`)
             message.channel.send(errorEmbed);
         }
 
@@ -57,10 +57,6 @@ function sendEmbed(message) {
         embed.description = description;
         embed.color = SuccessColor;
     }
-
-
-
- 
 
     //Send the embed.
     channel.send(embed);
