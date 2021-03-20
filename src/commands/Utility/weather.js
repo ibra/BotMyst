@@ -62,7 +62,6 @@ module.exports = {
                 .addField('Feels like', `${current.feelslike}°`, true)
                 .addField('Humidity', `${current.humidity}%`, true)
 
-            //Send the embed.
             message.channel.send(weatherinfo)
         })
     }

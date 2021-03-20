@@ -1,13 +1,5 @@
-const colors = require('colors')
 const dateTime = require('date-time')
 
-colors.setTheme({
-	info: 'green',
-	data: 'gray',
-	warn: 'yellow',
-	error: 'red',
-	debug: 'cyan',
-})
 
 /**
  * Returns a rounded number.

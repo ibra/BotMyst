@@ -19,7 +19,6 @@ module.exports = {
         ping.setTimestamp(Date.now());
         ping.setColor(SuccessColor);
           
-        //Send the embed.
         message.channel.send(ping);
     }
 }

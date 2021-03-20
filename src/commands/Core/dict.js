@@ -1,12 +1,10 @@
 const Discord = require('discord.js')
+const fetch = require('node-fetch');
 const {
     SuccessColor,
     FailureColor,
     Prefix,
 } = require('../../config.json');
-const fetch = require('node-fetch');
-
-
 
 module.exports = {
     name: "dict",
@@ -17,15 +15,12 @@ module.exports = {
 
     execute: async function(client, message, args) {
 
-
-
         //Remove Prefix.
         const wordLookup = args.join(" ");
         //Create new embed.
         const dictionaryEmbed = new Discord.MessageEmbed()
 
-        if(wordLookup == "")
-        {
+        if(wordLookup == "") {
             dictionaryEmbed.setAuthor("> Error 400")
             dictionaryEmbed.setDescription("You havent provided any arguments!");
             dictionaryEmbed.setColor(FailureColor);
@@ -45,10 +40,9 @@ module.exports = {
             var example = json[0].meanings[0].definitions[0].example;
 
             dictionaryEmbed.setAuthor(`${json[0].word} | ${phonetics}`)
-            if (example != undefined) {
+            if (example != null) {
                 dictionaryEmbed.setFooter("e.g: " + example);
             } else {
-
                 dictionaryEmbed.setFooter("");
             }
             
@@ -57,7 +51,6 @@ module.exports = {
             message.channel.send(dictionaryEmbed);
 
         } else {
-
             dictionaryEmbed.setAuthor("> Error 404")
             dictionaryEmbed.setDescription("Sorry! I was unable to find that word.");
             dictionaryEmbed.setColor(FailureColor);

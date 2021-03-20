@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const {
     stripIndents
 } = require("common-tags");
-
 const {
     SuccessColor, 
     Prefix
@@ -17,11 +16,11 @@ module.exports = {
    
     execute: async function(client, message, args) {
        
-        if (args[0]) {
-            return getCMD(client, message, args[0]);
-        } else {
-           return getAll(client,message,">")
-        }
+        if (args[0]) 
+        return getCMD(client, message, args[0]);
+        else 
+        return getAll(client,message,">")
+        
 
         function getCMD(client, message, input) {
             const embed = new Discord.MessageEmbed()
@@ -58,7 +57,7 @@ module.exports = {
                         .join(", ");
                 }
             
-                //the command list
+                //Some string manipulation to format the Categories
                 const info = client.categories
                     .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
                     .reduce((string, category) => string + "\n" + category);
@@ -68,7 +67,7 @@ module.exports = {
                     .setColor("ORANGE")
                     .setDescription(`Here are all of the commands for BotMyst, if you want more information about the command, do \`${Prefix}help [command]\` \n` + info)
                     .setTimestamp()); 
-            }
+        }
          
 
     }

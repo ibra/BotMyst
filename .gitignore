@@ -115,6 +115,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-#node modules and configuration file
+#Ignoring node modules, and our configuration file
+src/package-lock.json
 src/node_modules
 src/config.json

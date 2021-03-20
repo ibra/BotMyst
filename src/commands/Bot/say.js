@@ -25,7 +25,7 @@ module.exports = {
                 errorEmbed.setColor(FailureColor)
                 .setColor(FailureColor)
                 .setAuthor("> Error 403")
-                .setDescription("I was unable to access this channel. | Missing Permissions")
+                .setDescription("I was unable to access this channel.")
              } 
 
              message.channel.send(errorEmbed);

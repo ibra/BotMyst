@@ -24,7 +24,6 @@ module.exports = {
             .setTimestamp(Date.now())
             .setColor(SuccessColor);
       
-        //Send the embed.
         message.channel.send(lmgtfyEmbed);
     }
 

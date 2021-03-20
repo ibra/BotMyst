@@ -32,9 +32,9 @@ module.exports = {
 
 
 function sendEmbed(message) {
+    
     let command = message.content;
     let channel = message.channel;
-    let author = message.author;
 
     //Some string manipulation that removes the square parenthesis to allow for both Titles and Descriptions
     let titleStart = command.indexOf('[');
@@ -47,20 +47,18 @@ function sendEmbed(message) {
 
     let embed = new Discord.MessageEmbed();
 
-    if(title == "" || description == "")
+    if(title === "" || description === "")
     {
         embed.setAuthor("> Error 400")
         embed.setDescription("You are missing arguments!");
         embed.setColor(FailureColor);
         message.channel.send(embed);
-    } else {
-       //Create new embed
+    } else {   
 
         embed.title = title,
         embed.description = description;
         embed.color = SuccessColor;
     }
 
-    //Send the embed.
     channel.send(embed);
 }

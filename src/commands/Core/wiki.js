@@ -5,6 +5,7 @@ const {
     FailureColor, 
     Prefix
 } = require('../../config.json');
+
 module.exports = {
     name: 'wiki',
     description: 'Search something on Wikipedia with this command and get a short summary of it.',
