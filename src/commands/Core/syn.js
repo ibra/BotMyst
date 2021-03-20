@@ -24,7 +24,6 @@ module.exports = {
 	.setTitle('Here are all synonyms for: ' + wordLookup)
     .setDescription(pages[page-1])
     .setFooter(`Page ${page} of ${pages.length}`)
-    .setTimestamp()
     //Send the embed and create a reaction collecter to listen for page changes.
     message.channel.send(wordEmbed).then(msg => {
         msg.react('⬅️').then(r => {

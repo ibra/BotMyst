@@ -30,7 +30,7 @@ module.exports = {
             avatarEmbed.setColor(SuccessColor);
             avatarEmbed.setImage(user.displayAvatarURL());
         }
-        //Send the embed.
+
         message.channel.send(avatarEmbed);
     }
 

@@ -42,8 +42,7 @@ module.exports = {
             return message.channel.send(embed
                 .setAuthor(`BotMyst > ${cmd.name}`)
                 .setColor(SuccessColor)
-                .setDescription(info)
-                .setTimestamp());
+                .setDescription(info));
         }
 
         function getAll(client, message, Prefix) {
@@ -65,8 +64,7 @@ module.exports = {
                 return message.channel.send(embed
                     .setTitle(`BotMyst > Help`)
                     .setColor("ORANGE")
-                    .setDescription(`Here are all of the commands for BotMyst, if you want more information about the command, do \`${Prefix}help [command]\` \n` + info)
-                    .setTimestamp()); 
+                    .setDescription(`Here are all of the commands for BotMyst, if you want more information about the command, do \`${Prefix}help [command]\` \n` + info)); 
         }
          
 

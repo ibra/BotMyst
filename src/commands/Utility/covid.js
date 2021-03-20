@@ -23,7 +23,6 @@ module.exports = {
             .setColor(FailureColor)
             .setDescription('You are missing some arguments!')
             .setFooter('ex: >covid all or >covid Canada')
-            .setTimestamp()
        
         if (!args[0]) {
             //Also react because yes.
@@ -72,10 +71,8 @@ module.exports = {
                         .setAuthor('> Error 404')
                         .setDescription('Couldnt find the country you provided!')
                         .setFooter('Check your spelling in case of an error, or make sure you are providing the name of a country!')
-                        .setTimestamp()
                         .setColor(FailureColor);
-                    
-                    //send the embed.    
+                       
                     message.channel.send(errorEmbed);
                 })
         

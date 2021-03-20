@@ -63,7 +63,6 @@ readdirSync("./commands/").forEach(dir => {
             const botError = new Discord.MessageEmbed()
             .setDescription('This bot is still in its early stages so its commands are restricted to the #bot channel.')
             .setColor(0xFF0000)
-            .setTimestamp();
             message.reply(botError)
             .then(msg => {
             msg.delete({timeout: 5000});
