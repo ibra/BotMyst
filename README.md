@@ -1,10 +1,10 @@
 # BotMyst : Revived. `>`
 
-An attempt at reviving BotMyst!  
+A redesign of BotMyst in JavaScript.
 
 ## Commands
 
-## Stats
+## Issues
 
 [![Issues Open](https://img.shields.io/github/issues/BotMyst/BotMystRevival?color=orange)](https://github.com/BotMyst/BotMystRevival/issues)
 [![Issues Closed](https://img.shields.io/github/issues-closed-raw/BotMyst/BotMystRevival?label=issues%20closed)](https://github.com/BotMyst/BotMystRevival/issues?q=is%3Aissue+is%3Aclosed)
@@ -22,7 +22,7 @@ An attempt at reviving BotMyst!
 [![CodeMyst (Founder of Bot)](https://img.shields.io/github/followers/codemyst?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/codemyst)
 
 #### IbrahimDev - Main Programmer 
-[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/minidevz)
+[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/ibra)
  
 
 
@@ -31,12 +31,11 @@ An attempt at reviving BotMyst!
 - [📝 Apache 2.0 License](https://github.com/BotMyst/BotMystRevival/blob/master/LICENSE):
 The bot is written with **Discord.JS**, meaning you can host it on your computer via `node`.
 
-When you open the project, you will see a `config.json.example` file. You need to rename it to just `config.json`. This is where all of the bot configuration will be placed. The only fields that are essential for running the bot are `token` and `botSpam`.
+When you open the project, you will see a `config.example.json` file. You need to rename it to just `config.json`. This is where all of the bot configuration will be placed. The only fields that are essential for running the bot are `token` and `botSpam`.
 
 `token` is your bots token.
 `botspam` is the channel the bots commands are restricted to. Change this to `None` if you want to use the bot anywhere.
 
-#### IMPORTANT: Prefix changing is still in beta, changing the prefix from `>` may not guarantee that the prefix will be changed everywhere. 
 
 ```config.json
 token: 'Enter your own token here!'
