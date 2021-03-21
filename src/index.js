@@ -11,6 +11,7 @@ async function main() {
     // Creating new Discord Collections for our commands and our aliases
     client.commands = new Collection();
     client.aliases = new Collection();
+    client.categories = fs.readdirSync(COMMANDS_PATH);
 
     if (Config === null) {
         return;

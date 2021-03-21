@@ -6,7 +6,7 @@ export const name = "say";
 export const description = "A command that sends a user-sent message as a bot";
 export const usage = `${Prefix}say Hello World!`;
 export const permission = "Bot Owner";
-export const category = "Bot";
+export const category = "Admin";
 
 export async function execute(client, message, args) {
     //Only allow the command to work if the author of the command is the bot author.

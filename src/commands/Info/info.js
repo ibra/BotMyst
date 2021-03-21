@@ -6,8 +6,8 @@ import { readFileSync } from "fs";
 export const name = "info";
 export const description = "A command that shows some info about the bot.";
 export const aliases = ["about"];
-export const usage = `${Prefix}info [Displays Information about bot]`;
-export const category = "Bot";
+export const usage = `${Prefix}info`;
+export const category = "Info";
 
 export async function execute(client, message, args) {
     //Create an embed with info about the bot.

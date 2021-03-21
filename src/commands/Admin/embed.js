@@ -7,9 +7,9 @@ export const name = "embed";
 export const description = "A command that sends a message as an embed";
 export const usage = `${Prefix}embed <channel> [Hello!] [This is a test embed.]`;
 export const permission = "Admin";
-export const category = "Bot";
+export const category = "Admin";
 
-const regex = /<#(?<channel>.*)>.*\[(?<title>.*)\].*\[(?<message>.*)\]/;
+const regex = /<#(?<channel>.*)>.*\[(?<title>.*)\].*\[(?<message>.*)\]/s;
 
 export async function execute(client, message, args) {
     if (!enforceAdmin(message)) return;
