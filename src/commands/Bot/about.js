@@ -1,34 +1,34 @@
-const Discord = require("discord.js");
-const { SuccessColor, Prefix } = require("../../config.json");
+import { MessageEmbed } from "discord.js";
+import { Prefix } from "../../config.js";
+import { Colors } from "../../colors.js";
+import { readFileSync } from "fs";
 
-module.exports = {
-  name: "info",
-  description: "A command that shows the latency of the bot",
-  aliases: ["about"],
-  usage: `${Prefix}info [Displays Information about bot]`,
-  category: "Bot",
+export const name = "info";
+export const description = "A command that shows some info about the bot.";
+export const aliases = ["about"];
+export const usage = `${Prefix}info [Displays Information about bot]`;
+export const category = "Bot";
 
-  execute: async function (client, message, args) {
+export async function execute(client, message, args) {
     //Create an embed with info about the bot.
-    const embed = new Discord.MessageEmbed();
+    const embed = new MessageEmbed();
     embed.setAuthor("BotMyst > About");
     embed.setDescription(
-      `BotMyst is a general-pupose utility bot currently written by [IbrahimDev](https://github.com/ibra), and initially conceptualized by [CodeMyst](https://github.com/CodeMyst). The bot was initially created by CodeMyst [in C#](https://github.com/BotMyst/BotMyst), and this current one is built [in JS](https://github.com/BotMyst/BotMystRevival). Heres some more information on the bot:`
+        "BotMyst is a general-purpose utility bot currently written by [IbrahimDev](https://github.com/ibra) and [CodeMyst](https://github.com/CodeMyst)."
     );
-    embed.addField("Version", "0.9.3");
+    // todo: versioning
+    embed.addField("Version", "1.0.0");
 
     //Get version of Discord.JS Package
-    const file = "../../node_modules/discord.js/package.json";
-    const json = require(file);
+    const json = JSON.parse(readFileSync("node_modules/discord.js/package.json"));
     const discordVersion = json.version;
 
     //Add other information such as the latency, and the bots current prefix.
     embed.addField("Discord.JS Version", discordVersion);
     embed.addField("Latency", `\`${client.ws.ping}\` ms`);
     embed.addField("Prefix", `\`${Prefix}\``);
-    embed.setColor(SuccessColor);
+    embed.setColor(Colors.ORANGE);
     embed.setThumbnail("https://i.ibb.co/nsbPyPR/botmyst.png");
 
     message.channel.send(embed);
-  },
-};
+}

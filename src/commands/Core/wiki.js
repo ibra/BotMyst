@@ -1,38 +1,34 @@
-const Util = require("../../modules/util");
-const Logger = new Util.Logger();
-const requests = require("../../modules/requests");
-const { FailureColor, Prefix } = require("../../config.json");
+import { Logger as UtilLogger } from "../../modules/util.js";
+import { getWikipediaShortSummary } from "../../modules/requests.js";
+import { Prefix } from "../../config.js";
+import { Colors } from "../../colors.js";
 
-module.exports = {
-  name: "wiki",
-  description:
-    "Search something on Wikipedia with this command and get a short summary of it.",
-  aliases: ["wikipedia"],
-  usage: `${Prefix}wiki Lord Of The Rings [Gives A Short Summary from WikiPedia]"`,
-  category: "Core",
+const Logger = new UtilLogger();
 
-  execute: async function (client, message, args) {
-    {
-      const command = args.join(" ");
+export const name = "wiki";
+export const description = "Search something on Wikipedia and get a short summary of it.";
+export const aliases = ["wikipedia"];
+export const usage = `${Prefix}wiki Lord Of The Rings [Gives A Short Summary from Wikipedia]"`;
+export const category = "Core";
 
-      let requestLang = "en"; //This is the Wikipedia language in which we send our request.
-      if (!args[0]) {
+export async function execute(client, message, args) {
+    const command = args.join(" ");
+
+    let requestLang = "en"; // This is the Wikipedia language in which we send our request.
+    if (!args[0]) {
         message.react("👎").catch((e) => Logger.error(e));
         message.channel.send({
-          embed: {
-            color: FailureColor,
-            description: "The command you gave was invalid or doesnt exist",
-          },
+            embed: {
+                color: Colors.RED,
+                description: "The command you gave was invalid or doesnt exist",
+            },
         });
-      } else {
-        //Using some regex to make the string understandable to the getWikipediaShortSummary() function.
+    } else {
+        // Using some regex to make the string understandable to the getWikipediaShortSummary() function.
         let searchValue = args.toString().replace(/,/g, " ");
         searchValue = searchValue.replace(">" + command + " ", "");
-        //Call the getWikipediaShortSummary() function.
-        requests
-          .getWikipediaShortSummary(message, searchValue, requestLang)
-          .catch((e) => Logger.error(e));
-      }
+        // Call the getWikipediaShortSummary() function.
+        getWikipediaShortSummary(message, searchValue, requestLang)
+            .catch((e) => Logger.error(e));
     }
-  },
-};
+}

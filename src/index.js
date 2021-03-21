@@ -1,106 +1,102 @@
-//Discord Initialization
-const Discord = require("discord.js");
-const { readdirSync, fstat } = require("fs");
-const { BotToken, BotSpam, Prefix, SuccessColor } = require("./config.json");
+import { Client, Collection, MessageEmbed } from "discord.js";
+import fs from "fs";
+import { Colors } from "./colors.js";
+import { Config, Token, Prefix } from "./config.js";
 
-// Creating a new bot client that we login with
-const client = new Discord.Client();
+const COMMANDS_PATH = "src/commands";
 
-// Creating new Discord Collections for our commands and our aliases
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
+const client = new Client();
 
-client.categories = readdirSync("./commands/");
+async function main() {
+    // Creating new Discord Collections for our commands and our aliases
+    client.commands = new Collection();
+    client.aliases = new Collection();
 
-// An array that will contain commands that may have problems in them.
-var buggedCommands = [];
-
-// Going through each command and setting the command to the actual discord command
-readdirSync("./commands/").forEach((dir) => {
-  const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
-    file.endsWith(".js")
-  );
-
-  for (const file of commands) {
-    let pull = require(`./commands/${dir}/${file}`);
-
-    if (pull.name) {
-      client.commands.set(pull.name, pull);
-    } else {
-      buggedCommands.push(file);
-      continue;
+    if (Config === null) {
+        return;
     }
 
-    if (pull.aliases && Array.isArray(pull.aliases))
-      pull.aliases.forEach((alias) => client.aliases.set(alias, pull.name));
-  }
-});
+    client.login(Token);
 
-if (buggedCommands.length > 0)
-  console.log(
-    "❌ | Something happened to these files: " + buggedCommands.toString()
-  );
-else console.log("✅ | Bot is looking good!");
+    await registerCommands();
 
-client.on("message", async (message) => {
-  if (message.mentions.has(client.user.id)) {
-    // We check whether the bot is mentioned.
-    let embed = new Discord.MessageEmbed();
-    embed.setDescription(`**yes sir**`);
-    embed.setColor(SuccessColor);
-    message.channel.send(embed);
-  }
+    client.on("ready", onReady);
+    client.on("message", onMessage);
+}
 
-  //Checking if message starts with Prefix, the message was sent by a bot or if the message was in a direct message. If so, returning.
-  if (
-    !message.content.startsWith(Prefix) ||
-    message.author.bot ||
-    message.channel.type === "dm"
-  )
-    return;
+/**
+ * Runs on the "ready" event of the bot.
+ */
+function onReady() {
+    console.log("BotMyst is ready!");
+}
 
-  //String manipulation to remove the Prefix and lowercasing all arguments so commands are not case-sensitive
-  const args = message.content.slice(Prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
-  // fullCmd includes the command AS WELL AS its aliases
-  const fullCmd =
-    client.commands.get(command) ||
-    client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(command));
-  if (!fullCmd) return;
+/**
+ * Runs on the "message" event of the bot.
+ */
+function onMessage(msg) {
+    // yes sir response
+    if (msg.mentions.has(client.user.id)) {
+        let embed = new MessageEmbed();
+        embed.setDescription(`**yes sir**`);
+        embed.setColor(Colors.ORANGE);
+        msg.channel.send(embed);
+    }
 
-  //Since the bot isnt completely finished, its commands are restricted to BotSpam, change it to None if you want to use it everywhere
-  if (message.channel.id != BotSpam && BotSpam != "None") {
-    const botError = new Discord.MessageEmbed()
-      .setDescription(
-        "This bot is still in its early stages so its commands are restricted to the #bot channel."
-      )
-      .setColor(0xff0000);
-    message
-      .reply(botError)
-      .then((msg) => {
-        msg.delete({ timeout: 5000 });
-      })
-      .catch(console.error);
-    return;
-  }
-  //Trying to execute the fullCmd, passed in arguments: client, message and args.
-  try {
-    fullCmd.execute(client, message, args);
-  } catch (error) {
-    console.error(error);
-  }
-});
+    if (!msg.content.startsWith(Prefix)) return;
+    if (msg.author.bot) return;
+    if (msg.channel.type == "dm") return;
 
-//Just a a few simple console logs for debugging errors/warnings if there are any issues with the Discord API
-client.on("error", (e) => console.error(e));
-client.on("warning", (e) => console.warn(e));
+    const args = msg.content.slice(Prefix.length).split(" ");
+    const commandName = args.shift().toLowerCase();
 
-client.on("ready", () => {
-  //Set the bots' Discord Rich Presence
-  client.user.setActivity(
-    `>help | Helping out ${client.users.cache.size} users.`
-  );
-});
+    const command = client.commands.get(commandName) ||
+                    client.commands.find(c => c.aliases && c.aliases.includes(commandName));
 
-//Login with the bot token provided in config.json.
-client.login(BotToken);
+    if (!command) return;
+
+    // todo: maybe restrict to a specific channel(s)
+
+    try {
+        command.execute(client, msg, args);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+function readDirDeep(path) {
+    let res = [];
+
+    const list = fs.readdirSync(path);
+
+    list.forEach(f => {
+        const newPath = `${path}/${f}`;
+        let stat = fs.statSync(newPath);
+        if (stat && stat.isDirectory()) {
+            res = res.concat(readDirDeep(newPath));
+        } else {
+            res.push(newPath);
+        }
+    });
+
+    return res;
+}
+
+/**
+ * Registers all commands and their aliases.
+ */
+async function registerCommands() {
+    const files = readDirDeep(COMMANDS_PATH).filter(f => f.endsWith(".js"));
+
+    for (const file of files) {
+        const command = await import(`../${file}`);
+
+        client.commands.set(command.name, command);
+
+        if (command.aliases && Array.isArray(command.aliases)) {
+            command.aliases.forEach(a => client.aliases.set(a, command.name));
+        }
+    }
+}
+
+main();

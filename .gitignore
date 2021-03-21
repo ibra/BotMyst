@@ -118,3 +118,4 @@ dist
 #Ignoring node modules, and our configuration file
 src/node_modules
 src/config.json
+config.json

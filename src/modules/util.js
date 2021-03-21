@@ -1,5 +1,4 @@
-const dateTime = require('date-time')
-
+import dateTime from 'date-time';
 
 /**
  * Returns a rounded number.
@@ -10,12 +9,12 @@ const dateTime = require('date-time')
  * @private
  */
 // Thanks Billy Moon for giving the answer how to make a more precise round function: https://stackoverflow.com/a/7343013
-exports.roundNumber = (value, precision) => {
+export function roundNumber(value, precision) {
 	const multiplier = Math.pow(10, precision || 0)
 	return Math.round(value * multiplier) / multiplier
 }
 
-exports.Logger = class {
+export class Logger {
 
 	debug(text) {
 		console.log(`[DEBUG] [${dateTime({ local: true, showTimeZone: true })}] ${text}`.debug)

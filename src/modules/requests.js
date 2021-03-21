@@ -1,11 +1,12 @@
 //I do not own most of the following code. It was a file i downloaded off github with an MIT License
-const Util = require('./util')
-const wiki = require('wikijs').default
-const _ = require('lodash')
-const cheerio = require('cheerio')
+import { Logger as UtilLogger } from './util.js';
+import wiki from 'wikijs';
+import lodash from "lodash";
+const { take, split, toNumber, isNaN, startCase} = lodash;
+import { load } from 'cheerio';
+import rp from 'request-promise';
 
-const rp = require('request-promise')
-const Logger = new Util.Logger()
+const Logger = new UtilLogger()
 
 // All languages supported by the bot.
 // Before adding any additional API URLs, add an alias for this new language in commands/wiki.js.
@@ -26,7 +27,7 @@ const apiUrl = {
  * @param {String} lang - Language in which the result should be sent.
  *
  * */
-exports.getWikipediaShortSummary = async (msg, argument, lang) => {
+export async function getWikipediaShortSummary(msg, argument, lang) {
 
 	// Get all search result when searching the argument
 	const search = await wiki({
@@ -65,7 +66,7 @@ exports.getWikipediaShortSummary = async (msg, argument, lang) => {
 
 	// Shorten the summary to 768 chars...
 	let shortedSummary = results[3].split('\n')
-	shortedSummary = _.take(shortedSummary, 2)
+	shortedSummary = take(shortedSummary, 2)
 	shortedSummary = shortedSummary.toString().substring(0, 768) + '...'
 
 	// Sending the embed
@@ -95,7 +96,7 @@ exports.getWikipediaShortSummary = async (msg, argument, lang) => {
  * @param {String} argument - Argument sent by the user (!wiki-info [info] [argument])
  *
  * */
-exports.getWikipediaShortInformation = (msg, argument) => {
+export function getWikipediaShortInformation(msg, argument) {
 
 	wiki().search(argument).then(data => {
 		// Getting the first result of the search results
@@ -126,16 +127,16 @@ exports.getWikipediaShortInformation = (msg, argument) => {
  * @param range - The range of how many sources the user want
  *
  * */
-exports.getWikipediaReferences = async (msg, search, range = 'all') => {
+export async function getWikipediaReferences(msg, search, range = 'all') {
 	// check if a range was given
 	if(range !== 'all') {
 		// split range into min and max range
-		const ranges = _.split(range, '-')
-		let minRange = _.toNumber(ranges[0]) - 1
-		let maxRange = _.toNumber(ranges[1]) - 1
+		const ranges = split(range, '-')
+		let minRange = toNumber(ranges[0]) - 1
+		let maxRange = toNumber(ranges[1]) - 1
 
 		// If no maximum range was given but just one number, then the user should get only the specific reference
-		if (_.isNaN(maxRange) && range !== 'info') {
+		if (isNaN(maxRange) && range !== 'info') {
 			// Set maxRange to the single number
 			maxRange = minRange
 		}
@@ -335,7 +336,7 @@ exports.getWikipediaReferences = async (msg, search, range = 'all') => {
 					icon_url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png',
 					name: 'Wikipedia',
 				},
-				title: `References of ${_.startCase(search)}`,
+				title: `References of ${startCase(search)}`,
 				timestamp: new Date(),
 				description: `${formattedURI}`,
 			},
@@ -349,12 +350,12 @@ exports.getWikipediaReferences = async (msg, search, range = 'all') => {
  * @param {String} uri - URI from a website of your choice.
  * @since 1.4 (development version)
  * */
-exports.parseTitleFromWebsite = (uri) => {
+export function parseTitleFromWebsite(uri) {
 
 	const options = {
 		uri: uri,
 		transform: function(body) {
-			return cheerio.load(body)
+			return load(body)
 		},
 	}
 	// Do the request!

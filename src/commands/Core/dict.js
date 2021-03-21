@@ -1,26 +1,26 @@
-const Discord = require("discord.js");
-const fetch = require("node-fetch");
-const { SuccessColor, FailureColor, Prefix } = require("../../config.json");
+import { MessageEmbed } from "discord.js";
+import fetch from "node-fetch";
+import { Prefix } from "../../config.js";
+import { Colors } from "../../colors.js";
 
-module.exports = {
-  name: "dict",
-  description: "A command that shows the meaning of a word",
-  aliases: ["dictionary"],
-  usage: `${Prefix}dict idiot [returns definition of word]`,
-  category: "Core",
+export const name = "dict";
+export const description = "A command that shows the definition of a word";
+export const aliases = ["dictionary"];
+export const usage = `${Prefix}dict idiot [returns definition of word]`;
+export const category = "Core";
 
-  execute: async function (client, message, args) {
+export async function execute(client, message, args) {
     //Remove Prefix.
     const wordLookup = args.join(" ");
     //Create new embed.
-    const dictionaryEmbed = new Discord.MessageEmbed();
+    const dictionaryEmbed = new MessageEmbed();
 
     if (wordLookup == "") {
-      dictionaryEmbed.setAuthor("> Error 400");
-      dictionaryEmbed.setDescription("You havent provided any arguments!");
-      dictionaryEmbed.setColor(FailureColor);
-      message.channel.send(dictionaryEmbed);
-      return;
+        dictionaryEmbed.setAuthor("> Error 400");
+        dictionaryEmbed.setDescription("You havent provided any arguments!");
+        dictionaryEmbed.setColor(Colors.RED);
+        message.channel.send(dictionaryEmbed);
+        return;
     }
 
     const requestURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
@@ -28,25 +28,24 @@ module.exports = {
     const json = await results.json();
 
     if (json[0] != null) {
-      var phonetics = json[0].phonetics[0].text;
-      var meaning = json[0].meanings[0].definitions[0].definition;
-      var example = json[0].meanings[0].definitions[0].example;
+        var phonetics = json[0].phonetics[0].text;
+        var meaning = json[0].meanings[0].definitions[0].definition;
+        var example = json[0].meanings[0].definitions[0].example;
 
-      dictionaryEmbed.setAuthor(`${json[0].word} | ${phonetics}`);
-      if (example != null) {
-        dictionaryEmbed.setFooter("e.g: " + example);
-      } else {
-        dictionaryEmbed.setFooter("");
-      }
+        dictionaryEmbed.setAuthor(`${json[0].word} | ${phonetics}`);
+        if (example != null) {
+            dictionaryEmbed.setFooter("e.g: " + example);
+        } else {
+            dictionaryEmbed.setFooter("");
+        }
 
-      dictionaryEmbed.setDescription(meaning);
-      dictionaryEmbed.setColor(SuccessColor);
-      message.channel.send(dictionaryEmbed);
+        dictionaryEmbed.setDescription(meaning);
+        dictionaryEmbed.setColor(Colors.ORANGE);
+        message.channel.send(dictionaryEmbed);
     } else {
-      dictionaryEmbed.setAuthor("> Error 404");
-      dictionaryEmbed.setDescription("Sorry! I was unable to find that word.");
-      dictionaryEmbed.setColor(FailureColor);
-      message.channel.send(dictionaryEmbed);
+        dictionaryEmbed.setAuthor("> Error 404");
+        dictionaryEmbed.setDescription("Sorry! I was unable to find that word.");
+        dictionaryEmbed.setColor(Colors.RED);
+        message.channel.send(dictionaryEmbed);
     }
-  },
-};
+}

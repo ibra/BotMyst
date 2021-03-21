@@ -1,20 +1,19 @@
-const Discord = require("discord.js");
-const { SuccessColor, Prefix } = require("../../config.json");
+import { MessageEmbed } from "discord.js";
+import { Prefix } from "../../config.js";
+import { Colors } from "../../colors.js";
 
-module.exports = {
-  name: "ping",
-  description: "A command that gives info about the bot",
-  usage: `${Prefix}ping [Gets Latency]`,
-  category: "Bot",
+export const name = "ping";
+export const description = "Returns the bot latency.";
+export const usage = `${Prefix}ping [Gets Latency]`;
+export const category = "Bot";
 
-  execute: async function (client, message, args) {
-    const ping = new Discord.MessageEmbed();
+export async function execute(client, message, args) {
+    const ping = new MessageEmbed();
 
     //Setting Embed Values
     ping.setDescription(`🏓 Pong! Latency is about \`${client.ws.ping}\` ms`);
     ping.setTimestamp(Date.now());
-    ping.setColor(SuccessColor);
+    ping.setColor(Colors.ORANGE);
 
     message.channel.send(ping);
-  },
-};
+}
