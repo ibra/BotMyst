@@ -1,10 +1,10 @@
-import { MessageEmbed } from 'discord.js';
-import { Prefix } from '../../config.js';
+import { MessageEmbed } from "discord.js";
+import { Prefix } from "../../config.js";
 import { Colors } from "../../colors.js";
 
 export const name = "avatar";
 export const description = "Returns mentioned user's avatar and returns your avatar if there are no arguments";
-export const aliases = ['av'];
+export const aliases = ["av"];
 export const usage = `${Prefix}avatar @User#001 - Returns Their Avatar`;
 export const category = "Utility";
 
