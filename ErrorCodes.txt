@@ -1,0 +1,5 @@
+These are the error codes for BotMyst. Whenever catching an error, the appropriate code should be used.
+ 
+Error 404:  Not Found 
+Error 400:  Missing Arguments
+Error 403:  Missing Permissions / Denied Access
