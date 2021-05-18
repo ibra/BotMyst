@@ -17,12 +17,10 @@ export async function execute(client, message, args) {
   if (generatedNumber === undefined) return;
 
   // Setting successful embed values
-  const roll = new MessageEmbed();
-  roll.setDescription(
-    `✅ Rolled: \`${generatedNumber} (Range ${min}, ${max})\``
-  );
-  roll.setTimestamp(Date.now());
-  roll.setColor(Colors.ORANGE);
+  const roll = new MessageEmbed()
+    .setDescription(`✅ Rolled: \`${generatedNumber} (Range ${min}-${max})\``)
+    .setTimestamp(Date.now())
+    .setColor(Colors.ORANGE);
   message.channel.send(roll);
 }
 
@@ -30,9 +28,9 @@ function getRandom(minimum, maximum, message) {
   const errorCode = getErrorCode(minimum, maximum);
 
   if (errorCode !== 0) {
-    const errorEmbed = new MessageEmbed();
-    errorEmbed.setColor(Colors.RED);
-    errorEmbed.setAuthor(`> Error ${errorCode}`);
+    const errorEmbed = new MessageEmbed()
+      .setColor(Colors.RED)
+      .setAuthor(`> Error ${errorCode}`);
 
     switch (errorCode) {
       case 400:
