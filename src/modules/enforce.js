@@ -1,29 +1,31 @@
 import { MessageEmbed } from "discord.js";
 import { Colors } from "../colors.js";
+import { Author } from "../config.js";
 
 export function enforceAdmin(msg) {
-    let check = msg.member.hasPermission("ADMINISTRATOR");
+  let check =
+    msg.member.hasPermission("ADMINISTRATOR") || msg.member.id == Author;
 
-    if (!check) {
-        let embed = new MessageEmbed()
-            .setColor(Colors.RED)
-            .setTitle("Permission Denied")
-            .setDescription("Only an admin can run this command");
+  if (!check) {
+    let embed = new MessageEmbed()
+      .setColor(Colors.RED)
+      .setTitle("Permission Denied")
+      .setDescription("Only an admin can run this command");
 
-        msg.channel.send(embed);
-    }
+    msg.channel.send(embed);
+  }
 
-    return check;
+  return check;
 }
 
 export function enforceParams(msg, predicate, usage) {
-    if (!predicate) {
-        let embed = new MessageEmbed()
-            .setColor(Colors.RED)
-            .setTitle("Invalid command parameters")
-            .setDescription(`Usage: ${usage}`);
-        msg.channel.send(embed);
-    }
+  if (!predicate) {
+    let embed = new MessageEmbed()
+      .setColor(Colors.RED)
+      .setTitle("Invalid command parameters")
+      .setDescription(`Usage: ${usage}`);
+    msg.channel.send(embed);
+  }
 
-    return predicate;
+  return predicate;
 }
