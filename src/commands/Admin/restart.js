@@ -1,7 +1,7 @@
 import { MessageEmbed } from "discord.js";
 import { Colors } from "../../colors.js";
 import { Prefix, Token } from "../../config.js";
-import { enforceAdmin, enforceParams } from "../../modules/enforce.js";
+import { enforceAdmin } from "../../modules/enforce.js";
 
 export const name = "restart";
 export const description = "Restarts the bot.";
