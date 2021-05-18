@@ -1,5 +1,6 @@
 These are the error codes for BotMyst. Whenever catching an error, the appropriate code should be used.
  
-Error 404:  Not Found 
-Error 400:  Missing Arguments
-Error 403:  Missing Permissions / Denied Access
+Error 404:  Not Found - Self-Explanatory
+Error 400:  Missing Arguments - For Anything That is Missing Arguments
+Error 403:  Missing Permissions / Denied Access - Self-Explanatory
+Error 429:  Argument Limit Reached - When a given argument has a value greater than one it requires.
