@@ -1,8 +1,8 @@
-# BotMyst : Revived. `>`
+<h1 align="center" style="position: relative;">
+    BotMyst : Revived
+</h1>
 
-A redesign of BotMyst in JavaScript.
-
-## Commands
+## A redesign of BotMyst in JavaScript.
 
 ## Issues
 
