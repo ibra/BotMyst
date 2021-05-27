@@ -6,12 +6,14 @@
     A redesign of BotMyst in JavaScript.
 </h1>
 
+<h2 align="center" style="position: relative;">
+    Issues
+</h1>
 
-## Issues
-
+<h2 align="center" style="position: relative;">
 [![Issues Open](https://img.shields.io/github/issues/BotMyst/BotMystRevival?color=orange)](https://github.com/BotMyst/BotMystRevival/issues)
 [![Issues Closed](https://img.shields.io/github/issues-closed-raw/BotMyst/BotMystRevival?label=issues%20closed)](https://github.com/BotMyst/BotMystRevival/issues?q=is%3Aissue+is%3Aclosed)
-
+</h2>
 
 
 ## Social
