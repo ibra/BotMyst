@@ -1,9 +1,10 @@
 {
     "BotToken": "",
-
     "Prefix":">",
     "BotSpam": "",
-    "WeatherDegreeType": "C",
 
-    "BotAuthor": 267062730056269845
+    "WeatherDegreeType": "C",
+    "TrackerAPIKey": "",
+
+    "BotAuthor": 745039444888780812
 }
