@@ -2,7 +2,10 @@
     BotMyst : Revived
 </h1>
 
-## A redesign of BotMyst in JavaScript.
+<h1 align="center" style="position: relative;">
+    A redesign of BotMyst in JavaScript.
+</h1>
+
 
 ## Issues
 
