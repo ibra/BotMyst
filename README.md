@@ -1,4 +1,4 @@
-# BotMyst : Revived. `>`
+<p text-align=center> # BotMyst : Revived. `>` </p>
 
 A redesign of BotMyst in JavaScript.
 
