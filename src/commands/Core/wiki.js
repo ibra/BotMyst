@@ -28,7 +28,7 @@ export async function execute(client, message, args) {
     // Using some regex to make the string understandable to the getWikipediaShortSummary() function.
     let searchValue = args.toString().replace(/,/g, " ");
     searchValue = searchValue.replace(">" + command + " ", "");
-    // Call the getWikipediaShortSummary() function.
+
     getWikipediaShortSummary(message, searchValue, requestLang).catch((e) =>
       Logger.error(e)
     );

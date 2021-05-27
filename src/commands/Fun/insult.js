@@ -15,7 +15,6 @@ export async function execute(client, message, args) {
   fetch("https://insult.mattbas.org/api/insult.json")
     .then((response) => response.json())
     .then((data) => {
-      // Setting Embed Values
       insultEmbed.setDescription(data.insult).setColor(Colors.ORANGE);
       message.channel.send(insultEmbed);
     })
