@@ -1,9 +1,5 @@
-import { Logger as UtilLogger } from "../../modules/util.js";
-import { getWikipediaShortSummary } from "../../modules/requests.js";
 import { Prefix } from "../../config.js";
 import { Colors } from "../../colors.js";
-
-const Logger = new UtilLogger();
 
 export const name = "wikipedia";
 export const description =
@@ -17,8 +13,7 @@ export async function execute(client, message, args) {
 
   let requestLang = "en"; // This is the Wikipedia language in which we send our request.
   if (!args[0]) {
-    message.react("👎").catch((e) => Logger.error(e));
-    message.channel.send({
+    message.react("👎").message.channel.send({
       embed: {
         color: Colors.RED,
         description: "The command you gave was invalid or doesnt exist",
@@ -28,9 +23,6 @@ export async function execute(client, message, args) {
     // Using some regex to make the string understandable to the getWikipediaShortSummary() function.
     let searchValue = args.toString().replace(/,/g, " ");
     searchValue = searchValue.replace(">" + command + " ", "");
-
-    getWikipediaShortSummary(message, searchValue, requestLang).catch((e) =>
-      Logger.error(e)
-    );
+    message.channel.send("That command is currently under maintenance!");
   }
 }
