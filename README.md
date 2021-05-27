@@ -24,7 +24,7 @@
 
 ## Building & running
 - [📝 Apache 2.0 License](https://github.com/BotMyst/BotMystRevival/blob/master/LICENSE):
-The bot is written with **Discord.JS**, meaning you can host it on your computer via `node`.
+The bot is written with **Discord.JS**, so you can host it on your computer via `node`.
 
 When you open the project, you will see a `config.example.json` file. You need to rename it to just `config.json`. This is where all of the bot configuration will be placed. The only fields that are essential for running the bot are `token` and `botSpam`.
 
