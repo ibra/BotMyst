@@ -24,7 +24,7 @@ export async function execute(client, message, args) {
       .hasPermission("CHANGE_NICKNAME")
   ) {
     embed.setColor(Colors.RED);
-    embed.setTitle(">Error 400");
+    embed.setTitle(">Error 403");
     embed.setDescription("I don't have permission to change nicknames!");
     message.channel.send(embed);
   } else {
