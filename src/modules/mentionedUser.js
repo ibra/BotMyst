@@ -1,5 +1,6 @@
 export function getUserMentioned(message) {
-  let user = message.mentions.users.first()
+  let user;
+  user = message.mentions.users.first()
     ? (user = message.mentions.users.first())
     : (user = message.author);
 

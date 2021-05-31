@@ -6,13 +6,13 @@ import { getUserMentioned } from "../../modules/mentioneduser.js";
 export const name = "setnickname";
 export const description =
   "Sets the mentioned users nickname to whatever argument is provided";
-export const usage = `${Prefix}say Hello World!`;
+export const usage = `${Prefix}setnickname UnepicPerson`;
 export const permission = "Bot Owner";
 export const category = "Admin";
 
 export async function execute(client, message, args) {
   let nickname = args[0];
-  let user = getUserMentioned();
+  let user = getUserMentioned(message);
   let embed = new MessageEmbed();
 
   if (
