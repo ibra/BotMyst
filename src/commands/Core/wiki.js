@@ -1,6 +1,8 @@
 import { Prefix } from "../../config.js";
 import { Colors } from "../../colors.js";
 
+import wiki from "wikijs";
+
 export const name = "wikipedia";
 export const description =
   "Search something on Wikipedia and get a short summary of it.";
@@ -13,7 +15,7 @@ export async function execute(client, message, args) {
 
   let requestLang = "en"; // This is the Wikipedia language in which we send our request.
   if (!args[0]) {
-    message.react("👎").message.channel.send({
+    message.channel.send({
       embed: {
         color: Colors.RED,
         description: "The command you gave was invalid or doesnt exist",
@@ -21,8 +23,11 @@ export async function execute(client, message, args) {
     });
   } else {
     // Using some regex to make the string understandable to the getWikipediaShortSummary() function.
-    let searchValue = args.toString().replace(/,/g, " ");
-    searchValue = searchValue.replace(">" + command + " ", "");
-    message.channel.send("That command is currently under maintenance!");
+    let searchValue = command.toString().replace(/,/g, " ");
+    console.log(searchValue);
+    wiki()
+      .page(searchValue)
+      .then((page) => page.info("alterEgo"))
+      .then(console.log);
   }
 }

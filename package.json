@@ -16,7 +16,7 @@
     "request-promise": "^4.2.6",
     "thesaurus": "0.0.1",
     "weather-js": "^2.0.0",
-    "wikijs": "^6.0.1"
+    "wikijs": "^6.2.1"
   },
   "devDependencies": {
     "prettier": "2.2.1"
