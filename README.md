@@ -16,7 +16,8 @@
 ## Contributers
 
 #### IbrahimDev 
-[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/ibra)
+[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/ibra) 
+
 DISCLAIMER: CodeMyst is not responsible for the maintaining or development of this project any longer. Any issues or queries should be sent straight to me.
  
 
