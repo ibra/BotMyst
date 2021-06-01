@@ -15,11 +15,10 @@
 
 ## Contributers
 
-#### CodeMyst (Founder Of Bot)
-[![CodeMyst (Founder of Bot)](https://img.shields.io/github/followers/codemyst?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/codemyst)
+#### IbrahimDev 
+[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/ibra) 
 
-#### IbrahimDev - Main Programmer 
-[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/ibra)
+DISCLAIMER: CodeMyst is not responsible for the maintaining or development of this project any longer. Any issues or queries should be sent straight to me.
  
 
 ## Building & running
