@@ -1,7 +1,8 @@
 import { Prefix } from "../../config.js";
 import { Colors } from "../../colors.js";
 
-import wiki from "wikijs";
+import wiki from "wikipedia";
+import { MessageEmbed } from "discord.js";
 
 export const name = "wikipedia";
 export const description =
@@ -13,7 +14,6 @@ export const category = "Core";
 export async function execute(client, message, args) {
   const command = args.join(" ");
 
-  let requestLang = "en"; // This is the Wikipedia language in which we send our request.
   if (!args[0]) {
     message.channel.send({
       embed: {
@@ -24,10 +24,34 @@ export async function execute(client, message, args) {
   } else {
     // Using some regex to make the string understandable to the getWikipediaShortSummary() function.
     let searchValue = command.toString().replace(/,/g, " ");
-    console.log(searchValue);
-    wiki()
-      .page(searchValue)
-      .then((page) => page.info("alterEgo"))
-      .then(console.log);
+    let wikiEmbed = new MessageEmbed();
+
+    (async () => {
+      try {
+        const summary = await wiki.summary(searchValue);
+
+        try {
+          wikiEmbed.setTitle(`Wikipedia > ${summary.title}`);
+          wikiEmbed.setThumbnail(summary.thumbnail.source);
+          wikiEmbed.setDescription(summary.extract);
+          wikiEmbed.setURL(summary.content_urls.desktop.page);
+          wikiEmbed.setColor(Colors.ORANGE);
+          message.channel.send(wikiEmbed);
+        } catch (error) {
+          let embed = new MessageEmbed();
+          embed.setColor(Colors.RED);
+          embed.setDescription(`${error}`);
+          embed.setTitle(`>Error 400`);
+          embed.setFooter("Make sure you requested a valid page!");
+          message.channel.send(embed);
+        }
+      } catch (error) {
+        let embed = new MessageEmbed();
+        embed.setColor(Colors.RED);
+        embed.setDescription(error);
+        embed.setTitle(`>Error 429`);
+        message.channel.send(embed);
+      }
+    })();
   }
 }
