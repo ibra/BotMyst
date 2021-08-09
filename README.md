@@ -4,22 +4,13 @@
 
 <h2 align="center" style="position: relative;">
     A redesign of BotMyst in JavaScript.
-</h1>
+</h2>
 
-<h2 align="center" style="position: relative;">
-    Issues
-</h1>
 
-[![Issues Open](https://img.shields.io/github/issues/BotMyst/BotMystRevival?color=orange)](https://github.com/BotMyst/BotMystRevival/issues)
-[![Issues Closed](https://img.shields.io/github/issues-closed-raw/BotMyst/BotMystRevival?label=issues%20closed)](https://github.com/BotMyst/BotMystRevival/issues?q=is%3Aissue+is%3Aclosed)
 
-## Contributers
-
-#### IbrahimDev 
-[![IbrahimDev](https://img.shields.io/github/followers/ibra?color=orange&label=Follow%20Them%21&logoColor=green&style=social)](https://github.com/ibra) 
-
-DISCLAIMER: CodeMyst is not responsible for the maintaining or development of this project any longer. Any issues or queries should be sent straight to me.
- 
+## Disclaimer
+CodeMyst is not responsible for the maintaining or development of this project any longer. 
+Any issues or queries should be sent straight to [me](https://github.com/ibra).
 
 ## Building & running
 - [📝 Apache 2.0 License](https://github.com/BotMyst/BotMystRevival/blob/master/LICENSE):
