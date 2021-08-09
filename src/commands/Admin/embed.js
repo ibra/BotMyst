@@ -12,18 +12,18 @@ export const category = "Admin";
 const regex = /<#(?<channel>.*)>.*\[(?<title>.*)\].*\[(?<message>.*)\]/s;
 
 export async function execute(client, message, args) {
-    if (!enforceAdmin(message)) return;
+  if (!enforceAdmin(message)) return;
 
-    const argsJoined = args.join(" ");
+  const argsJoined = args.join(" ");
 
-    const match = argsJoined.match(regex);
+  const match = argsJoined.match(regex);
 
-    if (!enforceParams(message, match, usage)) return;
+  if (!enforceParams(message, match, usage)) return;
 
-    let embed = new MessageEmbed()
-        .setColor(Colors.ORANGE)
-        .setTitle(match.groups.title)
-        .setDescription(match.groups.message);
+  let embed = new MessageEmbed()
+    .setColor(Colors.ORANGE)
+    .setTitle(match.groups.title)
+    .setDescription(match.groups.message);
 
-    client.channels.cache.get(match.groups.channel).send(embed);
+  client.channels.cache.get(match.groups.channel).send(embed);
 }

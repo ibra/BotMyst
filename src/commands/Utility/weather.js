@@ -43,7 +43,6 @@ export async function execute(client, message, args) {
           .setColor(Colors.RED);
 
         message.channel.send(errorEmbed);
-        return message.react("👎");
       }
 
       var current = result[0].current;
