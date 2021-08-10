@@ -1,8 +1,8 @@
 import { Prefix } from "../../config.js";
 import { Colors } from "../../colors.js";
+import { MessageEmbed } from "discord.js";
 
 import wiki from "wikipedia";
-import { MessageEmbed } from "discord.js";
 
 export const name = "wikipedia";
 export const description =
