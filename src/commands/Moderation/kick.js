@@ -1,6 +1,7 @@
-import { MessageEmbed } from "discord.js";
 import { Prefix } from "../../config.js";
+import { MessageEmbed } from "discord.js";
 import { Colors } from "../../colors.js";
+import { enforcePermission } from "../../modules/enforce.js";
 
 export const name = "kick";
 export const description = "Kicks the first mentioned user from the server";
@@ -8,6 +9,7 @@ export const usage = `${Prefix}kick @Noob#1234`;
 export const category = "Moderation";
 
 export async function execute(client, message, args) {
+  if (!enforcePermission(message.member, "KICK_MEMBERS")) return;
   message.mentions.members
     .first()
     .kick()

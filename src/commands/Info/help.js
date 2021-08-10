@@ -50,7 +50,7 @@ function printFullHelp(client, message) {
     );
 
   for (let cat of client.categories) {
-    if (cat === "Admin") continue;
+    if (cat === "Hidden") continue;
 
     const commands = client.commands.filter((c) => c.category == cat);
 

@@ -1,18 +1,18 @@
 import { MessageEmbed } from "discord.js";
 import { Colors } from "../../colors.js";
 import { Prefix } from "../../config.js";
-import { enforceAdmin, enforceParams } from "../../modules/enforce.js";
+import { enforcePermission, enforceParams } from "../../modules/enforce.js";
 
 export const name = "embed";
 export const description = "A command that sends a message as an embed";
 export const usage = `${Prefix}embed <channel> [Hello!] [This is a test embed.]`;
-export const permission = "Admin";
-export const category = "Admin";
+export const permission = "Administrator";
+export const category = "Administrator";
 
 const regex = /<#(?<channel>.*)>.*\[(?<title>.*)\].*\[(?<message>.*)\]/s;
 
 export async function execute(client, message, args) {
-  if (!enforceAdmin(message)) return;
+  if (!enforcePermission(message, "")) return;
 
   const argsJoined = args.join(" ");
 

@@ -2,6 +2,7 @@ import { MessageEmbed } from "discord.js";
 import { Prefix } from "../../config.js";
 import { Colors } from "../../colors.js";
 import { getUserMentioned } from "../../modules/mentioneduser.js";
+import { enforcePermission } from "../../modules/enforce.js";
 
 export const name = "setnickname";
 export const description =
@@ -15,19 +16,12 @@ export async function execute(client, message, args) {
   let user = getUserMentioned(message);
   let embed = new MessageEmbed();
 
-  if (
-    message.guild.members.cache
-      .get(client.user.id)
-      .hasPermission("MANAGE_NICKNAMES") &&
-    message.guild.members.cache
-      .get(client.user.id)
-      .hasPermission("CHANGE_NICKNAME")
-  ) {
-    embed.setColor(Colors.RED);
-    embed.setTitle(">Error 403");
-    embed.setDescription("I don't have permission to change nicknames!");
-    message.channel.send(embed);
-  } else {
-    user.setNickname(nickname);
+  if (enforcePermission(message, "MANAGE_NICKNAMES")) {
+    user.setNickname(nickname).catch((error) => {
+      embed.setColor(Colors.RED);
+      embed.setTitle(">Error 429");
+      embed.setDescription(error);
+      message.channel.send(embed);
+    });
   }
 }

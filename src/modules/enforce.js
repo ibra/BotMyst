@@ -2,17 +2,19 @@ import { MessageEmbed } from "discord.js";
 import { Colors } from "../colors.js";
 import { Author } from "../config.js";
 
-export function enforceAdmin(msg) {
-  let check =
-    msg.member.hasPermission("ADMINISTRATOR") || msg.member.id == Author;
+export function enforcePermission(message, permission) {
+  if (message.permission == "BOT_AUTHOR") return message.author.id == Author.id;
+  let check = message.member.hasPermission(permission);
 
   if (!check) {
     let embed = new MessageEmbed()
       .setColor(Colors.RED)
-      .setTitle("Permission Denied")
-      .setDescription("Only an admin can run this command");
+      .setTitle(">Error 403")
+      .setDescription(
+        `Only a user with the ${permission} permission can run this command!`
+      );
 
-    msg.channel.send(embed);
+    message.channel.send(embed);
   }
 
   return check;
