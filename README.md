@@ -24,5 +24,5 @@ When you open the project, you will see a `config.example.json` file. You need t
 ```config.json
 token: 'Enter your own token here!'
 prefix: '>'
-botSpam: 'Enter ChannelID of your #bot channel.
+botSpam: 'Enter ChannelID of your #bot channel.'
 ```
