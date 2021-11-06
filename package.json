@@ -2,24 +2,24 @@
   "name": "botmystrevival",
   "version": "0.3.0",
   "description": "an epic utility bot for Discord",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "scripts": {
+    "start": "npx tsc && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ibrahim Hisham",
   "license": "MIT",
   "dependencies": {
-    "common-tags": "^1.8.0",
-    "date-time": "^3.1.0",
+    "commonjs": "^0.0.1",
     "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
     "node-fetch": "^2.6.1",
-    "request-promise": "^4.2.6",
     "thesaurus": "0.0.1",
+    "typescript": "^4.4.4",
     "weather-js": "^2.0.0",
     "wikipedia": "^1.1.2"
   },
   "devDependencies": {
     "prettier": "2.2.1"
-  },
-  "type": "module"
+  }
 }

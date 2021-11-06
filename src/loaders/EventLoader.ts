@@ -1,20 +1,20 @@
 import * as path from 'path';
 import { readdir } from 'fs';
 import { Client } from '../Client';
-import { Logger } from '../utils/Logger';
+import Logger from '../utils/Logger';
 
 export class EventLoader {
     public load(client: Client): void {
-        const { events } = client.settings.paths;
+        const dir = client.settings.paths.events;
 
-        readdir(events, (err, files) => {
+        readdir(dir, (err, files) => {
             if (err) Logger.error(err);
 
             files.forEach(evt => {
                 const Event: any = require(path.join(
                     __dirname,
                     '../../',
-                    `${events}/${evt.replace('ts', 'js')}`
+                    `${dir}/${evt.replace('ts', 'js')}`
                 )).default;
 
                 const event = new Event(client);

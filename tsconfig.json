@@ -2,8 +2,8 @@
   "compilerOptions": {
       "target": "es6",
       "types": ["node"],
-      "typeRoots": ["node_modules/@types"],
       "module": "commonjs",
+      "typeRoots": ["node_modules/@types"],
       "outDir": "dist",
       "removeComments": true,
       "strict": true, 
@@ -18,5 +18,5 @@
   ],
   "exclude": [
       "node_modules"
-  ]
+  ],
 } 

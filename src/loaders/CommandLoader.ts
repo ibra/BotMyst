@@ -3,7 +3,7 @@ import { readdir, statSync } from 'fs';
 import { Collection } from 'discord.js';
 import { IBotMystClient } from '../types';
 import { Command } from '../Command';
-import { Logger } from '../utils/Logger';
+import Logger from '../utils/Logger';
 
 export class CommandLoader {
     public commands: Collection<string, Command>;

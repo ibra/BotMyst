@@ -23,7 +23,7 @@ export abstract class Command {
 
     public hasPermission(user: User, message: Message): boolean {
         if (
-            !this.client.userHasPermission(message.member, this.conf.requiredPermissions) ||
+            !this.client.userHasPermission(message.member as any, this.conf.requiredPermissions) ||
             [...this.cooldowns].filter(cd => cd.user === user && cd.guild === message.guild)
                 .length > 0
         ) {
@@ -47,10 +47,12 @@ export abstract class Command {
     }
 
     public respond(channel: AnyChannel, message: EmbedOrMessage): Command {
-        channel.send(message);
-
+        if(typeof message === 'string') {
+            channel.send(message);
+        } else {
+            channel.send({ embeds: [message] });
+        }
         return this;
     }
-
     public abstract run(message: Message, args: string[]): Promise<void>;
 }
