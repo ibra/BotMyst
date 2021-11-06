@@ -53,7 +53,6 @@ function printFullHelp(client, message) {
     if (cat === "Hidden") continue;
 
     const commands = client.commands.filter((c) => c.category == cat);
-
     embed.addField(cat, commands.map((c) => `\`${c.name}\``).join(", "));
   }
 

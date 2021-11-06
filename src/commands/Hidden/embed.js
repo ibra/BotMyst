@@ -12,12 +12,11 @@ export const category = "Administrator";
 const regex = /<#(?<channel>.*)>.*\[(?<title>.*)\].*\[(?<message>.*)\]/s;
 
 export async function execute(client, message, args) {
-  if (!enforcePermission(message, "")) return;
+  if (!enforcePermission(message, "BOT_AUTHOR")) return;
 
   const argsJoined = args.join(" ");
 
   const match = argsJoined.match(regex);
-
   if (!enforceParams(message, match, usage)) return;
 
   let embed = new MessageEmbed()

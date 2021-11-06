@@ -3,7 +3,7 @@ import { Colors } from "../colors.js";
 import { Author } from "../config.js";
 
 export function enforcePermission(message, permission) {
-  if (message.permission == "BOT_AUTHOR") return message.author.id == Author.id;
+  if (permission == "BOT_AUTHOR") return message.author.id === Author.id;
   let check = message.member.hasPermission(permission);
 
   if (!check) {

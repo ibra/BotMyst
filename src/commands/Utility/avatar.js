@@ -1,7 +1,7 @@
 import { MessageEmbed } from "discord.js";
 import { Prefix } from "../../config.js";
 import { Colors } from "../../colors.js";
-import { getUserMentioned } from "../../modules/mentionedUser.js";
+import { getUserByMention } from "../../modules/mentionedUser.js";
 
 export const name = "avatar";
 export const description =
@@ -13,7 +13,7 @@ export const category = "Utility";
 export async function execute(client, message, args) {
   const avatarEmbed = new MessageEmbed();
 
-  let user = getUserMentioned();
+  let user = getUserByMention(message);
 
   avatarEmbed.setTitle(`${user.username}'s avatar!`);
   avatarEmbed.setColor(Colors.ORANGE);

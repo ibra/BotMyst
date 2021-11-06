@@ -23,7 +23,7 @@ export async function execute(client, message, args) {
     return;
   }
 
-  const requestURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+  const requestURL = "https://api.dictionaryapi.dev/api/v2/entries/en";
   const results = await fetch(`${requestURL}/${wordLookup}`);
   const json = await results.json();
 

@@ -29,6 +29,7 @@ export async function execute(client, message, args) {
     (async () => {
       try {
         const summary = await wiki.summary(searchValue);
+        console.log(summary);
 
         try {
           wikiEmbed.setTitle(`Wikipedia > ${summary.title}`);

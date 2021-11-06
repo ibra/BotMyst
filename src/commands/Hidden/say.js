@@ -24,7 +24,6 @@ export async function execute(client, message, args) {
             .setAuthor("> Error 403")
             .setDescription("I was unable to access this channel.");
         }
-
         message.channel.send(errorEmbed);
       });
   }

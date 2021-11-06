@@ -5,13 +5,14 @@ import { Colors } from "../../colors.js";
 export const name = "roll";
 export const description =
   "Rolls a number between 1 and the given number. <defaults to 10>";
-export const usage = `${Prefix}roll 1 10`;
+export const usage = `${Prefix}roll 1-10`;
 export const category = "Fun";
+export const aliases = ["roll"];
 
 export async function execute(client, message, args) {
-  const rollArgs = args.join(" ").split(" ");
-  const min = 1;
-  const max = parseInt(rollArgs[0]);
+  const rollArgs = args[0].split("-");
+  const min = parseInt(rollArgs[0]);
+  const max = parseInt(rollArgs[1]);
 
   const generatedNumber = getRandom(min, max, message);
   if (generatedNumber === undefined) return;
@@ -26,7 +27,6 @@ export async function execute(client, message, args) {
 
 function getRandom(minimum, maximum, message) {
   const errorCode = getErrorCode(minimum, maximum);
-
   if (errorCode !== 0) {
     const errorEmbed = new MessageEmbed()
       .setColor(Colors.RED)
@@ -44,6 +44,9 @@ function getRandom(minimum, maximum, message) {
           "The value(s) you have provided are too large!"
         );
         break;
+      case 430:
+        errorEmbed.setDescription("Maximum can not be larger than minimum!");
+        break;
       default:
         errorEmbed.setDescription("An unexpected error occured!");
         break;
@@ -52,14 +55,15 @@ function getRandom(minimum, maximum, message) {
     message.channel.send(errorEmbed);
     return undefined;
   }
-
-  return Math.floor(Math.random() * (maximum + 1));
+  minimum = Math.ceil(minimum);
+  maximum = Math.floor(maximum);
+  return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 }
 
 function getErrorCode(minimum, maximum) {
+  if (maximum < minimum) return 430;
   if (Number.isNaN(minimum) || Number.isNaN(maximum)) return 400;
   else if (minimum >= Number.MAX_VALUE || maximum >= Number.MAX_VALUE)
     return 429;
-
   return 0;
 }
