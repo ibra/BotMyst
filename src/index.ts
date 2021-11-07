@@ -6,11 +6,8 @@ import { EventLoader } from "./loaders/EventLoader";
 dotenv.config();
 
 const client = new Client(settings);
-client.login(settings.token);
+client.login(settings.token).catch(console.error);
 
 //Debugging to figure out this issue
 console.log(settings);
 client.on('debug', console.log);
-
-client.login("NzY3MTAzNTg2OTIzNzA4NDg2.X4tC4w.K9JTES6jNbrXS35UYvXStr_hrT8").catch(console.error);
-
