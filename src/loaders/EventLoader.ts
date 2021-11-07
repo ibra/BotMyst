@@ -1,30 +1,30 @@
-import * as path from 'path';
-import { readdir } from 'fs';
-import { Client } from '../Client';
-import { Logger } from '../utils/Logger';
+import * as path from "path";
+import { readdir } from "fs";
+import { Client } from "../Client";
+import { Logger } from "../utils/Logger";
 
+//TODO: left off here trying to fix the event paths
 export class EventLoader {
-    public load(client: Client): void {
-        const dir = client.settings.paths.events;
+  public load(client: Client): void {
+    const eventsPath = path.join(
+      __dirname,
+      "../",
+      `${client.settings.paths.events}`
+    );
 
-        readdir(dir, (err, files) => {
-            if (err) Logger.error(err);
-
-            files.forEach(evt => {
-                const Event: any = require(path.join(
-                    __dirname,
-                    '../../',
-                    `${dir}/${evt.replace('ts', 'js')}`
-                )).default;
-
-                const event = new Event(client);
-                const eventName = evt.split('.')[0];
-
-                client.on(
-                    eventName.charAt(0).toLowerCase() + eventName.slice(1),
-                    (...args: string[]) => event.run(...args)
-                );
-            });
-        });
-    }
+    readdir(eventsPath, (err, files) => {
+      if (err) {
+        Logger.error(err);
+        return;
+      }
+      files.forEach((file) => {
+        const event = require(`./events/${file}`);
+        if (event.once) {
+          client.once(event.name, (...args) => event.execute(...args));
+        } else {
+          client.on(event.name, (...args) => event.execute(...args));
+        }
+      });
+    });
+  }
 }

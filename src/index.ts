@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 import { settings } from "./config/config";
 import { Client } from "./Client";
 import { EventLoader } from "./loaders/EventLoader";
@@ -6,8 +6,9 @@ import { EventLoader } from "./loaders/EventLoader";
 dotenv.config();
 
 const client = new Client(settings);
-client.login(settings.token).catch(console.error);
+const events = new EventLoader();
 
-//Debugging to figure out this issue
-console.log(settings);
-client.on('debug', console.log);
+client.login(settings.token).catch(console.error);
+events.load(client);
+
+client.on("debug", console.log);
