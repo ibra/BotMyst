@@ -1,5 +1,4 @@
 import { Client } from "../Client";
-
 import { Logger } from "../utils/Logger";
 import { IEvent } from "../types";
 

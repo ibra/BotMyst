@@ -3,7 +3,7 @@ import { readdir } from "fs";
 import { Client } from "../Client";
 import { Logger } from "../utils/Logger";
 
-//TODO: left off here trying to fix the event paths
+//TODO: Events still definitely arent being loaded properly
 export class EventLoader {
   public load(client: Client): void {
     const eventsPath = path.join(
@@ -18,10 +18,13 @@ export class EventLoader {
         return;
       }
       files.forEach((file) => {
-        const event = require(`./events/${file}`);
+        const event = require(`${eventsPath}/${file}`);
+        console.log(event);
         if (event.once) {
+          console.log(event.name);
           client.once(event.name, (...args) => event.execute(...args));
         } else {
+          console.log(event.name);
           client.on(event.name, (...args) => event.execute(...args));
         }
       });
