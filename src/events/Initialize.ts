@@ -1,8 +1,9 @@
 import { Client } from '../Client';
-import Logger from '../utils/Logger';
+
+import { Logger } from '../utils/Logger';
 import { IEvent } from '../types';
 
-export default class Initialize implements IEvent {
+export default class Ready implements IEvent {
     public client: Client;
 
     constructor(client: Client) {
@@ -10,7 +11,7 @@ export default class Initialize implements IEvent {
     }
 
     async run(): Promise<void> {
-        Logger.info('BotMyst is up, bitches.');
+        Logger.info('Beew is running.');
         this.client.user!.setPresence(this.client.settings.presence);
     }
 }

@@ -4,8 +4,8 @@
   "description": "an epic utility bot for Discord",
   "main": "src/index.ts",
   "scripts": {
-    "start": "npx tsc && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx tsc -p . && node dist/index.js",
+    "build": "npx tsc -p ."
   },
   "author": "Ibrahim Hisham",
   "license": "MIT",
@@ -15,11 +15,15 @@
     "dotenv": "^10.0.0",
     "node-fetch": "^2.6.1",
     "thesaurus": "0.0.1",
-    "typescript": "^4.4.4",
     "weather-js": "^2.0.0",
     "wikipedia": "^1.1.2"
   },
   "devDependencies": {
+    "typescript": "^4.4.4",
+    "@types/node": "^12.7.3",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.1.0",
     "prettier": "2.2.1"
   }
 }

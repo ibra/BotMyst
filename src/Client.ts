@@ -10,10 +10,10 @@ export class Client extends Discord.Client implements IBotMystClient {
         super(settings.clientOptions || {intents: ['GUILDS', 'GUILD_MESSAGES']});
 
         this.settings = settings;
-        this.settings.token = process.env.BOT_TOKEN;
+        this.settings.token = process.env.TOKEN;
 
         this.commandLoader = new CommandLoader();
-        this.commandLoader.load(this);
+        this.commandLoader.loadCommands(this);
     }
 
     public userHasPermission(

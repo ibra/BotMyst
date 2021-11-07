@@ -1,4 +1,4 @@
-import { User, Message, Guild } from 'discord.js';
+import { User, Message, Guild, DMChannel, NewsChannel, PartialDMChannel, TextChannel, ThreadChannel } from 'discord.js';
 import { AnyChannel, IBotMystClient, ICommandOptions, EmbedOrMessage, IUserCooldown } from './types';
 
 export abstract class Command {
@@ -46,7 +46,7 @@ export abstract class Command {
         }, this.conf.cooldown);
     }
 
-    public respond(channel: AnyChannel, message: EmbedOrMessage): Command {
+    public respond(channel: TextChannel | DMChannel | PartialDMChannel | NewsChannel | ThreadChannel, message: EmbedOrMessage): Command {
         if(typeof message === 'string') {
             channel.send(message);
         } else {

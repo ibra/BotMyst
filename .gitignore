@@ -118,4 +118,4 @@ dist
 ##Node Modules, Output Directory, and Configuration File
 /node_modules/
 /dist/
-config.env
+.env

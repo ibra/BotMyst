@@ -8,7 +8,7 @@ import {
     ClientOptions,
     MessageEmbed,
     Guild,
-    User
+    User,
 } from 'discord.js';
 
 export interface IBotMystClient extends Client {

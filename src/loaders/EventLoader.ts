@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { readdir } from 'fs';
 import { Client } from '../Client';
-import Logger from '../utils/Logger';
+import { Logger } from '../utils/Logger';
 
 export class EventLoader {
     public load(client: Client): void {

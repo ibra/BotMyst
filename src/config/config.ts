@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import { ISettings } from "../types";
 
 export const settings: ISettings = {
@@ -12,7 +13,8 @@ export const settings: ISettings = {
   },
   prefix: ">",
   paths: {
-    commands: "src/commands",
-    events: "src/events",
+    commands: './commands',
+    events: './events',
   },
+  token: process.env.TOKEN,
 };
