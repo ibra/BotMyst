@@ -11,7 +11,7 @@ export const category = "Moderation";
 export async function execute(client, message, args) {
   if (!enforcePermission(message.member, "KICK_MEMBERS")) return;
   
-  let member = message.mentions.members.first() || await message.guild.members.fetch(args[0])
+  let member = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(() => { })
 
   member!
     .kick()
