@@ -1,33 +1,27 @@
 import * as path from "path";
-import { readdir } from "fs";
+import { readdirSync } from "fs";
 import { Client } from "../Client";
 import { Logger } from "../utils/Logger";
+import IEvent from "../types/interfaces/IEvent";
 
-//TODO: Events still definitely arent being loaded properly
+//TODO: Events still definitely arent being loaded properly :sunglasses:
 export class EventLoader {
   public load(client: Client): void {
-    const eventsPath = path.join(
-      __dirname,
-      "../",
-      `${client.settings.paths.events}`
+    const eventFiles = readdirSync("./events").filter(
+      (file) => file.endsWith(".js") || file.endsWith("ts")
     );
+    console.log("\nLoading events...\n");
 
-    readdir(eventsPath, (err, files) => {
-      if (err) {
-        Logger.error(err);
-        return;
+    for (const file of eventFiles) {
+      const req = require(`../events/${file}`);
+      const event: IEvent = req.default;
+      Logger.info(`\t ${event.name} event has been loaded!`);
+
+      if (event.once) {
+        client.once(event.name, (...args) => event.run(client, ...args));
+      } else {
+        client.on(event.name, (...args) => event.run(client, ...args));
       }
-      files.forEach((file) => {
-        const event = require(`${eventsPath}/${file}`);
-        console.log(event);
-        if (event.once) {
-          console.log(event.name);
-          client.once(event.name, (...args) => event.execute(...args));
-        } else {
-          console.log(event.name);
-          client.on(event.name, (...args) => event.execute(...args));
-        }
-      });
-    });
+    }
   }
 }

@@ -1,7 +1,7 @@
 import * as path from "path";
 import { readdir, statSync } from "fs";
 import { Collection } from "discord.js";
-import { IBotMystClient } from "../types";
+import { IBotMystClient } from "../types/interfaces/IBotMystClient";
 import { Command } from "../Command";
 import { Logger } from "../utils/Logger";
 
@@ -13,12 +13,7 @@ export class CommandLoader {
   }
 
   public loadCommands(client: IBotMystClient): void {
-    const commandPath = path.join(
-      __dirname,
-      "../",
-      `${client.settings.paths.commands}`
-    );
-
+    const commandPath = path.join(__dirname, "../commands");
     readdir(commandPath, (err, files) => {
       if (err) {
         Logger.error(err);

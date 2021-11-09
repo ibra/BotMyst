@@ -1,16 +1,10 @@
-import { Client } from "../Client";
-import { Logger } from "../utils/Logger";
-import { IEvent } from "../types";
+import { logger } from "../utils/logger";
+import IEvent from "../types/interfaces/IEvent";
 
-export default class Ready implements IEvent {
-  public client: Client;
-
-  constructor(client: Client) {
-    this.client = client;
-  }
-
-  async run(): Promise<void> {
-    Logger.info("BotMyst is running.");
-    this.client.user!.setPresence(this.client.settings.presence);
-  }
-}
+const event: IEvent = {
+  name: "ready",
+  run(client) {
+    logger.info(`\n\n${client.user?.username} is ready!\n`);
+  },
+};
+export default event;

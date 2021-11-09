@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { ISettings } from "../types";
+import { ISettings } from "../types/interfaces/ISettings";
 
 export const settings: ISettings = {
   presence: {
@@ -8,13 +8,9 @@ export const settings: ISettings = {
       {
         name: "with my friends",
         type: "WATCHING",
-      }
+      },
     ],
   },
   prefix: ">",
-  paths: {
-    commands: './commands',
-    events: './events',
-  },
   token: process.env.TOKEN,
 };
