@@ -4,10 +4,9 @@ import { Client } from "../Client";
 import { Logger } from "../utils/Logger";
 import IEvent from "../types/interfaces/IEvent";
 
-//TODO: Events still definitely arent being loaded properly :sunglasses:
 export class EventLoader {
   public load(client: Client): void {
-    const eventFiles = readdirSync("./events").filter(
+    const eventFiles = readdirSync(path.join(__dirname, "../events")).filter(
       (file) => file.endsWith(".js") || file.endsWith("ts")
     );
     console.log("\nLoading events...\n");
