@@ -4,5 +4,4 @@ export interface ISettings {
   presence: PresenceData;
   clientOptions?: ClientOptions;
   token?: string;
-  prefix: string;
 }

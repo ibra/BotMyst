@@ -22,14 +22,12 @@ export async function execute(client, message, args) {
       },
     });
   } else {
-    // Using some regex to make the string understandable to the getWikipediaShortSummary() function.
     let searchValue = command.toString().replace(/,/g, " ");
     let wikiEmbed = new MessageEmbed();
 
     (async () => {
       try {
         const summary = await wiki.summary(searchValue);
-        console.log(summary);
 
         try {
           wikiEmbed.setTitle(`Wikipedia > ${summary.title}`);

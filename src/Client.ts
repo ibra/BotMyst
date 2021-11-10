@@ -1,5 +1,6 @@
 import * as Discord from "discord.js";
 import { Collection } from "discord.js";
+import { join } from "path";
 import { readdirSync } from "fs";
 import { CommandLoader } from "./loaders/CommandLoader";
 import { IBotMystClient } from "./types/interfaces/IBotMystClient";
@@ -18,9 +19,12 @@ export class Client extends Discord.Client implements IBotMystClient {
     this.settings = settings;
     this.settings.token = process.env.TOKEN;
 
+    this.categories = readdirSync(join(__dirname, `./commands`));
+
     this.commandLoader = new CommandLoader();
     this.commandLoader.loadCommands(this);
   }
+  categories: string[];
 
   public userHasPermission(
     user: Discord.GuildMember,

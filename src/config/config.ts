@@ -1,7 +1,6 @@
-import { resolve } from "path";
 import { ISettings } from "../types/interfaces/ISettings";
 
-export const settings: ISettings = {
+export const ClientConfig: ISettings = {
   presence: {
     status: "online",
     activities: [
@@ -11,6 +10,5 @@ export const settings: ISettings = {
       },
     ],
   },
-  prefix: ">",
   token: process.env.TOKEN,
 };

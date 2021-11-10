@@ -33,7 +33,6 @@ export async function execute(client, message, args) {
       }
 
       if (result === undefined || result.length === 0) {
-        // if the result is not found, then send an error embed.
         const errorEmbed = new MessageEmbed()
           .setAuthor(">Error 404")
           .setDescription("Couldnt find the location you provided!")
