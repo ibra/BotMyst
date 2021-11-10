@@ -1,20 +1,15 @@
-import { Message } from "discord.js";
-import { Command } from "../Command";
 import { IBotMystClient } from "../types/interfaces";
+import ICommand from "../types/interfaces/ICommand";
 
-export default class Ping extends Command {
-  constructor(client: IBotMystClient) {
-    super(client, {
-      name: "ping",
-      description: "Pings the bot.",
-      category: "Information",
-      usage: `${client.settings.prefix}ping`,
-      cooldown: 1000,
-      requiredPermissions: ["SEND_MESSAGES"],
-    });
-  }
+const command: ICommand = {
+  name: "ping",
+  description: "Pong!",
+  aliases: ["pong"],
+  category: "General",
+  usage: "ping",
 
-  public async run(message: Message): Promise<void> {
-    await super.respond(message.channel, "Pong!");
-  }
-}
+  async run(client: IBotMystClient, message: any, args: string[]) {
+    message.channel.send("Pong!");
+  },
+};
+export default command;

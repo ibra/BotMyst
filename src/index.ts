@@ -1,9 +1,9 @@
-import * as dotenv from "dotenv";
+import { config } from "dotenv";
 import { settings } from "./config/config";
 import { Client } from "./Client";
 import { EventLoader } from "./loaders/EventLoader";
 
-dotenv.config();
+config();
 
 const client = new Client(settings);
 const events = new EventLoader();

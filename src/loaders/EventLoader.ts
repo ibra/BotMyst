@@ -9,7 +9,6 @@ export class EventLoader {
     const eventFiles = readdirSync(path.join(__dirname, "../events")).filter(
       (file) => file.endsWith(".js") || file.endsWith("ts")
     );
-    console.log("\nLoading events...\n");
 
     for (const file of eventFiles) {
       const req = require(`../events/${file}`);

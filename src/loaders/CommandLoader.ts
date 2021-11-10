@@ -1,33 +1,20 @@
 import * as path from "path";
-import { readdir, statSync } from "fs";
-import { Collection } from "discord.js";
+import { readdirSync } from "fs";
 import { IBotMystClient } from "../types/interfaces/IBotMystClient";
-import { Command } from "../Command";
 import { Logger } from "../utils/Logger";
+import ICommand from "../types/interfaces/ICommand";
 
 export class CommandLoader {
-  public commands: Collection<string, Command>;
-
-  constructor() {
-    this.commands = new Collection();
-  }
-
   public loadCommands(client: IBotMystClient): void {
-    const commandPath = path.join(__dirname, "../commands");
-    readdir(commandPath, (err, files) => {
-      if (err) {
-        Logger.error(err);
-        return;
-      }
-      files.forEach((file) => {
-        const filePath = path.join(commandPath, file);
-        const stats = statSync(filePath);
-        if (stats.isDirectory()) {
-          return;
-        }
-        const command = new (require(filePath).default)(client);
-        this.commands.set(command.name, command);
-      });
-    });
+    const commandFiles = readdirSync(
+      path.join(__dirname, "../commands")
+    ).filter((file: string) => file.endsWith(".js") || file.endsWith("ts"));
+
+    for (const file of commandFiles) {
+      const req = require(`../commands/${file}`);
+      const command: ICommand = req.default;
+      client.commands.set(command.name, command);
+      Logger.info(`\t${command.name} command has been loaded!`);
+    }
   }
 }
