@@ -6,7 +6,6 @@ import { EventLoader } from "./loaders/EventLoader";
 config();
 
 const client = new Client(ClientConfig);
-console.log(client.categories[0]);
 const events = new EventLoader();
 
 events.load(client);

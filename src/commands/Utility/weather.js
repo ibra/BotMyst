@@ -11,7 +11,6 @@ export const usage = `${Prefix}weather Brisbane [Returns Weather Forecast]`;
 export const category = "Utility";
 
 export async function execute(client, message, args) {
-  // Using weather-js's handy .find function to get a simple result with all the info we need.
   Weather.find(
     {
       search: args.join(" "),
@@ -52,7 +51,7 @@ export async function execute(client, message, args) {
         .setAuthor(`Weather forecast for ${current.observationpoint}`)
         .setThumbnail(current.imageUrl)
         .setColor(SuccessColor)
-        //Weather Information Content.
+
         .addField("Timezone", `UTC${location.timezone}`, true)
         .addField("Degree Type", `${location.degreetype}°`, true)
         .addField("Temperature", `${current.temperature}°`, true)
