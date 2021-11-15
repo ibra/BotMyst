@@ -1,7 +1,7 @@
 import { MessageEmbed } from "discord.js";
-import { Colors } from "../../utils/colors";
-import ICommand from "../../types/interfaces/ICommand.js";
-import { IBotMystClient } from "../../types/interfaces";
+import { Colors } from "@utils/colors";
+import ICommand from "@typings/interfaces/ICommand";
+import { IBotMystClient } from "@typings/interfaces";
 
 const command: ICommand = {
   name: "lmgtfy",

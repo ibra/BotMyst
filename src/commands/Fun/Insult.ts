@@ -1,8 +1,8 @@
 import { MessageEmbed } from "discord.js";
-import { Colors } from "../../utils/colors";
-import { IBotMystClient } from "../../types/interfaces/IBotMystClient";
+import { Colors } from "@utils/colors";
+import { IBotMystClient } from "@typings/interfaces/IBotMystClient";
 import fetch from "node-fetch";
-import ICommand from "../../types/interfaces/ICommand.js";
+import ICommand from "@typings/interfaces/ICommand.js";
 
 const command: ICommand = {
   name: "insult",

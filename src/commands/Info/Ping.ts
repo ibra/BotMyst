@@ -1,7 +1,7 @@
 import { MessageEmbed } from "discord.js";
 import { IBotMystClient } from "../../types/interfaces";
-import { Colors } from "../../utils/colors";
-import ICommand from "../../types/interfaces/ICommand";
+import { Colors } from "@utils/colors";
+import ICommand from "@typings/interfaces/ICommand";
 
 const command: ICommand = {
   name: "ping",

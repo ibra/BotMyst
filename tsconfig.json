@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@config/*": ["src/config/*"],
+      "@utils/*": ["src/utils/*"],
+      "@typings/*": ["src/types/*"],
+      "@loaders/*": ["src/loaders/*"],
+      "@events/*": ["src/events/*"]
+    },
+
     /* Basic Options */
     "target": "es6",
     "module": "commonjs",

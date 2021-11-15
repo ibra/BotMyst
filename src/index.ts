@@ -1,7 +1,7 @@
 import { config } from "dotenv";
-import { ClientConfig } from "./config/config";
+import { ClientConfig } from "@config/config";
 import { Client } from "./Client";
-import { EventLoader } from "./loaders/EventLoader";
+import { EventLoader } from "@loaders/EventLoader";
 
 config();
 

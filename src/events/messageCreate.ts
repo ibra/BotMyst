@@ -1,6 +1,6 @@
 import { Message, MessageEmbed } from "discord.js";
-import IEvent from "../types/interfaces/IEvent";
-import { Logger } from "../utils/Logger";
+import IEvent from "@typings/interfaces/IEvent";
+import { Logger } from "@utils/Logger";
 
 const event: IEvent = {
   name: "messageCreate",

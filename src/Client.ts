@@ -1,11 +1,11 @@
 import * as Discord from "discord.js";
-import { Collection } from "discord.js";
 import { join } from "path";
 import { readdirSync } from "fs";
-import { CommandLoader } from "./loaders/CommandLoader";
-import { IBotMystClient } from "./types/interfaces/IBotMystClient";
-import ICommand from "./types/interfaces/ICommand";
-import { ISettings } from "./types/interfaces/ISettings";
+import { CommandLoader } from "@loaders/CommandLoader";
+import { IBotMystClient } from "@typings/interfaces/IBotMystClient";
+import ICommand from "@typings/interfaces/ICommand";
+import { ISettings } from "@typings/interfaces/ISettings";
+import { Collection } from "discord.js";
 
 export class Client extends Discord.Client implements IBotMystClient {
   public settings: ISettings;

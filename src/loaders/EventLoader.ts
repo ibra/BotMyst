@@ -1,8 +1,8 @@
 import * as path from "path";
 import { readdirSync } from "fs";
 import { Client } from "../Client";
-import { Logger } from "../utils/Logger";
-import IEvent from "../types/interfaces/IEvent";
+import { Logger } from "@utils/Logger";
+import IEvent from "@typings/interfaces/IEvent";
 
 export class EventLoader {
   public load(client: Client): void {

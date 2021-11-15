@@ -1,8 +1,8 @@
 import { join } from "path";
 import { readdirSync } from "fs";
 import { IBotMystClient } from "../types/interfaces/IBotMystClient";
-import { Logger } from "../utils/Logger";
-import ICommand from "../types/interfaces/ICommand";
+import { Logger } from "@utils/Logger";
+import ICommand from "@typings/interfaces/ICommand";
 
 export class CommandLoader {
   public loadCommands(client: IBotMystClient): void {

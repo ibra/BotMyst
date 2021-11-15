@@ -1,5 +1,5 @@
-import { Logger } from "../utils/Logger";
-import IEvent from "../types/interfaces/IEvent";
+import { Logger } from "@utils/Logger";
+import IEvent from "@typings/interfaces/IEvent";
 
 const event: IEvent = {
   name: "ready",
