@@ -1,4 +1,4 @@
-import * as path from "path";
+import { join } from "path";
 import { readdirSync } from "fs";
 import { Client } from "../Client";
 import { Logger } from "@utils/Logger";
@@ -6,7 +6,7 @@ import IEvent from "@typings/interfaces/IEvent";
 
 export class EventLoader {
   public load(client: Client): void {
-    const eventFiles = readdirSync(path.join(__dirname, "../events")).filter(
+    const eventFiles = readdirSync(join(__dirname, "../events")).filter(
       (file) => file.endsWith(".js") || file.endsWith("ts")
     );
 

@@ -1,7 +1,7 @@
 import { MessageEmbed } from "discord.js";
-import { IBotMystClient } from "../../types/interfaces";
-import ICommand from "../../types/interfaces/ICommand";
-import { Colors } from "../../utils/colors.js";
+import { IBotMystClient } from "@typings/interfaces";
+import ICommand from "@typings/interfaces/ICommand";
+import { Colors } from "@utils/colors.js";
 
 const command: ICommand = {
   name: "avatar",

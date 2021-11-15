@@ -1,5 +1,5 @@
 import { MessageEmbed } from "discord.js";
-import { IBotMystClient } from "../../types/interfaces";
+import { IBotMystClient } from "@typings/interfaces";
 import { Colors } from "@utils/colors";
 import ICommand from "@typings/interfaces/ICommand";
 
