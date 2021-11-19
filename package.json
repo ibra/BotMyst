@@ -16,7 +16,6 @@
     "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1",
     "thesaurus": "0.0.1",
-    "weather-js": "^2.0.0",
     "wikipedia": "^1.1.2"
   },
   "devDependencies": {
