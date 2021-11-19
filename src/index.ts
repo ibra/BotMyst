@@ -1,3 +1,4 @@
+import "module-alias/register";
 import { config } from "dotenv";
 import { ClientConfig } from "@config/config";
 import { Client } from "./Client";
