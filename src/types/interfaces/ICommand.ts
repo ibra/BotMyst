@@ -1,17 +1,17 @@
 import { CommandInteraction, Message } from "discord.js";
-import { Client } from "../../Client";
+import BotMystClient from "../../Client";
 import { readdirSync } from "fs";
 
 const categories = <const>[...readdirSync("./commands")];
 
 type Run = (
-  client: Client,
+  client: BotMystClient,
   message: Message,
   args: string[]
 ) => any | Promise<any>;
 
 type SlashRun = (
-  client: Client,
+  client: BotMystClient,
   interaction: CommandInteraction
 ) => any | Promise<any>;
 

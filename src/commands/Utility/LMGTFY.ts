@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import { Colors } from "@utils/colors";
 import ICommand from "@typings/interfaces/ICommand";
 import { IBotMystClient } from "@typings/interfaces";
@@ -11,7 +11,7 @@ const command: ICommand = {
   category: "Utility",
   usage: "lmgtfy [query]",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     const search = args.join(" ");
     const replaced = search.split(" ").join("+");
 

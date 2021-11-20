@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import { Colors } from "@utils/colors";
 import { IBotMystClient } from "@typings/interfaces/IBotMystClient";
 import fetch from "node-fetch";
@@ -11,7 +11,7 @@ const command: ICommand = {
   category: "Fun",
   usage: "insult",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     const insultEmbed = new MessageEmbed();
 
     fetch("https://insult.mattbas.org/api/insult.json")

@@ -1,6 +1,6 @@
 import { IBotMystClient } from "@typings/interfaces";
 import { Colors } from "@utils/colors";
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import ICommand from "@typings/interfaces/ICommand";
 
 export const name = "kick";
@@ -14,12 +14,12 @@ const command: ICommand = {
   usage: "kick @UnepicGamer#0001",
   category: "Moderation",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     let member =
-      message.mentions.members.first() ||
-      (await message.guild.members.fetch(args[0]).catch(() => {}));
+      message.mentions.members!.first() ||
+      (await message.guild!.members.fetch(args[0]).catch(() => {}));
 
-    member
+    member!
       .kick()
       .then((member: any) => {
         let successEmbed = new MessageEmbed();
