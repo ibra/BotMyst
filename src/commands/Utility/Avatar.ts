@@ -22,7 +22,7 @@ const command: ICommand = {
     }
     avatarEmbed.setColor(Colors.ORANGE);
     avatarEmbed.setImage(member.displayAvatarURL());
-    avatarEmbed.setTitle(`Avatar > ${member.user.tag}`);
+    avatarEmbed.setTitle(`Avatar >> ${member.user.tag}`);
 
     message.channel.send({ embeds: [avatarEmbed] });
   },

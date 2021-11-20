@@ -13,10 +13,10 @@ const command: ICommand = {
 
   async run(client: IBotMystClient, message: any, args: string[]) {
     const search = args.join(" ");
-    var replaced = search.split(" ").join("+");
+    const replaced = search.split(" ").join("+");
 
     const lmgtfyEmbed = new MessageEmbed()
-      .setTitle("Heres what i could find for: " + search)
+      .setTitle("Heres what i could find for >> " + search)
       .setURL("https://lmgtfy.com/?q=" + replaced)
       .setColor(Colors.ORANGE);
 

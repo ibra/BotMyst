@@ -31,12 +31,8 @@ const command: ICommand = {
       var meaning = json[0].meanings[0].definitions[0].definition;
       var example = json[0].meanings[0].definitions[0].example;
 
-      dictionaryEmbed.setAuthor(`${json[0].word} | ${phonetics}`);
-      if (example != null) {
-        dictionaryEmbed.setFooter("e.g: " + example);
-      } else {
-        dictionaryEmbed.setFooter("");
-      }
+      dictionaryEmbed.setAuthor(`${json[0].word} >> ${phonetics}`);
+      if (example != null) dictionaryEmbed.setFooter("e.g: " + example);
 
       dictionaryEmbed.setDescription(meaning);
       dictionaryEmbed.setColor(Colors.ORANGE);
