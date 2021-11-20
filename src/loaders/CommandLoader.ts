@@ -7,7 +7,6 @@ import ICommand from "@typings/interfaces/ICommand";
 export class CommandLoader {
   public loadCommands(client: IBotMystClient): void {
     for (const folder of client.categories) {
-      Logger.info(folder);
       if (folder === "context") continue;
 
       const commandFiles = readdirSync(
