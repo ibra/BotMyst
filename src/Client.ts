@@ -1,13 +1,12 @@
-import * as Discord from "discord.js";
 import { join } from "path";
 import { readdirSync } from "fs";
 import { CommandLoader } from "@loaders/CommandLoader";
 import { IBotMystClient } from "@typings/interfaces/IBotMystClient";
 import ICommand from "@typings/interfaces/ICommand";
 import { ISettings } from "@typings/interfaces/ISettings";
-import { Collection } from "discord.js";
+import { Client, Collection, GuildMember, PermissionString } from "discord.js";
 
-export class Client extends Discord.Client implements IBotMystClient {
+export default class BotMystClient extends Client implements IBotMystClient {
   public settings: ISettings;
 
   public commands: Collection<string, ICommand> = new Collection();
@@ -27,8 +26,8 @@ export class Client extends Discord.Client implements IBotMystClient {
   categories: string[];
 
   public userHasPermission(
-    user: Discord.GuildMember,
-    requiredPermissions: Discord.PermissionString[]
+    user: GuildMember,
+    requiredPermissions: PermissionString[]
   ): boolean {
     return user.permissions.has(requiredPermissions, true);
   }

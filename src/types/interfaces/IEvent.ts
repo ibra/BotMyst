@@ -1,7 +1,7 @@
 import { ClientEvents } from "discord.js";
-import { Client } from "../../Client";
+import BotMystClient from "../../Client";
 
-type Run = (client: Client, ...args: any[]) => any;
+type Run = (client: BotMystClient, ...args: any[]) => any;
 
 export default interface IEvent {
   name: keyof ClientEvents;

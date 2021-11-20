@@ -1,11 +1,11 @@
 import { join } from "path";
 import { readdirSync } from "fs";
-import { Client } from "../Client";
+import BotMystClient from "../Client";
 import { Logger } from "@utils/Logger";
 import IEvent from "@typings/interfaces/IEvent";
 
 export class EventLoader {
-  public load(client: Client): void {
+  public load(client: BotMystClient): void {
     const eventFiles = readdirSync(join(__dirname, "../events")).filter(
       (file) => file.endsWith(".js") || file.endsWith("ts")
     );
