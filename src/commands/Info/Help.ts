@@ -1,7 +1,7 @@
 import { IBotMystClient } from "@typings/interfaces";
 import ICommand from "@typings/interfaces/ICommand";
 import { Colors } from "@utils/colors";
-import { Message, MessageEmbed } from 'discord.js'
+import { Message, MessageEmbed } from "discord.js";
 
 const command: ICommand = {
   name: "help",
@@ -21,7 +21,7 @@ const command: ICommand = {
 
 function printCommandHelp(
   client: IBotMystClient,
-  message: any,
+  message: Message,
   cmdSearch: string
 ) {
   const cmd =
@@ -55,7 +55,7 @@ function printCommandHelp(
   message.channel.send({ embeds: [embed] });
 }
 
-function printFullHelp(client: IBotMystClient, message: any) {
+function printFullHelp(client: IBotMystClient, message: Message) {
   throw new Error("Function not implemented.");
 }
 

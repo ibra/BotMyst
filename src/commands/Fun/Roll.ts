@@ -1,4 +1,4 @@
-import { Message, MessageEmbed } from 'discord.js'
+import { Message, MessageEmbed } from "discord.js";
 import { Colors } from "@utils/colors";
 import { IBotMystClient } from "@typings/interfaces";
 import ICommand from "@typings/interfaces/ICommand.js";
@@ -26,7 +26,7 @@ const command: ICommand = {
   },
 };
 
-function getRandom(minimum: number, maximum: number, message: any) {
+function getRandom(minimum: number, maximum: number, message: Message) {
   const errorCode = getErrorCode(minimum, maximum);
   if (errorCode !== 0) {
     const errorEmbed = new MessageEmbed()

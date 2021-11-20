@@ -1,6 +1,6 @@
 import { IBotMystClient } from "@typings/interfaces";
 import { Colors } from "@utils/colors";
-import { Message, MessageEmbed } from 'discord.js'
+import { Message, MessageEmbed } from "discord.js";
 import ICommand from "@typings/interfaces/ICommand";
 import wiki from "wikipedia";
 
@@ -11,15 +11,21 @@ const command: ICommand = {
   category: "Core",
   usage: `wiki Lord Of The Rings [Gives A Short Summary from Wikipedia]`,
 
-  run: async function (client: IBotMystClient, message: Message, args: string[]) {
+  run: async function (
+    client: IBotMystClient,
+    message: Message,
+    args: string[]
+  ) {
     const command = args.join(" ");
 
     if (!args[0]) {
       message.channel.send({
-        embeds: [{
-          color: Colors.RED,
-          description: "Please provide a search term!",
-        }],
+        embeds: [
+          {
+            color: Colors.RED,
+            description: "Please provide a search term!",
+          },
+        ],
       });
     } else {
       let searchValue = command.toString().replace(/,/g, " ");
@@ -35,21 +41,21 @@ const command: ICommand = {
             wikiEmbed.setDescription(summary.extract);
             wikiEmbed.setURL(summary.content_urls.desktop.page);
             wikiEmbed.setColor(Colors.ORANGE);
-            message.channel.send({embeds: [wikiEmbed]});
+            message.channel.send({ embeds: [wikiEmbed] });
           } catch (error) {
             let embed = new MessageEmbed();
             embed.setColor(Colors.RED);
             embed.setDescription(`${error}`);
             embed.setTitle(`>Error 400`);
             embed.setFooter("Make sure you requested a valid page!");
-            message.channel.send({embeds: [embed]});
+            message.channel.send({ embeds: [embed] });
           }
         } catch (error) {
           let embed = new MessageEmbed();
           embed.setColor(Colors.RED);
           embed.setDescription(String(error));
           embed.setTitle(`>Error 429`);
-          message.channel.send({embeds: [embed]});
+          message.channel.send({ embeds: [embed] });
         }
       })();
     }

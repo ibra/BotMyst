@@ -1,6 +1,6 @@
 import { IBotMystClient } from "@typings/interfaces";
 import { Colors } from "@utils/colors";
-import { MessageEmbed, TextChannel } from "discord.js";
+import { Message, MessageEmbed, TextChannel } from "discord.js";
 import ICommand from "@typings/interfaces/ICommand";
 
 export const name = "say";
@@ -16,14 +16,14 @@ const command: ICommand = {
   category: "Administrator",
   usage: `say Hello World!`,
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     var commandlessMessage = args.join(" ");
     var regex = /<#(\d+)>/g;
     commandlessMessage = commandlessMessage.replace(regex, "");
 
     if (message.mentions.channels.first()) {
       var channel = client.channels.cache.get(
-        message.mentions.channels.first().id
+        message.mentions.channels.first()!.id
       ) as TextChannel;
 
       channel.send(commandlessMessage).catch((error: any) => {
