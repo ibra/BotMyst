@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import { Colors } from "@utils/colors";
 import { IBotMystClient } from "@typings/interfaces";
 import ICommand from "@typings/interfaces/ICommand.js";
@@ -11,7 +11,7 @@ const command: ICommand = {
   category: "Fun",
   usage: "roll 1-10",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     const rollArgs = args[0].split("-");
     const min = parseInt(rollArgs[0]);
     const max = parseInt(rollArgs[1]);
