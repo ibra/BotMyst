@@ -2,13 +2,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main, typescript]
   pull_request:
-    branches: [ main ]
+    branches: [main, typescript]
 
 jobs:
   build:
-
     runs-on: windows-latest
 
     strategy:
