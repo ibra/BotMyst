@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import { Colors } from "@utils/colors";
 import { IBotMystClient } from "@typings/interfaces/IBotMystClient";
 import ICommand from "@typings/interfaces/ICommand.js";
@@ -10,7 +10,7 @@ const command: ICommand = {
   category: "Info",
   usage: "info",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     const embed = new MessageEmbed();
     embed.setAuthor("BotMyst >> Info");
     embed.setDescription(

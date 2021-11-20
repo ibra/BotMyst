@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import { IBotMystClient } from "@typings/interfaces";
 import ICommand from "@typings/interfaces/ICommand";
 import { Colors } from "@utils/colors.js";
@@ -11,14 +11,14 @@ const command: ICommand = {
   category: "Utility",
   usage: "insult",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     const avatarEmbed = new MessageEmbed();
     let member =
-      message.mentions.members.first() ||
-      (await message.guild.members.fetch(args[0]).catch(() => {}));
+      message.mentions.members!.first() ||
+      (await message.guild!.members.fetch(args[0]).catch(() => {}));
 
-    if (member == undefined) {
-      member = message.author;
+    if (!member) {
+      member = message.member ?? await message.guild!.members.fetch(message.author.id);
     }
     avatarEmbed.setColor(Colors.ORANGE);
     avatarEmbed.setImage(member.displayAvatarURL());

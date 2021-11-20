@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import { Colors } from "@utils/colors";
 import { IBotMystClient } from "@typings/interfaces";
 import fetch from "node-fetch";
@@ -10,7 +10,7 @@ const command: ICommand = {
   aliases: ["dict"],
   usage: `dict idiot [returns definition of word]`,
   category: "Core",
-  run: async function (client: IBotMystClient, message: any, args: string[]) {
+  run: async function (client: IBotMystClient, message: Message, args: string[]) {
     const wordLookup = args.join(" ");
     const dictionaryEmbed = new MessageEmbed();
 

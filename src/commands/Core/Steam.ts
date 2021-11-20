@@ -1,5 +1,5 @@
 import { IBotMystClient } from "@typings/interfaces";
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 import ICommand from "@typings/interfaces/ICommand";
 import { Colors } from "@utils/colors";
 import fetch from "node-fetch";
@@ -11,7 +11,7 @@ const command: ICommand = {
   category: "Core",
   usage: "steam",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     const searchEmbed = new MessageEmbed();
     const search = args[0];
 

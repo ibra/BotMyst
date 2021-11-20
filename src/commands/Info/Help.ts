@@ -1,7 +1,7 @@
 import { IBotMystClient } from "@typings/interfaces";
 import ICommand from "@typings/interfaces/ICommand";
 import { Colors } from "@utils/colors";
-import { MessageEmbed } from "discord.js";
+import { Message, MessageEmbed } from 'discord.js'
 
 const command: ICommand = {
   name: "help",
@@ -10,7 +10,7 @@ const command: ICommand = {
   usage: `help - info about all the commands\n help <command> - info about the specified command`,
   category: "Info",
 
-  async run(client: IBotMystClient, message: any, args: string[]) {
+  async run(client: IBotMystClient, message: Message, args: string[]) {
     if (args.length == 1) {
       printCommandHelp(client, message, args[0]);
     } else {
