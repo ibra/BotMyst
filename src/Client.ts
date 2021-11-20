@@ -13,7 +13,11 @@ export default class BotMystClient extends Client implements IBotMystClient {
   public commandLoader: CommandLoader;
 
   public constructor(settings: ISettings) {
-    super(settings.clientOptions || { intents: ["GUILDS", "GUILD_MESSAGES"] });
+    super(
+      settings.clientOptions || {
+        intents: ["GUILDS", "GUILD_MESSAGES"],
+      }
+    );
 
     this.settings = settings;
     this.settings.token = process.env.TOKEN;
