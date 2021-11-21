@@ -3,11 +3,7 @@ import { Colors } from "@utils/colors";
 import { Message, MessageEmbed, TextChannel } from "discord.js";
 import ICommand from "@typings/interfaces/ICommand";
 
-export const name = "say";
-export const description = "A command that sends a user-sent message as a bot";
-export const usage = `say #specified-channel Hello World!`;
-export const permission = "Administrator";
-export const category = "Administrator";
+const channelRegex = /<#(\d+)>/g;
 
 const command: ICommand = {
   name: "say",
@@ -18,8 +14,7 @@ const command: ICommand = {
 
   async run(client: IBotMystClient, message: Message, args: string[]) {
     var commandlessMessage = args.join(" ");
-    var regex = /<#(\d+)>/g;
-    commandlessMessage = commandlessMessage.replace(regex, "");
+    commandlessMessage = commandlessMessage.replace(channelRegex, "");
 
     if (message.mentions.channels.first()) {
       var channel = client.channels.cache.get(
