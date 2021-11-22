@@ -20,7 +20,7 @@ const command: ICommand = {
     if (generatedNumber === undefined) return;
 
     const rollEmbed = new MessageEmbed()
-      .setDescription(`Rolled >> \`${generatedNumber} [Range ${min}-${max}]\``)
+      .setDescription(`Rolled >> \`${generatedNumber}\` [Range ${min}-${max}]`)
       .setColor(Colors.ORANGE);
     message.channel.send({ embeds: [rollEmbed] });
   },

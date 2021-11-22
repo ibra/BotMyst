@@ -56,7 +56,24 @@ function printCommandHelp(
 }
 
 function printFullHelp(client: IBotMystClient, message: Message) {
-  throw new Error("Function not implemented.");
+  let embed = new MessageEmbed()
+    .setColor(Colors.ORANGE)
+    .setTitle("BotMyst >> Help")
+    .setDescription(
+      `To get info about a specific command, run help <command>\`.`
+    );
+
+  for (let category of client.categories) {
+    if (category === "Hidden") continue;
+    const commands = client.commands.filter(
+      (command) => command.category == category
+    );
+    embed.addField(
+      category,
+      commands.map((command) => `\`${command.name}\``).join(", ")
+    );
+  }
+  message.channel.send({ embeds: [embed] });
 }
 
 export default command;
