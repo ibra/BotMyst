@@ -1,28 +1,37 @@
 <h1 align="center" style="position: relative;">
-    BotMyst : Revived
+    BotMyst
 </h1>
 <h2 align="center" style="position: relative;">
-    A redesign of BotMyst in JavaScript.
+    a cool Discord utility bot written in Typescript
 </h2>
 
-
-
-## Disclaimer
-CodeMyst is not responsible for the maintaining or development of this project any longer. 
-Any issues or queries should be sent straight to [me](https://github.com/ibra).
+BotMyst is a general-purpose utility bot originally conceptualized by CodeMyst. This is a rewrite of the bot in Typescript.
 
 ## Building & running
+
 - [📝 Apache 2.0 License](https://github.com/BotMyst/BotMystRevival/blob/master/LICENSE):
-The bot is written with **Discord.JS**, so you can host it on your computer via `node`.
+  The bot is written with **Discord.JS**, so you can host it on your computer via `node`.
 
-When you open the project, you will see a `config.example.json` file. You need to rename it to just `config.json`. This is where all of the bot configuration will be placed. The only fields that are essential for running the bot are `token` and `botSpam`.
+The bots configuration is managed by `dotenv`.
 
-`token` is your bots token.
+When you open the project, you will see a `.example.env` file. You need to rename it to just `.env`. The only fields that are essential for running the bot are `token` and `prefix`.
+
+`token` is your bots token that can be acquired from the [discord developer portal](https://discord.com/developers/applications).
+
 `botspam` is the channel the bots commands are restricted to. Change this to `None` if you want to use the bot anywhere.
 
-
-```config.json
-token: 'Enter your own token here!'
-prefix: '>'
-botSpam: 'Enter ChannelID of your #bot channel.
+```env
+TOKEN:  Token Goes Here
+PREFIX: Prefix Goes Here
 ```
+
+After you are done with the configuration, a local instance of the bot can be hosted by using
+
+```bash
+npm run start
+```
+
+## Disclaimer
+
+CodeMyst is not responsible for the maintaining or development of this project any longer.
+Any issues or queries should be sent straight to [me](https://github.com/ibra).
