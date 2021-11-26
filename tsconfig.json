@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@config/*": ["src/config/*"],
+      "@utils/*": ["src/utils/*"],
+      "@typings/*": ["src/types/*"],
+      "@loaders/*": ["src/loaders/*"],
+      "@events/*": ["src/events/*"]
+    },
+
+    /* Basic Options */
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
+
+    /* Strict Type-Checking Options */
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "strictNullChecks": true /* Enable strict null checks. */,
+    "strictFunctionTypes": true /* Enable strict checking of function types. */,
+    "strictBindCallApply": true /* Enable strict 'bind', 'call', and 'apply' methods on functions. */,
+    "strictPropertyInitialization": false /* Enable strict checking of property initialization in classes. */,
+    "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+    "alwaysStrict": true /* Parse in strict mode and emit "use strict" for each source file. */,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "typeRoots": ["./src/typings", "./node_modules/@types"],
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
