@@ -27,6 +27,7 @@ PREFIX: Prefix Goes Here
 
 After you are done with the configuration, a local instance of the bot can be hosted by using
 
+
 ```bash
 npm run start
 ```
