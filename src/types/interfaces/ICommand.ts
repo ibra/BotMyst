@@ -10,7 +10,7 @@ type Run = (
   args: string[]
 ) => any | Promise<any>;
 
-type SlashRun = (
+type SlashRunner = (
   client: BotMystClient,
   interaction: CommandInteraction
 ) => any | Promise<any>;
@@ -27,5 +27,5 @@ export default interface ICommand {
   category: Category;
   permissions?: Permissions | Permissions[];
   run: Run;
-  slashRun?: SlashRun;
+  runSlashCommand?: SlashRunner;
 }

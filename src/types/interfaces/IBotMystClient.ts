@@ -13,6 +13,7 @@ import { ISettings } from "./ISettings";
 export interface IBotMystClient extends Client {
   settings: ISettings;
   commands: Collection<string, ICommand>;
+  slashCommands: Collection<string, ICommand>;
   categories: string[];
   commandLoader: any;
   userHasPermission(

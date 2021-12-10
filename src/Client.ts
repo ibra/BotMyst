@@ -27,6 +27,7 @@ export default class BotMystClient extends Client implements IBotMystClient {
     this.commandLoader = new CommandLoader();
     this.commandLoader.loadCommands(this);
   }
+  slashCommands: Collection<string, ICommand>;
   categories: string[];
 
   public userHasPermission(
