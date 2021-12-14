@@ -8,10 +8,10 @@ const event: IEvent = {
   run: function (client, interaction: Interaction) {
     if (interaction.isCommand()) {
       const slashCommand = client.slashCommands.get(interaction.commandName);
-      if (!slashCommand || !(slashCommand as ICommand)?.slashRun) return;
+      if (!slashCommand || !(slashCommand as ICommand)?.runSlashCommand) return;
 
       try {
-        (slashCommand as ICommand).slashRun!(client, interaction);
+        (slashCommand as ICommand).runSlashCommand!(client, interaction);
       } catch (err) {
         Logger.errorMessage("interaction appears to be invalid");
       }
