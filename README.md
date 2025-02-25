@@ -1,10 +1,6 @@
 <h1 align="center" style="position: relative;">
     BotMyst
 </h1>
-<h2 align="center" style="position: relative;">
-    a cool Discord utility bot written in Typescript
-</h2>
-
 BotMyst is a general-purpose utility bot originally conceptualized by CodeMyst. This is a rewrite of the bot in Typescript.
 
 ## Building & running
